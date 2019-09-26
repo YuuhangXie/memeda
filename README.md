@@ -16,6 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```
 
 ## 代码基本结构
+```
 src/assets -  静态文件
 src/assets/styles - 初始化css样式表
 src/assets/images - 图片存储
@@ -27,10 +28,11 @@ src/setupProxy.js - 代理
 public - 公共文件勿动
 config-overrides.js - 项目配置
 ··· 未完待续
+```
 
 ## 关于git
 1. 在属于自己的dev-xxx分支上开发。每天晚上11点提交到GitHub上面
-  具体commit内容为: '09-26-今日写的模块概要'
+  具体commit内容为: '09-26-今日写的模块概要
   示例：
 ```
 git add .
@@ -70,10 +72,10 @@ module.exports = function(app) {
 ### axios 
 > axios ajax封装在了项目目录src/utils下的api.service.js
 > 封装了get、post、delete、put、添加/删除请求头部、还有通用的ajax请求
-** 如何使用？**
-#### `get`
-> 如果需要get请求并且需要发送数据，请用此api
-*** 示例 ***
+
+#### `GET`
+如果需要GET请求并且需要发送数据，请用此api
+
 ```js
 import ApiService from 'utils/api.service'
 
@@ -88,7 +90,10 @@ let data = await ApiService.get(
 }
 ```
 
-### `post`
+### `POST`
+
+如果需要POST请求并且需要发送数据，请用此api
+
 ```js
 import ApiService from 'utils/api.service'
 
@@ -102,7 +107,7 @@ let data = await ApiService.post(
 }
 ```
 
-** 同理其他也同样使用方法，具体操作请查看 [axios](https://www.npmjs.com/package/axios) **
+**同理其他也同样使用方法，具体操作请查看 [axios](https://www.npmjs.com/package/axios)** 
 
 ### `customRequest`
 ```js
