@@ -7,6 +7,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn mock`
 ```
+在src/mock目录下创建自己的mock数据文件夹，文件名为模块的名
  // 示例
  Resources
   http://localhost:9000/test
@@ -39,7 +40,7 @@ git add .
 git commit -m '09-26-项目初始化，axios封装，路由正在进行中'
 git push
 ```
-2. 每天早上第一件事（开发前）切换到dev分支进行拉取最新代码并且合并到自己的分支上，切勿动不属于自己部分的代码
+1. 每天早上第一件事（开发前）切换到dev分支进行拉取最新代码并且合并到自己的分支上，切勿动不属于自己部分的代码
    示例：
 ```
 git checkout dev

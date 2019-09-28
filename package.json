@@ -10,6 +10,7 @@
     "http-proxy-middleware": "^0.20.0",
     "immutable": "^4.0.0-rc.12",
     "json-server": "^0.15.1",
+    "pm2": "^3.5.1",
     "react": "16.8",
     "react-dom": "16.8",
     "react-redux": "^7.1.1",
@@ -26,7 +27,8 @@
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w"
+    "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
+    "memeda": "pm2 start processes.json"
   },
   "eslintConfig": {
     "extends": "react-app"
