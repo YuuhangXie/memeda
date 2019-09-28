@@ -47,5 +47,17 @@
     "babel-plugin-import": "^1.12.2",
     "customize-cra": "^0.7.0",
     "react-app-rewired": "^2.1.3"
-  }
+  },
+  "description": "```\r Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\r ```",
+  "main": "config-overrides.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuuhangXie/memeda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuuhangXie/memeda/issues"
+  },
+  "homepage": "https://github.com/YuuhangXie/memeda#readme"
 }
