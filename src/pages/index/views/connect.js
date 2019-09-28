@@ -21,7 +21,7 @@ const mapDispatch = (dispatch) => {
       let asyncdata = await ApiService.customRequest('/api/test')
       dispatch({
         type: 'asynctest',
-        data: asyncdata.msg
+        data: 'async' + asyncdata.msg
       })
     }
   }
