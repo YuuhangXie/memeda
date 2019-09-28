@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import ApiService from 'utils/api.service'
-
 import connect from './connect'
 
 import {
@@ -16,7 +14,7 @@ import {
 // import Profile from '../profile/Profile'
 
 // 实际引用组件位置
-// import Chat from '../chat/'
+// import { Chat } from '../chat/'
 // import Home from '../home/'
 // import Community from '../community/'
 // import Fund from '../fund/'
@@ -25,10 +23,6 @@ import {
 @connect
 class Index extends Component {
   async componentDidMount() {
-    let data = await ApiService.customRequest(
-      '/api/test'
-    )
-    console.log(data)
     
     // redux
     this.props.loadData()
