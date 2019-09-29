@@ -15,7 +15,7 @@ import {
 
 // 引入组件 (临时模板)
 import Chat from '../chat/Chat'
-import Home from '../home/Home'
+import Home from '../home/view/Home'
 import Community from '../community/Community'
 import Fund from '../fund/Fund'
 import Profile from '../profile/Profile'
