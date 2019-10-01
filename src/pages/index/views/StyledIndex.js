@@ -22,7 +22,7 @@ const IndexContainer = styled.div `
         span {
           font-size: .09rem;
           line-height: .13rem;
-          color: #000;
+          color: #666;
         }
         span.active {
           color: #E68D95;
