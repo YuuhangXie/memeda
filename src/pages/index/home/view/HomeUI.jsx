@@ -25,7 +25,6 @@ export default (props) => {
                     <span>{props.avatar.male.name}</span>
                 </div>
             </div>
-             
         </div>
     )
 }

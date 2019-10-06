@@ -4,7 +4,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        anniversary组件
+        album组件
       </div>
     )
   }
