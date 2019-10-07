@@ -2,13 +2,13 @@ import React from 'react';
 
 import StyledNavbar from "./StyledNavbar";
 
-import arrow from "images/profile/arrow.png";
-import camera from "images/profile/camera.png";
+import arrow from "images/profile/main/arrow.png";
+import camera from "images/profile/main/camera.png";
 
 export default (props) => {
   return (
     <StyledNavbar>
-      <img className="goback" src={arrow} alt=""/>
+      <img className="goback" src={arrow} alt="" onClick={() => {props.goBack()}} />
       <div className="navTitle">{props.navTitle}</div>
 
       {
