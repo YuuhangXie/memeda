@@ -27,10 +27,10 @@ function Views (props) {
           <span>@{viewData['@user']}</span>
           {viewData.showText}
         </div>
-        {viewData.images.length && <div className="images">
+        {viewData.images.length !== 0 && <div className="images">
           {
-            viewData.images.map(item => (
-              <img src={item} alt=""/>
+            viewData.images.map((item, index) => (
+              <img src={item} alt="" key={index}/>
             ))
           }
         </div>}

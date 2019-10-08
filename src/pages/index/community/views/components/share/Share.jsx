@@ -30,7 +30,9 @@ export default class Share extends Component {
     return (
       <div>
         <Publish></Publish>
-        {this.state.shareList.length && <Views viewData={this.state.shareList[0]}></Views>}
+        {this.state.shareList.length && this.state.shareList.map((item, index) => (
+          <Views viewData={item} key={index}></Views>
+        ))}
       </div>
     )
   }
