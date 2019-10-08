@@ -1,3 +1,8 @@
 {
-  "/api/test": "/test"
+  "/api/test": "/test",
+  "/api/getCommunitys": "/getCommunitys",
+  "/api/period": "/period",
+  "/api/home": "/home",
+  "/api/gift/ourwish": "/ourwish",
+  "/api/gift/tawish": "/tawish"
 }

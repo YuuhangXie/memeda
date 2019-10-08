@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Community extends Component {
+export default class Rank extends Component {
   render() {
     return (
       <div>
-        communuty
+        rank
       </div>
     )
   }
