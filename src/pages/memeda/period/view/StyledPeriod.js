@@ -5,6 +5,7 @@ const PeriodContainer = styled.div `
     height: 100%;
     width: 100%;
     background-color: #ffffff;
+
 `
 
 export {
