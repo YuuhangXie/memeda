@@ -1,3 +1,6 @@
 {
-  "/api/test": "/test"
+  "/api/test": "/test",
+  "/api/getCommunitys": "/getCommunitys",
+  "/api/home": "/home",
+  "/api/period": "/period"
 }
