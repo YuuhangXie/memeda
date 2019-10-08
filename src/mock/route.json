@@ -3,6 +3,7 @@
   "/api/getCommunitys": "/getCommunitys",
   "/api/period": "/period",
   "/api/home": "/home",
-  "/api/gift/ourwish": "/ourwish",
-  "/api/gift/tawish": "/tawish"
+  "/api/gift/ourwish/:id": "/ourwish",
+  "/api/gift/tawish": "/tawish",
+  "/api/gift/mywish": "/mywish"
 }

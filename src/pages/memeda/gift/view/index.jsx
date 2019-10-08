@@ -5,6 +5,7 @@ import Index from '../components/index'
 import OurWish from '../components/ourWish'
 import MyWish from '../components/myWish'
 import TaWish from '../components/taWish'
+import Add from '../components/add'
 
 export default class Home extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class Home extends Component {
       <Switch>
         <Route path={`${path}/index`} component={Index}></Route>
         <Route path={`${path}/ourwish`} component={OurWish}></Route>
+        <Route path={`${path}/add`} component={Add}></Route>
         <Route path={`${path}/mywish`} component={MyWish}></Route>
         <Route path={`${path}/tawish`} component={TaWish}></Route>
         <Redirect exact from={path} to={`${path}/index`}></Redirect>

@@ -4,6 +4,7 @@ const period = require('./period/period.json')
 const home = require('./home/home.json')
 const ourWish = require('./gift/ourwish.json')
 const taWish = require('./gift/tawish.json')
+const myWish = require('./gift/mywish.json')
 
 module.exports = function() {
   return {
@@ -12,6 +13,7 @@ module.exports = function() {
     period,
     home,
     ourWish,
-    taWish
+    taWish,
+    myWish
   }
 }
