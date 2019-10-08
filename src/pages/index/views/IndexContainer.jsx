@@ -15,10 +15,8 @@ import {
 
 // 引入组件 (临时模板)
 import Chat from '../chat/Chat'
-import Home from '../home/Home'
-// import Community from '../community/Community'
+import Home from '../home/view/Home'
 import Fund from '../fund/Fund'
-import Profile from '../profile/Profile'
 
 import chat from 'images/tablebar/chat.png'
 import community from 'images/tablebar/community.png'
@@ -32,10 +30,10 @@ import profileActive from 'images/tablebar/profile-active.png'
 
 // 实际引用组件位置
 // import { Chat } from '../chat/'
-// import Home from '../home/'
+// import { Home } from '../home/'
 import  { Community } from '../community/'
 // import Fund from '../fund/'
-// import Profile from '../profile/'
+import { Profile } from '../profile/'
 
 function Index (props) {
   let path = props.match.path
