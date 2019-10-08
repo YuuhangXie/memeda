@@ -30,7 +30,7 @@ import profileActive from 'images/tablebar/profile-active.png'
 
 // 实际引用组件位置
 // import { Chat } from '../chat/'
-// import Home from '../home/'
+// import { Home } from '../home/'
 import  { Community } from '../community/'
 // import Fund from '../fund/'
 import { Profile } from '../profile/'
