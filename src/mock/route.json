@@ -4,5 +4,6 @@
   "/api/period": "/period",
   "/api/home": "/home",
   "/api/gift/ourwish": "/ourwish",
-  "/api/gift/tawish": "/tawish"
+  "/api/gift/tawish": "/tawish",
+  "/api/profile/users": "/users"
 }
