@@ -8,7 +8,7 @@ import Gift from '../gift/view/index'
 import Album from '../album/index'
 import Diary from '../diary/index'
 import Anniversary from '../anniversary/index'
-import Period from '../period/view/Index'
+import Period from '../period/index'
 
 export default class Memeda extends Component {
   render() {
