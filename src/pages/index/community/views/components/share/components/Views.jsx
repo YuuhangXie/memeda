@@ -1,4 +1,6 @@
 import React from 'react'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 
 import {
   BorderViews,
@@ -10,6 +12,7 @@ import male from 'images/community/male.png'
 import zan from 'images/community/zan.png'
 // import zanActive from 'images/community/zan-active.png'
 import comment from 'images/community/comment.png'
+
 function Views (props) {
   let {viewData} = props
   return (
@@ -36,16 +39,16 @@ function Views (props) {
         </div>}
         <div className="func">
           <div className="time">
-            1分钟前
+            {moment(viewData.showTime).fromNow()}
           </div>
           <div className="comment">
             <div className="zan">
               <img src={zan} alt=""/>
-              1
+              {viewData.likeCount}
             </div>
             <div className="pl">
               <img src={comment} alt=""/>
-              4
+              {viewData.commentCount}
             </div>
           </div>
         </div>
