@@ -1,0 +1,43 @@
+{
+    "code": 1,
+    "data": {
+        "date": 31,
+        "avatar": {
+            "female": {
+              "avatarImg": "images/home/femaleAvatar.png",
+              "name": "颖宝"
+            },
+            "male": {
+              "avatarImg": "images/home/maleAvatar.png",
+              "name": "李健"
+            } 
+        },
+        "tabMsg": [
+            {
+              "title": "相册",
+              "key": "album",
+              "icon": "images/home/albumIcon.png"
+            },
+            {
+              "title": "写日记",
+              "key": "diary",
+              "icon": "images/home/diaryIcon.png"
+            },
+            {
+              "title": "纪念日",
+              "key": "anniversary",
+              "icon": "images/home/anniversaryIcon.png"
+            },
+            {
+              "title": "小姨妈",
+              "key": "period",
+              "icon": "images/home/periodIcon.png"
+            },
+            {
+              "title": "愿望清单",
+              "key": "gift",
+              "icon": "images/home/giftIcon.png"
+            }
+        ]
+    }
+}
