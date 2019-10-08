@@ -1,6 +1,6 @@
 {
   "/api/test": "/test",
-  "/api/getCommunitys": "/getCommunitys",
+  "/api/community/getCommunitys": "/getCommunitys",
   "/api/period": "/period",
   "/api/home": "/home",
   "/api/gift/ourwish": "/ourwish",

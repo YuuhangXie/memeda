@@ -92,7 +92,7 @@ const ViewsContainer = styled.div `
     padding-bottom: .13rem;
     img {
       width: .68rem;
-      height: auto;
+      height: .68rem;
       margin-right: .3rem;
       margin-top: .1rem
     }

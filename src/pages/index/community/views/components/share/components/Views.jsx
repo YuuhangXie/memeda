@@ -33,7 +33,7 @@ function Views (props) {
         {viewData.images.length !== 0 && <div className="images">
           {
             viewData.images.map((item, index) => (
-              <img src={item} alt="" key={index}/>
+              <img src={item} alt="" key={item.showId + Math.random()}/>
             ))
           }
         </div>}
