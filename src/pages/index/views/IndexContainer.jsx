@@ -17,7 +17,8 @@ import {
 import Chat from '../chat/Chat'
 import Home from '../home/view/Home'
 import Fund from '../fund/Fund'
-import Profile from '../profile/Profile'
+// import Profile from '../profile/Profile'
+import { Profile } from "../profile/"
 
 import chat from 'images/tablebar/chat.png'
 import community from 'images/tablebar/community.png'
