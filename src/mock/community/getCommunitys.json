@@ -1,0 +1,30 @@
+{
+  "code": "1",
+  "msg": "200",
+  "showList": [
+    {
+      "showId":1,
+      "showText": "爱就像蓝天白云晴空万里，梦里都是你。",
+      "showTime": "2019-10-5 11:11:11",
+      "likeCount": 5,
+      "userId": 100606,
+      "@user": "提莫",
+      "@userId": 100899,
+      "commentCount": 2,
+      "images": [
+        "https://www.xyhthink.com/img/head.jpg",
+        "https://www.xyhthink.com/img/head.jpg",
+        "https://www.xyhthink.com/img/head.jpg",
+        "https://www.xyhthink.com/img/head.jpg",
+        "https://www.xyhthink.com/img/head.jpg",
+        "https://www.xyhthink.com/img/head.jpg"
+      ],
+      "user": {
+        "img_url": "https://www.xyhthink.com/img/head.jpg",
+        "kickName": "美美",
+        "age": 22,
+        "sex": "女"
+      }
+    }
+  ]
+}
