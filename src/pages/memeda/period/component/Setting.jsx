@@ -27,9 +27,9 @@ class Test extends Component {
     this.props.form.validateFields({ force: true }, (error) => {
       if (!error) {
         console.log(this.props.form.getFieldsValue());
+        
       } else {
-        console.log(error);
-        alert('验证失败');
+        alert('请填写完整资料');
       }
     });
   }
@@ -71,14 +71,16 @@ class Test extends Component {
               <List.Item>最近一次来姨妈</List.Item>
             </DatePicker>
 
-            <Picker data={this.state.distance} cols={1} {...getFieldProps('distance')} className="forss">
+            <Picker data={this.state.distance} cols={1} 
+              {...getFieldProps('distance', {
+                rules: [
+                  { required: true, message: '必须要选择一个间隔' },
+                ],
+              })} className="forss">
               <List.Item>间隔</List.Item>
             </Picker>
-
-            <Button type="primary" size="small" inline onClick={this.onSubmit}
-              style={{"width":"100%", "background": "#F09199"}}>保存</Button>
-
           </List>
+          <Button type="primary" size="small" inline onClick={this.onSubmit} style={{"width":"100%", "height" : ".48rem", "lineHeight" : ".48rem",  "fontSize" : ".16rem","background": "#F09199", "marginTop" : ".5rem"}}>保存</Button>
         </div>
       </SettingContainer>
     )
