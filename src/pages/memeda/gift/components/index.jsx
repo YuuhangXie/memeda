@@ -21,7 +21,8 @@ export default class Home extends Component {
     this.props.history.push('/index/home')
   }
 
-  modificationPage() {
+  modificationPage(event) {
+    event.stopPropagation()
     this.setState({
       hide: !this.state.hide
     })
@@ -40,19 +41,19 @@ export default class Home extends Component {
                 <div className="gift-body">
                   <div className="body-container">
                     <div className="our-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/ourwish')}}>
-                      <div className="ava-container"  onClick={() => this.modificationPage()}>
+                      <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={OurAva} alt="头像"/>
                       </div>
                       <span>我们的愿望</span>
                     </div>
                     <div className="my-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/mywish')}}>
-                      <div className="ava-container"  onClick={() => this.modificationPage()}>
+                      <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={HerAva} alt="头像"/>
                       </div>
                       <span>我的愿望</span>
                     </div>
                     <div className="ta-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/tawish')}}>
-                      <div className="ava-container"  onClick={() => this.modificationPage()}>
+                      <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={HisAva} alt="头像"/>
                       </div>
                       <span>他的愿望</span>
@@ -65,7 +66,7 @@ export default class Home extends Component {
                     <AlbumContainer>
                       <div className="album update-box">从相册选择</div>
                     </AlbumContainer>
-                    <div className="delete update-box" onClick={() => this.modificationPage()}>取消</div>  
+                    <div className="delete update-box" onClick={(e) => this.modificationPage(e)}>取消</div>  
                   </div>
                 </div>
             </div>    

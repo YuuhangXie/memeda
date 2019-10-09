@@ -4,6 +4,8 @@
   "/api/period": "/period",
   "/api/home": "/home",
   "/api/gift/ourwish": "/ourwish",
+  "/api/profile/users": "/users",
+  "/api/gift/ourwish/:id": "/ourwish",
   "/api/gift/tawish": "/tawish",
-  "/api/profile/users": "/users"
+  "/api/gift/mywish": "/mywish"
 }

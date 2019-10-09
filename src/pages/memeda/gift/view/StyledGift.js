@@ -26,7 +26,7 @@ const GiftContainer = styled.div `
             margin-left: 0.11rem;
         }
         .title {
-            margin-left: 1.23rem;
+            margin-left: 1.14rem;
         }
         img {
             width: 100%;
@@ -83,14 +83,60 @@ const GiftContainer = styled.div `
             bottom: 0;
         }
         ul {
-            margin: 0.48rem 0 0 0.48rem;
+            margin: 0.48rem 0.48rem 0 0.48rem;
             font-size: 16px;
         }
         li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 0.16rem;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap; 
         }
         li:first-child {
             margin-top: 0;
+        }
+        .addTip {
+            width: 0.2rem;
+            height: 0.2rem;
+            margin-left: 1.09rem;
+            position: relative;
+        }
+        .vertical-box {
+            height: 0.2rem;
+            border-right: 0.02rem solid #ffffff;
+            position: absolute;
+            left: 0.1rem;
+        }
+        .transverse-box {
+            width: 0.2rem;
+            border-top: 0.02rem solid #ffffff;
+            position: absolute;
+            top: 0.09rem;
+        }
+        .choose-box {
+            width: 0.21rem;
+            height: 0.21rem;
+            border: 1px solid #B9B9B9;
+        }
+        .be-chosed {
+            display: block;
+            line-height: 1;
+            height: 0.2rem;
+            width: 0.2rem;
+        }
+        .not-chosed {
+            display: none;
+        }
+        .keep-btn {
+            margin-left: 0.96rem;
+        }
+        textarea {
+            border: none;
+            font-size: 16px;
+            margin: 0.13rem 0 0 0.21rem;
         }
 `
 
