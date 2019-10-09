@@ -92,7 +92,7 @@ const ViewsContainer = styled.div `
     padding-bottom: .13rem;
     img {
       width: .68rem;
-      height: auto;
+      height: .68rem;
       margin-right: .3rem;
       margin-top: .1rem
     }
@@ -119,11 +119,17 @@ const ViewsContainer = styled.div `
       img {
         width: .15rem;
         height: .15rem;
-        margin-right: .13rem;
+        margin-right: .08rem;
         vertical-align: middle;
       }
       .zan {
         margin-right: .2rem;
+        display: flex;
+        align-items: center;
+      }
+      .pl {
+        display: flex;
+        align-items: center;
       }
     }
   }

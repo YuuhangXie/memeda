@@ -7,7 +7,7 @@ import storage from 'utils/storage.js'
 class PrivateRoute extends React.Component {
 
   componentWillMount() {
-    let isAuthenticated = storage.get('isSignin') === true ? true : false;
+    let isAuthenticated = storage.get('isSignin') === true ? true : true;
     this.setState({
         isAuthenticated: isAuthenticated
       })
