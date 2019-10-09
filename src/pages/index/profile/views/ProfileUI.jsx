@@ -7,8 +7,9 @@ import StyledProfile from "./StyledProfile";
 import Navbar from "pages/index/profile/components/nav_bar/Navbar";
 import ListItem from "pages/index/profile/components/list_item/ListItem";
 
-function ProfileUI(props) {
+import link from "assets/images/profile/main/link.png";
 
+function ProfileUI(props) {
   const handleClick = (link) => {
     // console.log(props, link);
     props.history.push(`/memeda/profile/${link}`);
@@ -22,6 +23,28 @@ function ProfileUI(props) {
   return (
     <StyledProfile>
       <Navbar navTitle="我" goBack={handleGoBack} />
+
+      <div className="users">
+        <img src={link} alt="" className="link"/>
+        <div className="userInfo" onClick={() => {
+          props.clickHead("/myAccount")
+        }}>
+          <img src={props.users[0] ? props.users[0].head_address : "http://placehold.it/52x52"} alt="" className="head"/>
+          <div className="infoText">
+            <span className="username">{props.users[0] ? props.users[0].username : ""}</span>
+            <span className="usercode">{props.users[0] ? props.users[0].usercode : ""}</span>
+          </div>
+        </div>
+        <div className="userInfo" onClick={() => {
+          props.clickHead("/taAccount")
+        }}>
+          <div className="infoText">
+            <span className="username">{props.users[1] ? props.users[1].ta_username : ""}</span>
+            <span className="usercode">{props.users[1] ? props.users[1].ta_usercode : ""}</span>
+          </div>
+          <img src={props.users[1] ? props.users[1].head_address : "http://placehold.it/52x52"} alt="" className="head"/>
+        </div>
+      </div>
 
       <ul>
         <ListItem
@@ -77,7 +100,7 @@ function ProfileUI(props) {
         ></ListItem>
       </ul>
     </StyledProfile>
-  )
+  );
 }
 
 export default withRouter(ProfileUI);

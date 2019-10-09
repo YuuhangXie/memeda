@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Chat extends Component {
+export default class Invite extends Component {
   render() {
     return (
       <div>
-        chat
+        邀请好友
       </div>
     )
   }
