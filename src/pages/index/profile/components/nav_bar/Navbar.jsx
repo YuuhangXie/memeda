@@ -15,7 +15,9 @@ export default (props) => {
         (() => {
           if(props.more) {
             return (
-              <div className="rightBtn more">
+              <div className="rightBtn more" onClick={() => {
+                props.remove()
+              }}>
                 <span className="dot"></span>
                 <span className="dot"></span>
                 <span className="dot"></span>
@@ -24,12 +26,16 @@ export default (props) => {
           }
           if(props.camera) {
             return (
-              <img className="rightBtn camera" src={camera} alt=""/>
+              <img className="rightBtn camera" src={camera} alt="" onClick={() => {
+                props.clickCarema()
+              }} />
             );
           }
           if(props.cancel) {
             return (
-              <div className="rightBtn cancel">取消</div>
+              <div className="rightBtn cancel" onClick={() => {
+                props.cancel()
+              }}>取消</div>
             );
           }
         })()
