@@ -1,5 +1,7 @@
-import Profile from "./main/views/ProfileContainer";
+import Profile from "./views/ProfileContainer";
+import reducer from "./reducer";
 
 export {
-  Profile
+  Profile,
+  reducer
 };

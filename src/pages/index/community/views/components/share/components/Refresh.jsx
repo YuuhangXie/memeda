@@ -4,32 +4,26 @@ import { findDOMNode }  from 'react-dom'
 
 import { PullToRefresh } from 'antd-mobile';
 
-function genData() {
-  const dataArr = [];
-  for (let i = 0; i < 20; i++) {
-    dataArr.push(i);
-  }
-  return dataArr;
-}
+import Views from './Views'
 
 class Refresh extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       refreshing: false,
       down: false,
       height: document.documentElement.clientHeight,
-      data: [],
+      data: props.list,
     };
   }
 
   componentDidMount() {
-    const hei = this.state.height - findDOMNode(this.ptr).offsetTop-50;
-    // const hei = 600
-    setTimeout(() => this.setState({
+    const hei = this.state.height - findDOMNode(this.ptr).offsetTop - 49
+    this.setState({
       height: hei,
-      data: genData(),
-    }), 0);
+      pageIndex: 2,
+      // data: this.props.list
+    })
   }
 
   render() {
@@ -44,17 +38,16 @@ class Refresh extends React.Component {
         indicator={this.state.down ? {} : { deactivate: '上拉可以刷新' }}
         direction={this.state.down ? 'down' : 'up'}
         refreshing={this.state.refreshing}
-        onRefresh={() => {
-          this.setState({ refreshing: true });
-          setTimeout(() => {
-            this.setState({ refreshing: false });
-          }, 1000);
+        onRefresh={async () => {
+          this.setState({ refreshing: true })
+            this.props.handleAddPage()
+            setTimeout(() => {
+              this.setState({ refreshing: false })
+            }, 1000)
         }}
       >
-        {this.state.data.map(i => (
-          <div key={i} style={{ textAlign: 'center', padding: 20 }}>
-            {this.state.down ? 'pull down' : 'pull up'} {i}
-          </div>
+        {this.state.data.length !== 0 && this.state.data.map((item, index) => (
+          <Views viewData={item} key={item.showId + Math.random()}></Views>
         ))}
       </PullToRefresh>
     </div>);
