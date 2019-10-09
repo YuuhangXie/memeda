@@ -8,7 +8,9 @@ import Gift from '../gift/view/index'
 import Album from '../album/index'
 import Diary from '../diary/index'
 import Anniversary from '../anniversary/index'
-import Period from '../period/index'
+import Period from '../period/view/Index'
+import { Chat } from '../../memeda/chat/'
+
 
 export default class Memeda extends Component {
   render() {
@@ -22,6 +24,7 @@ export default class Memeda extends Component {
         <Route path={`${path}/diary`} component={Diary}></Route>
         <Route path={`${path}/anniversary`} component={Anniversary}></Route>
         <Route path={`${path}/period`} component={Period}></Route>
+        <Route path={`${path}/chat`} component={Chat}></Route>
         <Redirect exact from={path} to={`${path}/home`}></Redirect>
       </Switch>
     )

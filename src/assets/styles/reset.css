@@ -210,3 +210,7 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: middle; }
+
+.am-picker-popup-item {
+    color:#F09199 !important;
+}

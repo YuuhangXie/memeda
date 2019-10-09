@@ -14,8 +14,8 @@ import {
 } from './StyledIndex'
 
 // 引入组件 (临时模板)
-import Chat from '../chat/Chat'
-import Home from '../home/view/Home'
+// import Home from '../home/view/Home'
+// import Chat from '../chat/Chat'
 import Fund from '../fund/Fund'
 
 import chat from 'images/tablebar/chat.png'
@@ -30,7 +30,7 @@ import profileActive from 'images/tablebar/profile-active.png'
 
 // 实际引用组件位置
 // import { Chat } from '../chat/'
-// import { Home } from '../home/'
+import { Home } from '../home/'
 import  { Community } from '../community/'
 // import Fund from '../fund/'
 import { Profile } from '../profile/'
@@ -48,12 +48,16 @@ function Index (props) {
     props.history.push(path + '/' + curr)
   }, [path, props])
 
+  const handleClicker = useCallback(curr => {
+    setCurr(curr)
+    props.history.push('/memeda/' + curr)
+  }, [ props])
+
   return (
     <IndexContainer>
       <MainContainer>
         <Switch>
           <Route path={`${path}/home`} component={Home}></Route>
-          <Route path={`${path}/chat`} component={Chat}></Route>
           <Route path={`${path}/community`} component={Community}></Route>
           <Route path={`${path}/fund`} component={Fund}></Route>
           <Route path={`${path}/profile`} component={Profile}></Route>
@@ -62,7 +66,7 @@ function Index (props) {
       </MainContainer>
       <NavContainer>
         <ul>
-          <li onClick={() => handleClick('chat')}>
+          <li onClick={() => handleClicker('chat')}>
             <img className="bar-img1" src={chat} alt=""/>
             <span className={curr === 'chat' ? 'active' : ''}>悄悄话</span>
           </li>
