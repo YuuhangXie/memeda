@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import { MyAccount } from "../my_account/";
-import TaAccount from "../ta_account/TaAccount";
-import Settings from "../settings/Settings";
-import Upload from "../uploading/Upload";
-import Rewards from "../rewards/Rewards";
-import Invite from "../invite/Invite";
-import Rings from "../rings/Rings";
-import Marriage from "../marriage/Marriage";
-import Print from "../print/Print";
-import Orders from "../orders/Orders";
+import { TaAccount } from "../ta_account/";
+import { Settings } from "../settings/";
+import { Upload } from "../uploading/";
+import { Rewards } from "../rewards/";
+import { Invite } from "../invite/";
+import { Rings } from "../rings/";
+import { Marriage } from "../marriage/";
+import { Print } from "../print/";
+import { Orders } from "../orders/";
 
 export default class ProfileContainer extends Component {
   render() {
