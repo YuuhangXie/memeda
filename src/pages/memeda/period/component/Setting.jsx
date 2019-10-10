@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-
 import axios from 'utils/api.service.js'
+
+import moment from 'moment'
 
 import Back from 'images/gift/back.png'
 
@@ -26,7 +27,8 @@ class Test extends Component {
   onSubmit = () => {
     this.props.form.validateFields({ force: true }, (error) => {
       if (!error) {
-        console.log(this.props.form.getFieldsValue());
+        console.log(moment(this.props.form.getFieldsValue().lasttime).format('ll'),
+        this.props.form.getFieldsValue().distance[0]);
         
       } else {
         alert('请填写完整资料');
