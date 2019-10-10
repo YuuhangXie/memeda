@@ -2,7 +2,7 @@ import React from 'react'
 
 import { findDOMNode }  from 'react-dom'
 
-import { PullToRefresh } from 'antd-mobile';
+import { PullToRefresh } from 'antd-mobile'
 
 import Views from './Views'
 
@@ -11,18 +11,15 @@ class Refresh extends React.Component {
     super(props)
     this.state = {
       refreshing: false,
-      down: false,
+      down: true,
       height: document.documentElement.clientHeight,
-      data: props.list,
-    };
+    }
   }
 
   componentDidMount() {
     const hei = this.state.height - findDOMNode(this.ptr).offsetTop - 49
     this.setState({
       height: hei,
-      pageIndex: 2,
-      // data: this.props.list
     })
   }
 
@@ -46,8 +43,8 @@ class Refresh extends React.Component {
             }, 1000)
         }}
       >
-        {this.state.data.length !== 0 && this.state.data.map((item, index) => (
-          <Views viewData={item} key={item.showId + Math.random()}></Views>
+        {this.props.list.length !== 0 && this.props.list.map((item, index) => (
+          <Views viewData={item} key={item.showId + parseInt(Math.random() * 100000)}></Views>
         ))}
       </PullToRefresh>
     </div>);
