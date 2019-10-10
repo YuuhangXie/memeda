@@ -7,5 +7,6 @@
   "/api/profile/users": "/users",
   "/api/gift/tawish": "/tawish",
   "/api/gift/mywish": "/mywish",
-  "/api/gift/giftava": "/giftava"
+  "/api/gift/giftava": "/giftava",
+  "/api/diary/diarycontent": "/diarycontent"
 }
