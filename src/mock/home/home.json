@@ -4,11 +4,11 @@
         "date": 31,
         "avatar": {
             "female": {
-              "avatarImg": "images/home/femaleAvatar.png",
+              "avatarImg": "http://pz394k5aw.bkt.clouddn.com/WeChat18ab88ae51ded08e8c1ba0cc10c4f985@3x.png",
               "name": "颖宝"
             },
             "male": {
-              "avatarImg": "images/home/maleAvatar.png",
+              "avatarImg": "http://pz394k5aw.bkt.clouddn.com/WeChate3ec614be052ecf701a6a2d89d50d8a5@3x.png",
               "name": "李健"
             } 
         },
@@ -16,27 +16,27 @@
             {
               "title": "相册",
               "key": "album",
-              "icon": "images/home/albumIcon.png"
+              "icon": "http://pz394k5aw.bkt.clouddn.com/%E7%9B%B8%E5%86%8C-01@3x.png"
             },
             {
               "title": "写日记",
               "key": "diary",
-              "icon": "images/home/diaryIcon.png"
+              "icon": "http://pz394k5aw.bkt.clouddn.com/%E6%97%A5%E8%AE%B0%E6%9C%AC-01@3x.png"
             },
             {
               "title": "纪念日",
               "key": "anniversary",
-              "icon": "images/home/anniversaryIcon.png"
+              "icon": "http://pz394k5aw.bkt.clouddn.com/%E7%BA%AA%E5%BF%B5%E6%97%A5-01@3x.png"
             },
             {
               "title": "小姨妈",
               "key": "period",
-              "icon": "images/home/periodIcon.png"
+              "icon": "http://pz394k5aw.bkt.clouddn.com/%E5%B0%8F%E5%A7%A8%E5%A6%881.0-01@3x.png"
             },
             {
               "title": "愿望清单",
               "key": "gift",
-              "icon": "images/home/giftIcon.png"
+              "icon": "http://pz394k5aw.bkt.clouddn.com/MBE-01@3x.png"
             }
         ]
     }
