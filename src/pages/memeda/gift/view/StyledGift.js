@@ -4,7 +4,6 @@ import border from 'components/styled/border'
 const GiftContainer = styled.div `
         display: flex;
         height: 100%;
-        background-color: #ffffff;
         .gift-container {
             display: flex;
             flex-direction: column;
@@ -54,10 +53,10 @@ const GiftContainer = styled.div `
             flex-direction: column;
             justify-content: space-between;
         }
-        .updateAva {
+        .update-ava {
             position: absolute;
             margin-top: 0.44rem;
-            background-color: rgba(112, 112, 112, .2);
+            
             width: 100%;
             height: calc(100% - 0.44rem);
         }
@@ -71,6 +70,7 @@ const GiftContainer = styled.div `
             height: 1.78rem;
         }
         .update-box {
+            position: relative;
             width: 100%;
             height: 0.56rem;
             text-align: center;
@@ -87,9 +87,7 @@ const GiftContainer = styled.div `
             font-size: 16px;
         }
         li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: relative;
             margin-top: 0.16rem;
             overflow: hidden;
             text-overflow:ellipsis;
@@ -117,9 +115,12 @@ const GiftContainer = styled.div `
             top: 0.09rem;
         }
         .choose-box {
+            display: inline-block;
             width: 0.21rem;
             height: 0.21rem;
             border: 1px solid #B9B9B9;
+            position: absolute;
+            right:0;
         }
         .be-chosed {
             display: block;
@@ -137,6 +138,50 @@ const GiftContainer = styled.div `
             border: none;
             font-size: 16px;
             margin: 0.13rem 0 0 0.21rem;
+        }
+        .delete-btn {
+            display: inline-block;
+            width: 0.12rem;
+            height: 0.12rem;
+            border-radius: 50%;
+            border: 1px solid #B1ABAB
+            margin-left: 0.14rem;
+        }
+        .mag-15 {
+            margin-left: 0.15rem;
+        }
+        .active {
+            background-color: #D31010;
+        }
+        .delete-bar {
+            display: flex;
+            align-items: center;
+            margin-left: 0.65rem;
+        }
+        .delete-chosed {
+            width: 0.18rem;
+            height: 0.15rem;
+            display: block;
+            line-height: 0.8;
+            margin-left: 0.14rem;
+        }
+        input {
+            opacity: 0;
+        }
+        .photo-name {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .gift-component {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(112, 112, 112, 0.2);
         }
 `
 
