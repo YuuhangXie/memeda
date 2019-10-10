@@ -11,6 +11,17 @@ export default class Home extends Component {
       this.props.changeProps(e)
   }
 
+  getDataURL(e){
+    Array.from(e.target.files).forEach(element => {
+      var reader = new FileReader()
+      reader.onload = function(e) {
+        var url = e.target.result
+        console.log(url)
+      }
+      reader.readAsDataURL(element)
+    })
+  }
+
   render() {
     return (
         <GiftContainer>
@@ -23,7 +34,7 @@ export default class Home extends Component {
                 <AlbumContainer>
                     <div className="album update-box">
                     <span className="photo-name">从相册选择</span>
-                    <input type="file" accept="image/*" onChange={() => {  }}/>
+                    <input type="file" accept="image/*" onChange={(e) => this.getDataURL(e)}/>
                     </div>
                 </AlbumContainer>
                 <div className="delete update-box" onClick={(e) => this.back(e)}>取消</div>  
