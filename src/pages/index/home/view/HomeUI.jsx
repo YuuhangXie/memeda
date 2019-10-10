@@ -1,8 +1,5 @@
 import React from 'react'
 
-import female from 'images/home/femaleAvatar.png'
-import male from 'images/home/maleAvatar.png'
-
 
 export default (props) => {
     return (
@@ -10,7 +7,7 @@ export default (props) => {
             <div className="home-title">
                 <div className="femaleAva avatar">
                     <div className="avatar-box">
-                        <img src={female} alt="头像"/>
+                        <img src={props.avatar.female.avatarImg} alt="头像"/>
                     </div>
                     <span>{props.avatar.female.name}</span>
                 </div>
@@ -20,7 +17,7 @@ export default (props) => {
                 </div>
                 <div className="maleAva avatar">
                     <div className="avatar-box">
-                        <img src={male} alt="头像"/>
+                        <img src={props.avatar.male.avatarImg} alt="头像"/>
                     </div>
                     <span>{props.avatar.male.name}</span>
                 </div>
