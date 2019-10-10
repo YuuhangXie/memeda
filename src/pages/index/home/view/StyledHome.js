@@ -10,7 +10,7 @@ const HomeContainer = styled.div`
     background-size: 100%
     .home-tabbar {
         background-color: orange;
-        margin-top: 4.42rem
+        margin-top: 4.42rem;
         display: flex;
         justify-content: space-around;
         height:0.84rem;
