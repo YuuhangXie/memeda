@@ -5,7 +5,7 @@
   "/api/home": "/home",
   "/api/gift/ourwish": "/ourwish",
   "/api/profile/users": "/users",
-  "/api/gift/ourwish/:id": "/ourwish",
   "/api/gift/tawish": "/tawish",
-  "/api/gift/mywish": "/mywish"
+  "/api/gift/mywish": "/mywish",
+  "/api/gift/giftava": "/giftava"
 }

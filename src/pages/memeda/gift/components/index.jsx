@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
+
+import axios from 'utils/api.service.js'
+
 import {
-  GiftContainer,
-  AlbumContainer
+  GiftContainer
 } from '../view/StyledGift'
 
+import Picture from './picture'
+
+
 import Back from 'images/gift/back.png'
-import OurAva from 'images/gift/ourAva.png'
-import HerAva from 'images/gift/herAva.png'
-import HisAva from 'images/gift/hisAva.png'
 
 export default class Home extends Component {
   constructor() {
     super()
     this.state = {
-      hide: true
+      hide: true,
+      giftAva: {}
     }
   }
 
@@ -26,6 +29,11 @@ export default class Home extends Component {
     this.setState({
       hide: !this.state.hide
     })
+  }
+
+  async componentDidMount() {
+    let result = await axios.get('/api/gift/giftava')
+    this.setState({ giftAva: result.data })
   }
 
   render() {
@@ -42,35 +50,33 @@ export default class Home extends Component {
                   <div className="body-container">
                     <div className="our-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/ourwish')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
-                        <img src={OurAva} alt="头像"/>
+                        <img src={this.state.giftAva.ourAva} alt="头像"/>
                       </div>
                       <span>我们的愿望</span>
                     </div>
                     <div className="my-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/mywish')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
-                        <img src={HerAva} alt="头像"/>
+                        <img src={this.state.giftAva.myAva} alt="头像"/>
                       </div>
                       <span>我的愿望</span>
                     </div>
                     <div className="ta-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/tawish')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
-                        <img src={HisAva} alt="头像"/>
+                        <img src={this.state.giftAva.taAva} alt="头像"/>
                       </div>
                       <span>他的愿望</span>
                     </div>  
                   </div>
                 </div>
-                <div className={this.state.hide ? 'hideAva' : 'updateAva'}>
-                  <div className="picture-container">
-                    <div className="photo update-box">拍照</div>
-                    <AlbumContainer>
-                      <div className="album update-box">从相册选择</div>
-                    </AlbumContainer>
-                    <div className="delete update-box" onClick={(e) => this.modificationPage(e)}>取消</div>  
-                  </div>
-                </div>
-            </div>    
+            </div> 
+            <div className={this.state.hide ? "hideAva" : "gift-component"}>
+              <Picture
+                changeProps={(e) => this.modificationPage(e)}
+                hide={this.state.hide}
+              ></Picture>
+            </div>
         </GiftContainer>
+        
     )
   }
 }
