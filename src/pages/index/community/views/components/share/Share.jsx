@@ -9,27 +9,30 @@ import Refresh from './components/Refresh'
 export default class Share extends Component {
   state = {
     shareList: [],
-    pageIndex: 1
+    userInfo: ''
   }
 
   async componentDidMount() {
     const requestData = {
-      method: 'post',
+      method: 'get',
       url: '/api/community/getCommunitys',
       data: {
         pageIndex: this.state.pageIndex
       }
     }
     let list = await ApiService.customRequest(requestData)
+    let userInfo = await ApiService.customRequest({
+      url: '/api/profile/users'
+    })
     this.setState({
-      shareList: list.showList
+      shareList: list.showList,
+      userInfo: userInfo.UserList[0]
     })
   }
 
   async handleAddPage () {
-    console.log(this)
     const requestData = {
-      method: 'post',
+      method: 'get',
       url: '/api/community/getCommunitys',
       data: {
         pageIndex: 2
@@ -38,7 +41,7 @@ export default class Share extends Component {
     let list = await ApiService.customRequest(requestData)
     this.setState({
       shareList: [
-        ...this.state.shareList,
+        // ...this.state.shareList,
         ...list.showList
       ]
     })
@@ -47,8 +50,8 @@ export default class Share extends Component {
   render() {
     return (
       <div>
-        <Publish></Publish>
-        {this.state.shareList.length && <Refresh handleAddPage={this.handleAddPage.bind(this)} list={this.state.shareList}></Refresh>}
+        <Publish user={this.state.userInfo}></Publish>
+        {this.state.shareList.length !== 0 && <Refresh handleAddPage={this.handleAddPage.bind(this)} list={this.state.shareList}></Refresh>}
       </div>
     )
   }
