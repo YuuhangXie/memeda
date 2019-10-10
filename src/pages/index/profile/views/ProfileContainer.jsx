@@ -11,7 +11,8 @@ class ProfileContainer extends Component {
     return (
       <ProfileUI
         users={this.props.userList.toJS()}
-        clickHead={this.handleClickHead}
+        clickJump={this.handleClickJump.bind(this)}
+        goBack={this.handleGoBack.bind(this)}
       >
       </ProfileUI>
     )
@@ -21,8 +22,12 @@ class ProfileContainer extends Component {
     this.props.loadUsersInfo();
   }
 
-  handleClickHead(path) {
-    this.history.push(`/memeda/profile${path}`);
+  handleClickJump(path) {
+    this.props.history.push(`/memeda/profile${path}`);
+  }
+
+  handleGoBack() {
+    this.props.history.goBack();
   }
 }
 

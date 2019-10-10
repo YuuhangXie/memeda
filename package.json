@@ -30,8 +30,8 @@
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock": "json-server ./src/mock/mock.js --m ./src/mock/post-to-get.js -r ./src/mock/route.json -p 9000 -w",
-    "memeda": "pm2 start processes.json"
+    "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
+    "aaaa": "json-server --watch ./src/mock/db.json -p 9009"
   },
   "eslintConfig": {
     "extends": "react-app"

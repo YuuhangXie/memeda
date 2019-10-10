@@ -2,13 +2,13 @@
   "UserList": [{
       "username": "颖宝",
       "usercode": "666666",
-      "head_address": "https://upload-images.jianshu.io/upload_images/18473180-ad8e7d1a133e80d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+      "head_address": "http://39.96.74.243/img/my_head.png",
       "sex": "女"
     },
     {
       "ta_username": "李健",
       "ta_usercode": "888888",
-      "head_address": "https://upload-images.jianshu.io/upload_images/18473180-1f4cc283a1df7c6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+      "head_address": "http://39.96.74.243/img/ta_head.png",
       "sex": "男"
     }
   ]

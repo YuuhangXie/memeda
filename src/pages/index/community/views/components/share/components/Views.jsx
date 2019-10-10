@@ -14,7 +14,7 @@ import zan from 'images/community/zan.png'
 import comment from 'images/community/comment.png'
 
 function Views (props) {
-  let {viewData} = props
+  let { viewData } = props
   return (
     <BorderViews>
       <ViewsContainer>

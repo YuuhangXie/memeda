@@ -26,15 +26,16 @@ const StyledNavbar = styled.div `
     right: .15rem;
   }
   .more{
-    top: .19rem;
-    height: .06rem;
+    top: 0;
+    height: 100%;
     width: .24rem;
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
   .dot{
     width: 25%;
-    height: 100%;
+    height: .06rem;
     border-radius: 50%;
     background: #fff;
   }
