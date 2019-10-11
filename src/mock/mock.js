@@ -8,6 +8,7 @@ const users = require('./profile/users_info.json')
 const myWish = require('./gift/mywish.json')
 const giftAva = require('./gift/giftAva.json')
 const getLoveRank = require('./community/getLoveRank.json')
+const diaryContent = require('./diary/diartMain.json')
 
 module.exports = function() {
   return {
@@ -20,6 +21,7 @@ module.exports = function() {
     users,
     myWish,
     giftAva,
-    getLoveRank
+    getLoveRank,
+    diaryContent
   }
 }
