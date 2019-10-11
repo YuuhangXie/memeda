@@ -22,7 +22,7 @@ const TreeContainer = styled.div `
     height: 1rem;
     position: absolute;
     top: 55%;
-    left: 55%;
+    left: 55%; 
   }
 `
 
