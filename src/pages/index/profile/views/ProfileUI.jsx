@@ -41,28 +41,24 @@ function ProfileUI(props) {
           rightArrow={true}
           icon="settings"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="上传启动画面"
           rightArrow={true}
           icon="upload"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="任务奖励"
           rightArrow={true}
           icon="rewards"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="邀请好友"
           rightArrow={true}
           icon="invite"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
       </ul>
 
@@ -72,28 +68,24 @@ function ProfileUI(props) {
           rightArrow={true}
           icon="rings"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="八字姻缘"
           rightArrow={true}
           icon="marriage"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="情侣相册打印"
           rightArrow={true}
           icon="print"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
         <ListItem
           listTitle="我的订单"
           rightArrow={true}
           icon="orders"
           jumpEvent={props.clickJump}
-          cover={true}
         ></ListItem>
       </ul>
     </StyledProfile>
