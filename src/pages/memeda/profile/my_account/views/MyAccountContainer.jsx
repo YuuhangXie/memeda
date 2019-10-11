@@ -10,7 +10,7 @@ import MyAccountUI from "./MyAccountUI";
 
 export default class MyAccountContainer extends Component {
   state = {
-    userInfo: storage.get("userlist")[0]
+    ...storage.get("userlist")[0]
   }
   render() {
     return (
@@ -19,7 +19,7 @@ export default class MyAccountContainer extends Component {
         changeHead={this.handleChangeHead.bind(this)}
         changeName={this.handleChangeName.bind(this)}
         changeSex={this.handleChangeSex.bind(this)}
-        userInfo={this.state.userInfo}
+        userInfo={this.state}
       >
       </MyAccountUI>
     )
@@ -75,15 +75,12 @@ export default class MyAccountContainer extends Component {
   }
 
   handleChangeSex(sex) {
-    this.state.userInfo = {
-      ...this.state.userInfo,
+    this.setState({
       sex
-    };
-    this.setState({}, () => {
+    }, () => {
       // alert("更改性别为" + sex);
-      // console.log(this.state.userInfo);
       storage.set("userlist", [
-        this.state.userInfo,
+        this.state,
         storage.get("userlist")[1]
       ]);
     });
