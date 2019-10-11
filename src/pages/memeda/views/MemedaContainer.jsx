@@ -4,9 +4,9 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 // 引入全屏组件
 import Home from '../home/Home'
 import { Profile } from "../profile/"
-import Gift from '../gift/view/index'
+import { Gift } from '../gift/index.js'
 import Album from '../album/index'
-import Diary from '../diary/index'
+import { Diary } from '../diary/index.js'
 import Anniversary from '../anniversary/index'
 import Period from '../period/view/Index'
 import { Chat } from '../../memeda/chat/'
