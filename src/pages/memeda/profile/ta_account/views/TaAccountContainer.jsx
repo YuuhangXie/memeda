@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 
-import StyledTaAccount from "./StyledTaAccount";
+import storage from "utils/storage";
 
-import Navbar from "pages/index/profile/components/nav_bar/Navbar";
+import TaAccountUI from "./TaAccountUI";
 
-export default class TaAccount extends Component {
+export default class TaAccountContainer extends Component {
+  state = {
+    userInfo: storage.get("userlist")[1],
+    cover: false
+  }
   render() {
     return (
-      <StyledTaAccount>
-        <Navbar 
-          navTitle="另一半账户"
-          goBack={this.handleGoBack.bind(this)}
-          more={true}
-          remove={this.handleRemoveRelationship}
-        ></Navbar>
-      </StyledTaAccount>
+      <TaAccountUI
+        goBack={this.handleGoBack.bind(this)}
+        userInfo={this.state.userInfo}
+        remove={this.handleClickMore.bind(this)}
+        cover={this.state.cover}
+        notCover={this.handleRemoveCover.bind(this)}
+        clickRemoveBtn={this.handleClickRemoveBtn.bind(this)}
+      >
+      </TaAccountUI>
     )
   }
 
@@ -22,7 +27,21 @@ export default class TaAccount extends Component {
     this.props.history.goBack();
   }
 
-  handleRemoveRelationship() {
-    alert("解除关系");
+  handleClickMore() {
+    // alert("解除关系");
+    this.setState({
+      cover: true
+    });
+  }
+
+  handleRemoveCover() {
+    // console.log("remove cover");
+    this.setState({
+      cover: false
+    });
+  }
+
+  handleClickRemoveBtn() {
+    alert("goto login page");
   }
 }

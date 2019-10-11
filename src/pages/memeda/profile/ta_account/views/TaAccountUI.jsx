@@ -1,62 +1,69 @@
 import React from "react";
 
-import StyledMyAccount from "./StyledMyAccount";
+import StyledTaAccount from "./StyledTaAccount";
 
 import Navbar from "pages/index/profile/components/nav_bar/Navbar";
 import ListItem from "pages/index/profile/components/list_item/ListItem";
 
-function MyAccountUI(props) {
+function TaAccountUI(props) {
   return (
-    <StyledMyAccount>
+    <StyledTaAccount>
       <Navbar
-        navTitle="个人账户"
+        navTitle="另一半账户"
         goBack={props.goBack}
+        more={true}
+        remove={props.remove}
       ></Navbar>
 
       <ul>
         <ListItem
           listTitle="头像"
-          rightArrow={true}
-          cover={true}
           rightContent={{
             type: "img",
             content: props.userInfo.head_address
           }}
-          onlyClick={props.changeHead}
         ></ListItem>
 
         <ListItem
           listTitle="昵称"
-          rightArrow={true}
-          cover={true}
           rightContent={{
             type: "text",
-            content: props.userInfo.username
+            content: props.userInfo.ta_username
           }}
-          onlyClick={props.changeName}
         ></ListItem>
 
         <ListItem
           listTitle="性别"
           rightContent={{
             type: "sex",
-            content: props.userInfo.sex,
-            rightAlign: true
+            content: props.userInfo.sex
           }}
-          changeSex={props.changeSex}
         ></ListItem>
 
         <ListItem
           listTitle="恩爱号"
           rightContent={{
             type: "text",
-            content: props.userInfo.usercode,
-            rightAlign: true
+            content: props.userInfo.ta_usercode
           }}
         ></ListItem>
       </ul>
-    </StyledMyAccount>
+      
+      {
+        props.cover ? 
+        <div className="mask" onClick={() => {
+          if(props.notCover)
+            props.notCover()
+        }}>
+          <div className="removeBtn" onClick={() => {
+            if(props.clickRemoveBtn)
+              props.clickRemoveBtn()
+          }}>解除关系</div>
+        </div> :
+        ""
+      }
+    </StyledTaAccount>
   );
 }
 
-export default MyAccountUI
+export default TaAccountUI
