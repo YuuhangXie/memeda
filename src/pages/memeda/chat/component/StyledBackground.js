@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 const BackgroundContainer = styled.div`
-      width: 100%;
-      height: 100%;
-
-      .background-container {
+        width: 100%;
+        height: 100%;
+        .background-container {
             width: 100%;
             height: 100%;
             display: flex;
@@ -32,30 +31,19 @@ const BackgroundContainer = styled.div`
                 }
 
             }
-      }
-      .background-body {
-          flex: 1;
-          padding:.2rem .15rem 0;
-          background: #fff;
-          .album-box {
-            width: 100%;
-            height: .52rem;
-            line-height: .52rem;
-            font-size: .16rem;
-            border: 1px #ddd solid;
-            position: relative;
-
-            input {
-                opacity: 0;
+        }
+        .background-body {
+            flex: 1;
+            background: #fff;
+            color: #000;
+            .album {
+                font-size: .16rem;
+                margin: .15rem;
             }
-            .photo-name {
-                padding-left: .18rem;
-                position: absolute;
-                top: 0;
-                left: 0;
+            .am-image-picker-list {
+                padding:0;
             }
-          }
-      }
+        }
 `
 
 

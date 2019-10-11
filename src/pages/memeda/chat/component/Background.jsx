@@ -46,9 +46,8 @@ export default class Background extends Component {
           </div>
 
           <div className="background-body">
-              <div className="album-box">
-                  <span className="photo-name">从相册选择</span>
-                  <input type="file" accept="image/*" onChange={() => {  }}/>
+              <div className="album">
+                推荐背景
               </div>
 
               <WingBlank>
