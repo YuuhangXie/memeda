@@ -7,6 +7,7 @@ const taWish = require('./gift/tawish.json')
 const users = require('./profile/users_info.json')
 const myWish = require('./gift/mywish.json')
 const giftAva = require('./gift/giftAva.json')
+const getLoveRank = require('./community/getLoveRank.json')
 
 module.exports = function() {
   return {
@@ -18,6 +19,7 @@ module.exports = function() {
     taWish,
     users,
     myWish,
-    giftAva
+    giftAva,
+    getLoveRank
   }
 }
