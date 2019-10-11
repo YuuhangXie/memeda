@@ -8,5 +8,6 @@
   "/api/gift/tawish": "/tawish",
   "/api/gift/mywish": "/mywish",
   "/api/gift/giftava": "/giftava",
-  "/api/comment/getLoveRank": "/getLoveRank"
+  "/api/comment/getLoveRank": "/getLoveRank",
+  "/api/diary/diarycontent": "/diarycontent"
 }

@@ -73,10 +73,12 @@ export default (props) => {
             (props.rightContent.type === "sex" ? 
               <div className={props.rightContent.rightAlign ? "right-align" : ""}>
                 <span className={props.rightContent.content === "男" ? "active" : ""} onClick={() => {
-                  props.changeSex("男")
+                  if(props.changeSex)
+                    props.changeSex("男")
                 }}>男</span>
                 <span className={props.rightContent.content === "女" ? "active" : ""} onClick={() => {
-                  props.changeSex("女")
+                  if(props.changeSex)
+                    props.changeSex("女")
                 }}>女</span>
               </div> 
               : ""
