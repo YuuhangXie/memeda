@@ -35,7 +35,10 @@ export default (props) => {
           </> :
           <>
             <h5 className="title">修改昵称</h5>
-            <input type="text" ref={iptRef} placeholder="请输入" autoFocus />
+            <input type="text" className="change-name" ref={iptRef} placeholder="请输入" autoFocus onKeyDown={(e) => {
+                if(e.keyCode === 13)
+                  props.confirmName(iptRef.current.value)
+            }} />
             <BorderedBtnBox>
               <BorderBtn onClick={() => {
                 props.clickCover()

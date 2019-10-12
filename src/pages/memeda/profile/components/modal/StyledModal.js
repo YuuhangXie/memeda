@@ -39,17 +39,13 @@ const StyledModal = styled.div `
     padding-top: .17rem;
     padding-bottom: .22rem;
   }
-  input{
+  input.change-name{
     flex: 1;
     margin: 0 .35rem .05rem;
     padding-left: .21rem;
     border: 0;
     border-radius: .23rem;
     background: #faeaeb;
-  }
-  .btns{
-    height: .57rem;
-    display: flex;
   }
 `;
 
