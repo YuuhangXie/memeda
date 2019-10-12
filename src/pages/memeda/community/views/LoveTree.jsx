@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Home extends Component {
+export default class LoveTree extends Component {
   render() {
     return (
       <div>
-        period组件
+        
       </div>
     )
   }
