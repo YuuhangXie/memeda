@@ -4,6 +4,7 @@ import StyledMyAccount from "./StyledMyAccount";
 
 import Navbar from "pages/index/profile/components/nav_bar/Navbar";
 import ListItem from "pages/index/profile/components/list_item/ListItem";
+import Modal from "pages/memeda/profile/components/modal/Modal";
 
 function MyAccountUI(props) {
   return (
@@ -55,6 +56,16 @@ function MyAccountUI(props) {
           }}
         ></ListItem>
       </ul>
+
+      {
+        props.userInfo.cover ?
+        <Modal
+          type={props.userInfo.type}
+          clickCover={props.clickCover}
+          confirmName={props.confirmName}
+        ></Modal> :
+        ""
+      }
     </StyledMyAccount>
   );
 }
