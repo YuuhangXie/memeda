@@ -4,13 +4,13 @@ import storage from "utils/storage";
 
 import MyAccountUI from "./MyAccountUI";
 
-// import { Modal } from "antd-mobile";
-
-// import "./modal.css";   //重置Modal组件样式
+import "./modal.css";   //重置Modal组件样式
 
 export default class MyAccountContainer extends Component {
   state = {
-    ...storage.get("userlist")[0]
+    ...storage.get("userlist")[0],
+    cover: false,
+    type: ""
   }
   render() {
     return (
@@ -20,6 +20,8 @@ export default class MyAccountContainer extends Component {
         changeName={this.handleChangeName.bind(this)}
         changeSex={this.handleChangeSex.bind(this)}
         userInfo={this.state}
+        clickCover={this.handleClickCover.bind(this)}
+        confirmName={this.handleConfirmName.bind(this)}
       >
       </MyAccountUI>
     )
@@ -30,48 +32,19 @@ export default class MyAccountContainer extends Component {
   }
 
   handleChangeHead() {
-    alert("更换头像");
-    // const operation = Modal.operation;
-    // operation([
-    //   { text: '拍照', onPress: () => console.log('拍照') },
-    //   { text: '从相册选择', onPress: () => console.log('从相册选择') },
-    //   { text: '取消'},
-    // ])
+    // alert("更换头像");
+    this.setState({
+      type: "operation",
+      cover: true
+    });
   }
 
   handleChangeName() {
-    alert("更换昵称");
-    // const prompt = Modal.prompt;
-    // prompt(
-    //   '修改昵称',
-    //   '',
-    //   [
-    //     { text: '取消' },
-    //     { text: '提交',
-    //       onPress: (text) => {
-    //         // console.log(`昵称为:${text}`)
-    //         if(!text) {
-    //           alert("昵称不能为空!");
-    //         }
-    //         else{
-    //           this.state.userInfo = {
-    //             ...this.state.userInfo,
-    //             username: text
-    //           };
-    //           this.setState({}, () => {
-    //             // alert("更改性别为" + sex);
-    //             // console.log(this.state.userInfo);
-    //             storage.set("userlist", [
-    //               this.state.userInfo,
-    //               storage.get("userlist")[1]
-    //             ]);
-    //           });
-    //         }
-    //       }
-    //     }
-    //   ],
-    //   'default', null, ['请输入']
-    // )
+    // alert("更换昵称");
+    this.setState({
+      type: "prompt",
+      cover: true
+    });
   }
 
   handleChangeSex(sex) {
@@ -80,9 +53,45 @@ export default class MyAccountContainer extends Component {
     }, () => {
       // alert("更改性别为" + sex);
       storage.set("userlist", [
-        this.state,
+        {
+          username: this.state.username,
+          usercode: this.state.usercode,
+          head_address: this.state.head_address,
+          sex: this.state.sex
+        },
         storage.get("userlist")[1]
       ]);
     });
+  }
+
+  handleClickCover() {
+    this.setState({
+      cover: false
+    });
+  }
+
+  handleConfirmName(name) {
+    if(name) {
+      this.setState({
+        username: name,
+        cover: false
+      }, () => {
+        storage.set("userlist", [
+          {
+            username: this.state.username,
+            usercode: this.state.usercode,
+            head_address: this.state.head_address,
+            sex: this.state.sex
+          },
+          storage.get("userlist")[1]
+        ]);
+      });
+    }
+    else {
+      alert("昵称不能为空!");
+      // this.setState({
+      //   cover: false
+      // });
+    }
   }
 }
