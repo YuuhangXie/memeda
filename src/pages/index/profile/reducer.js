@@ -1,10 +1,12 @@
-import { List } from "immutable";
+import { Map, List } from "immutable";
 
-const defaultState = List([]);
+const defaultState = Map({
+  userlist: List([])
+});
 
 export default (state = defaultState, action) => {
   if(action.type === "getUsers") {
-    return state.concat(List(action.data));
+    return state.set("userlist", List(action.data));
   }
   else {
     return state;

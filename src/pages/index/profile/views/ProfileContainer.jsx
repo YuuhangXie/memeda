@@ -4,6 +4,8 @@ import ProfileUI from "./ProfileUI";
 
 import connect from "./connect";    //导入修饰器
 
+import storage from "utils/storage";
+
 @connect
 class ProfileContainer extends Component {
   render() {
@@ -19,7 +21,13 @@ class ProfileContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.loadUsersInfo();
+    if(storage.get("userlist")) {
+      this.props.getUsersInfoFromStorage();
+      this.forceUpdate();
+    }
+    else {
+      this.props.loadUsersInfo();
+    }
   }
 
   handleClickJump(path) {
