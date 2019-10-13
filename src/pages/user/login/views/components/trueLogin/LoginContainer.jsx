@@ -23,8 +23,8 @@ import {
 } from 'react-router-dom'
 
 import LoginUI from './LoginUI'
-import DynamicPwd from './components/DynamicPwd'
-import ForgetPwd from './components/ForgetPwd'
+import DynamicPwd from '../dynamic/DynamicPwd'
+import ForgetPwd from '../forget/ForgetPwd'
 
 export default class Login extends PureComponent {
   render() {

@@ -1,7 +1,7 @@
-import React, { PurComponent } from 'react'
+import React, { PureComponent } from 'react'
 import BgContainer from './StyledBg'
 
-export default class LoginBg extends PurComponent {
+export default class LoginBg extends PureComponent {
   render() {
     return (
       <BgContainer>
