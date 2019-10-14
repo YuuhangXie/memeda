@@ -10,8 +10,8 @@
     "http-proxy-middleware": "^0.20.0",
     "immutable": "^4.0.0-rc.12",
     "json-server": "^0.15.1",
-    "moment": "^2.24.0",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "pm2": "^3.5.1",
     "rc-form": "^2.4.9",
     "react": "16.8",
@@ -23,7 +23,8 @@
     "redux": "^4.0.4",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "swiper": "^5.0.4"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -31,7 +32,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
-    "mockuser": "json-server --watch ./src/mock/user.json -p 9001"
+    "mockuser": "json-server --watch ./src/mock/user.json -p 9001",
+    "aaaa": "json-server --watch ./src/mock/db.json -p 9009",
+    "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010"
   },
   "eslintConfig": {
     "extends": "react-app"
