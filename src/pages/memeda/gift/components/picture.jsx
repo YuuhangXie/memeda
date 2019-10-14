@@ -14,6 +14,17 @@ export default class Home extends Component {
       this.props.changeProps(e, address)
   }
 
+  getDataURL(e){
+    Array.from(e.target.files).forEach(element => {
+      var reader = new FileReader()
+      reader.onload = function(e) {
+        var url = e.target.result
+        console.log(url)
+      }
+      reader.readAsDataURL(element)
+    })
+  }
+
   render() {
     return (
         <GiftContainer>

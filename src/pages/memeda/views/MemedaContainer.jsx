@@ -7,7 +7,7 @@ import { Profile } from "../profile/"
 import { Gift } from '../gift/index.js'
 import Album from '../album/index'
 import { Diary } from '../diary/index.js'
-import Anniversary from '../anniversary/index'
+import { Anniversary } from '../anniversary/index.js'
 import Period from '../period/view/Index'
 import { Chat } from '../../memeda/chat/'
 

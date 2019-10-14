@@ -5,6 +5,8 @@ import StyledTaAccount from "./StyledTaAccount";
 import Navbar from "pages/index/profile/components/nav_bar/Navbar";
 import ListItem from "pages/index/profile/components/list_item/ListItem";
 
+import Cover from "pages/memeda/profile/components/cover/Cover";
+
 function TaAccountUI(props) {
   return (
     <StyledTaAccount>
@@ -51,15 +53,12 @@ function TaAccountUI(props) {
       
       {
         props.cover ? 
-        <div className="mask" onClick={() => {
-          if(props.notCover)
-            props.notCover()
-        }}>
+        <Cover clickCover={props.notCover}>
           <div className="removeBtn" onClick={() => {
             if(props.clickRemoveBtn)
               props.clickRemoveBtn()
           }}>解除关系</div>
-        </div> :
+        </Cover> :
         ""
       }
     </StyledTaAccount>
