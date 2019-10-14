@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Home extends Component {
+export default class ForgetPwd extends Component {
   render() {
     return (
       <div>
-        album组件
+        forget
       </div>
     )
   }

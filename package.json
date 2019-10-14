@@ -32,6 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
+    "mockuser": "json-server --watch ./src/mock/user.json -p 9001",
     "aaaa": "json-server --watch ./src/mock/db.json -p 9009",
     "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010"
   },
