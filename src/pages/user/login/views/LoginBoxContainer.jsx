@@ -20,5 +20,5 @@ export default class LoginBox extends PureComponent {
         </div>
       </LoginBoxContainer>
     )
-  }
+  }   
 }
