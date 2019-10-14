@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginContainer from './StyledLogin'
-import LoginForm from './components/LoginForm'
+import LoginForm from '../LoginForm'
 
 
 export default props => {

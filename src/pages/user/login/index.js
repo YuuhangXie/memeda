@@ -1,4 +1,4 @@
-import Login from './views/LoginContainer'
+import Login from './views/LoginBoxContainer'
 
 export {
   Login
