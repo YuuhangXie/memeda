@@ -1,0 +1,74 @@
+{
+  "userlist": [
+    {
+      "id": 13520611622,
+      "password": "text213",
+      "nickname": "李健",
+      "sex": "男",
+      "head_img": "http://pz394k5aw.bkt.clouddn.com/WeChate3ec614be052ecf701a6a2d89d50d8a5@3x.png",
+      "age": 23,
+      "lover_code": 888888,
+      "bind_status": true,
+      "fund_status": true,
+      "register_date": "2019-10-11",
+      "will_bind_info": {
+        "lover_code": 666666
+      },
+      "bind_info": {
+        "id": 13520611623,
+        "nickname": "颖宝",
+        "sex": "女",
+        "head_img": "http://pz394k5aw.bkt.clouddn.com/WeChat18ab88ae51ded08e8c1ba0cc10c4f985@3x.png",
+        "age": 22,
+        "register_date": "2019-10-8",
+        "lover_code": 666666
+      }
+    },
+    {
+      "id": 13520611624,
+      "password": "text2134",
+      "nickname": "颖宝",
+      "sex": "女",
+      "head_img": "http://pz394k5aw.bkt.clouddn.com/WeChat18ab88ae51ded08e8c1ba0cc10c4f985@3x.png",
+      "age": 22,
+      "lover_code": 666666,
+      "bind_status": true,
+      "fund_status": true,
+      "register_date": "2019-10-8",
+      "will_bind_info": {
+        "lover_code": 888888
+      },
+      "bind_info": {
+        "id": 13520611622,
+        "nickname": "李健",
+        "sex": "男",
+        "head_img": "http://pz394k5aw.bkt.clouddn.com/WeChate3ec614be052ecf701a6a2d89d50d8a5@3x.png",
+        "age": 23,
+        "register_date": "2019-10-11",
+        "lover_code": 888888
+      }
+    },
+    {
+      "id": 13520611623,
+      "password": "123xieyuhang",
+      "nickname": "小明",
+      "sex": "女",
+      "head_img": "https://xxxxxxxx.com",
+      "age": 23,
+      "lover_code": 888888,
+      "bind_status": false,
+      "fund_status": false,
+      "will_bind_info": {
+        "lover_code": ""
+      },
+      "bind_info": {
+        "id": "",
+        "sex": "",
+        "nickname": "",
+        "head_img": "",
+        "age": "",
+        "lover_code": ""
+      }
+    }
+  ]
+}

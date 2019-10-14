@@ -150,7 +150,7 @@ storage.set('userInfo', {
 }) // 自动转换为字符串存储
 
 // remove
-storage.remove('isSignin)
+storage.remove('isSignin')
 ```
 
 ## 关于路由
