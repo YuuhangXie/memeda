@@ -13,7 +13,14 @@ import orders from "images/profile/main/orders.png";
 
 export default (props) => {
   return (
-    <StyledListItem>
+    <StyledListItem onClick={() => {
+      if(typeof props.jumpEvent === "function") {
+        props.jumpEvent(`/${props.icon}`)
+      }
+      else if(typeof props.onlyClick === "function") {
+        props.onlyClick()
+      }
+    }}>
       <div className="leftPart">
         {
           (() => {
@@ -88,16 +95,6 @@ export default (props) => {
           props.rightArrow ? <img className="more" src={rightArrow} alt=""/> : ""
         }
       </div>
-      {
-        props.cover ? <div className="cover" onClick={() => {
-                        if(typeof props.jumpEvent === "function") {
-                          props.jumpEvent(`/${props.icon}`)
-                        }
-                        else if(typeof props.onlyClick === "function") {
-                          props.onlyClick()
-                        }
-                      }}></div> : ""
-      }
     </StyledListItem>
   );
 }

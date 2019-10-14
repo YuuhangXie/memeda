@@ -14,7 +14,7 @@ export default class Rank extends Component {
     user: []
   }
 
-  async componentDidMount() {
+  async componentDidMount() { 
     let data = await ApiService.customRequest({
       url: '/api/comment/getLoveRank',
       method: 'get'
