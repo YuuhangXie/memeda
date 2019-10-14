@@ -115,6 +115,18 @@ const ListItem = styled.li `
         }
       }
     }
+    .reward-btn{
+      display: inline-block;
+      width: .5rem;
+      height: .18rem;
+      line-height: .18rem;
+      text-align: center;
+      font-size: .12rem;
+      color: #fff;
+      font-weight: 300;
+      border-radius: .09rem;
+      background: #f09199;
+    }
   }
   .cover{
     width: 100%;

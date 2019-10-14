@@ -6,7 +6,7 @@ import storage from "utils/storage";
 
 const mapState = (state) => {
   return {
-    userList: state.get("profile")
+    userList: state.getIn(["profile", "userlist"])
   };
 }
 
@@ -18,6 +18,12 @@ const mapDispatch = (dispatch) => {
       dispatch({
         type: "getUsers",
         data: result.UserList
+      });
+    },
+    getUsersInfoFromStorage() {
+      dispatch({
+        type: "getUsers",
+        data: storage.get("userlist")
       });
     }
   }

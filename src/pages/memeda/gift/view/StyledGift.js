@@ -8,6 +8,7 @@ const GiftContainer = styled.div `
             display: flex;
             flex-direction: column;
             width: 100%;
+            background-color: #ffffff;
         }
         .header-container {
             display: flex;
@@ -137,7 +138,7 @@ const GiftContainer = styled.div `
         textarea {
             border: none;
             font-size: 16px;
-            margin: 0.13rem 0 0 0.21rem;
+            margin: 0.13rem 0.21rem 0 0.21rem;
         }
         .delete-btn {
             display: inline-block;
