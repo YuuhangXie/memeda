@@ -17,7 +17,14 @@ const mapDispatch = (dispatch) => {
         ...storage.get("userInfo"),
         ...data
       };
-      await ApiService.patch("/userlist/" + id, data);
+      let res1 = await ApiService.patch("/userlist/" + id, data);
+      let res2 = await ApiService.get("/userlist/" + res1.bind_info.id);
+      await ApiService.patch("/userlist/" + res2.id, {
+        bind_info: {
+          ...res2.bind_info,
+          ...data
+        }
+      });
       storage.set("userInfo", userInfo);
       dispatch({
         type: "getUsers",

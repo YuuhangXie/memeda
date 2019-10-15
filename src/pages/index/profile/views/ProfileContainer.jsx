@@ -26,7 +26,7 @@ class ProfileContainer extends Component {
       this.forceUpdate();
     }
     else {
-      this.props.loadUsersInfo("13520611622");
+      this.props.loadUsersInfo("13520611623");
     }
   }
 

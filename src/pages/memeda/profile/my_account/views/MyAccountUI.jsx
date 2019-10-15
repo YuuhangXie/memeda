@@ -63,6 +63,8 @@ function MyAccountUI(props) {
           type={props.type}
           clickCover={props.clickCover}
           confirmName={props.confirmName}
+          confirmHeadImg={props.confirmHeadImg}
+          multiple={props.multiple}
         ></Modal> :
         ""
       }

@@ -70,6 +70,7 @@ const ListItem = styled.li `
     img.head{
       width: .35rem;
       height: .35rem;
+      border-radius: 50%;
     }
     span{
       font-weight: 300;

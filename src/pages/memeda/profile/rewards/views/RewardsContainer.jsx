@@ -4,11 +4,12 @@ import RewardsUI from "./RewardsUI";
 
 export default class Rewards extends Component {
   state = {
-    received1: true,
+    received1: false,
     received2: false,
     received3: false,
     received4: false,
-    received5: false
+    received5: false,
+    showReward: "notshow"
   }
   render() {
     return (
@@ -21,7 +22,7 @@ export default class Rewards extends Component {
           "每日种树领取红包"
         ]}
         received={this.state}
-        haveReceivedRewards={this.handleReceived.bind(this)}
+        haveReceived={this.handleReceived.bind(this)}
       ></RewardsUI>
     )
   }
@@ -30,5 +31,11 @@ export default class Rewards extends Component {
     this.props.history.goBack();
   }
 
-  handleReceived() {}
+  handleReceived(title) {
+    if(title === "领取") {
+      this.setState({
+        showReward: "notOpen"
+      });
+    }
+  }
 }

@@ -19,14 +19,14 @@ export default (props) => {
           <>
             <span>
               拍照
-              <input type="file" accept="image/*" capture="camera" onClick={() => {
-                props.clickCover()
+              <input id="camera-img" type="file" accept="image/*" capture="camera" multiple={props.multiple} onChange={(e) => {
+                if(props.confirmHeadImg)  props.confirmHeadImg(e.target.files)
               }} />
             </span>
             <BorderedSpan>
               从相册选择
-              <input type="file" accept="image/*" onClick={() => {
-                props.clickCover()
+              <input id="album-img" type="file" accept="image/*" multiple={props.multiple} onChange={(e) => {
+                if(props.confirmHeadImg)  props.confirmHeadImg(e.target.files)
               }} />
             </BorderedSpan>
             <span onClick={() => {

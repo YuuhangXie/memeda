@@ -15,4 +15,9 @@ module.exports = function(app) {
     target: 'http://localhost:9001',
     changeOrigin: true
   }))
+
+  app.use('/pic', proxy({
+    target: 'http://lvyunfei.com',
+    changeOrigin: true
+  }))
 }
