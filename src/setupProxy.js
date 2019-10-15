@@ -10,4 +10,9 @@ module.exports = function(app) {
     target: 'http://localhost:9999',
     changeOrigin: true,
   }))
+
+  app.use('/userlist', proxy({
+    target: 'http://localhost:9001',
+    changeOrigin: true
+  }))
 }

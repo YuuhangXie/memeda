@@ -18,19 +18,22 @@ export default (props) => {
           listTitle="每日登录领取红包"
           rightContent={{
             type: "btn",
-            content: "领取"
+            content: (props.received && props.received.received1) ? "已领取" : "领取"
           }}
+          received={props.received && props.received.received1}
         ></ListItem>
         {
           props.missionList
-          ? props.missionList.map((item) => {
+          ? props.missionList.map((item, index) => {
             return (
               <ListItem
                 listTitle={item}
                 rightContent={{
                   type: "btn",
-                  content: "去完成"
+                  content: (props.received && props.received[`reveived${index+2}`]) ? "已领取" : "去完成"
                 }}
+                received={props.received && props.received[`reveived${index+2}`]}
+                key={index}
               ></ListItem>
             );
           })

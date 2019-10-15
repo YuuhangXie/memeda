@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import axios from 'utils/api.service.js'
+// import axios from 'utils/api.service.js'
 
 import Back from 'images/gift/back.png'
 

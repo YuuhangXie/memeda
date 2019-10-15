@@ -127,6 +127,10 @@ const ListItem = styled.li `
       border-radius: .09rem;
       background: #f09199;
     }
+    .received{
+      background: #f3f3f3;
+      color: #c4c3c3;
+    }
   }
   .cover{
     width: 100%;

@@ -12,12 +12,16 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    async loadUsersInfo(id) {
-      let result = await ApiService.customRequest("/userlist?id=" + id);    //实际请求时应该使用post方法，参数为用户id
-      storage.set("userInfo", result[0]);
+    async changeUsersInfo(id, data) {
+      let userInfo = {
+        ...storage.get("userInfo"),
+        ...data
+      };
+      await ApiService.patch("/userlist/" + id, data);
+      storage.set("userInfo", userInfo);
       dispatch({
         type: "getUsers",
-        data: result[0]
+        data: userInfo
       });
     },
     getUsersInfoFromStorage() {
@@ -26,7 +30,7 @@ const mapDispatch = (dispatch) => {
         data: storage.get("userInfo")
       });
     }
-  }
+  };
 }
 
 export default connect(mapState, mapDispatch)

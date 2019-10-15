@@ -12,7 +12,7 @@ class ProfileContainer extends Component {
     // console.log(this.props.userList.toJS());
     return (
       <ProfileUI
-        users={this.props.userList.toJS()}
+        users={this.props.userInfo}
         clickJump={this.handleClickJump.bind(this)}
         goBack={this.handleGoBack.bind(this)}
       >
@@ -21,12 +21,12 @@ class ProfileContainer extends Component {
   }
 
   componentDidMount() {
-    if(storage.get("userlist")) {
+    if(storage.get("userInfo")) {
       this.props.getUsersInfoFromStorage();
       this.forceUpdate();
     }
     else {
-      this.props.loadUsersInfo();
+      this.props.loadUsersInfo("13520611622");
     }
   }
 
