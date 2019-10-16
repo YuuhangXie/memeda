@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import LoginBoxContainer from './StyledLoginBox'
-import TrueLogin from './components/trueLogin/LoginUI'
+import TrueLogin from './components/trueLogin/TrueLoginUI'
 import DynamicPwd from './components/dynamic/DynamicPwd'
 import ForgetPwd from './components/forget/ForgetPwd'
 
