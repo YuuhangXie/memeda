@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 
 import RewardsUI from "./RewardsUI";
 
+import storage from "utils/storage";
+
 export default class Rewards extends Component {
   state = {
-    received1: false,
-    received2: false,
-    received3: false,
-    received4: false,
-    received5: false,
+    login_reward: storage.get("login_reward") || false,
+    chat_reward: false,
     showReward: "notshow"
   }
   render() {
@@ -16,13 +15,14 @@ export default class Rewards extends Component {
       <RewardsUI
         goBack={this.handleGoBack.bind(this)}
         missionList={[
-          "每日聊天领取红包",
           "邀请好友领取红包",
           "每充值恋爱基金一次领取红包",
           "每日种树领取红包"
         ]}
         received={this.state}
         haveReceived={this.handleReceived.bind(this)}
+        open={this.handleOpenHB.bind(this)}
+        opened={this.handleOpenedHB.bind(this)}
       ></RewardsUI>
     )
   }
@@ -36,6 +36,24 @@ export default class Rewards extends Component {
       this.setState({
         showReward: "notOpen"
       });
+    } else if(title === "去完成") {
+      alert("去完成!");
+    } else {
+      alert("已经领取过了,请明天再来领取!");
     }
+  }
+
+  handleOpenHB() {
+    this.setState({
+      showReward: "opened"
+    });
+  }
+
+  handleOpenedHB() {
+    this.setState({
+      showReward: "notshow",
+      login_reward: true
+    });
+    storage.set("login_reward", true);
   }
 }
