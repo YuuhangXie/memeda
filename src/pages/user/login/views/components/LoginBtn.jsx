@@ -8,11 +8,7 @@ export default class LoginForm extends Component {
       <FormContainer>
         <form className="loginForm" action="">
           <PhoneItem></PhoneItem>
-          <PhoneItem></PhoneItem>
-          <PhoneItem></PhoneItem>
-          <PhoneItem></PhoneItem>
         </form>
-
       </FormContainer>
     )
   }

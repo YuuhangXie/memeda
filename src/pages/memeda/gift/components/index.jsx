@@ -8,7 +8,6 @@ import {
 
 import Picture from './picture'
 
-
 import Back from 'images/gift/back.png'
 
 export default class Home extends Component {
@@ -48,19 +47,19 @@ export default class Home extends Component {
                 </div>
                 <div className="gift-body">
                   <div className="body-container">
-                    <div className="our-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/ourwish')}}>
+                    <div className="our-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/wish?our')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={this.state.giftAva.ourAva} alt="头像"/>
                       </div>
                       <span>我们的愿望</span>
                     </div>
-                    <div className="my-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/mywish')}}>
+                    <div className="my-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/wish?my')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={this.state.giftAva.myAva} alt="头像"/>
                       </div>
                       <span>我的愿望</span>
                     </div>
-                    <div className="ta-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/tawish')}}>
+                    <div className="ta-wish wish-box"  onClick={() => {this.props.history.push( '/memeda/gift/wish?ta')}}>
                       <div className="ava-container"  onClick={(e) => this.modificationPage(e)}>
                         <img src={this.state.giftAva.taAva} alt="头像"/>
                       </div>

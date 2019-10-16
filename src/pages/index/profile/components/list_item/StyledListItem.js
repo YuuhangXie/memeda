@@ -70,6 +70,7 @@ const ListItem = styled.li `
     img.head{
       width: .35rem;
       height: .35rem;
+      border-radius: 50%;
     }
     span{
       font-weight: 300;
@@ -126,6 +127,10 @@ const ListItem = styled.li `
       font-weight: 300;
       border-radius: .09rem;
       background: #f09199;
+    }
+    .received{
+      background: #f3f3f3;
+      color: #c4c3c3;
     }
   }
   .cover{

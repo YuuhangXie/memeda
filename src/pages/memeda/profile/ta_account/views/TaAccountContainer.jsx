@@ -6,14 +6,17 @@ import TaAccountUI from "./TaAccountUI";
 
 export default class TaAccountContainer extends Component {
   state = {
-    userInfo: storage.get("userlist")[1],
+    username: storage.get("userInfo").bind_info.nickname,
+    sex: storage.get("userInfo").bind_info.sex,
+    usercode: storage.get("userInfo").bind_info.lover_code,
+    head_address: storage.get("userInfo").bind_info.head_img,
     cover: false
   }
   render() {
     return (
       <TaAccountUI
         goBack={this.handleGoBack.bind(this)}
-        userInfo={this.state.userInfo}
+        userInfo={this.state}
         remove={this.handleClickMore.bind(this)}
         cover={this.state.cover}
         notCover={this.handleRemoveCover.bind(this)}

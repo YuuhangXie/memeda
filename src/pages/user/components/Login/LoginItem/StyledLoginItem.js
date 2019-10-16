@@ -9,7 +9,6 @@ const ItemContainer = styled.div`
   i img{
     width: .26rem;
     height: .26rem;
-    margin-right: 
   }
   input{
     flex: 1;

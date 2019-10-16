@@ -21,7 +21,7 @@ function MyAccountUI(props) {
           cover={true}
           rightContent={{
             type: "img",
-            content: props.userInfo.head_address
+            content: props.userInfo && props.userInfo.head_img
           }}
           onlyClick={props.changeHead}
         ></ListItem>
@@ -32,7 +32,7 @@ function MyAccountUI(props) {
           cover={true}
           rightContent={{
             type: "text",
-            content: props.userInfo.username
+            content: props.userInfo && props.userInfo.nickname
           }}
           onlyClick={props.changeName}
         ></ListItem>
@@ -41,7 +41,7 @@ function MyAccountUI(props) {
           listTitle="性别"
           rightContent={{
             type: "sex",
-            content: props.userInfo.sex,
+            content: props.userInfo && props.userInfo.sex,
             rightAlign: true
           }}
           changeSex={props.changeSex}
@@ -51,18 +51,20 @@ function MyAccountUI(props) {
           listTitle="恩爱号"
           rightContent={{
             type: "text",
-            content: props.userInfo.usercode,
+            content: props.userInfo && props.userInfo.lover_code,
             rightAlign: true
           }}
         ></ListItem>
       </ul>
 
       {
-        props.userInfo.cover ?
+        props.cover ?
         <Modal
-          type={props.userInfo.type}
+          type={props.type}
           clickCover={props.clickCover}
           confirmName={props.confirmName}
+          confirmHeadImg={props.confirmHeadImg}
+          multiple={props.multiple}
         ></Modal> :
         ""
       }

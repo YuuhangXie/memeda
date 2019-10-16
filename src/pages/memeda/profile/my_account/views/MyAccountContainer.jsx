@@ -6,9 +6,13 @@ import MyAccountUI from "./MyAccountUI";
 
 import "./modal.css";   //重置Modal组件样式
 
-export default class MyAccountContainer extends Component {
+import connect from "./connect";
+
+import ApiService from "utils/api.service";
+
+@connect
+class MyAccountContainer extends Component {
   state = {
-    ...storage.get("userlist")[0],
     cover: false,
     type: ""
   }
@@ -19,12 +23,22 @@ export default class MyAccountContainer extends Component {
         changeHead={this.handleChangeHead.bind(this)}
         changeName={this.handleChangeName.bind(this)}
         changeSex={this.handleChangeSex.bind(this)}
-        userInfo={this.state}
+        userInfo={this.props.userInfo}
+        cover={this.state.cover}
+        type={this.state.type}
         clickCover={this.handleClickCover.bind(this)}
         confirmName={this.handleConfirmName.bind(this)}
+        confirmHeadImg={this.handleConfirmHeadImg.bind(this)}
+        multiple={false}
       >
       </MyAccountUI>
     )
+  }
+
+  componentDidMount() {
+    if(storage.get("userInfo")) {
+      this.props.getUsersInfoFromStorage();
+    }
   }
 
   handleGoBack() {
@@ -51,16 +65,9 @@ export default class MyAccountContainer extends Component {
     this.setState({
       sex
     }, () => {
-      // alert("更改性别为" + sex);
-      storage.set("userlist", [
-        {
-          username: this.state.username,
-          usercode: this.state.usercode,
-          head_address: this.state.head_address,
-          sex: this.state.sex
-        },
-        storage.get("userlist")[1]
-      ]);
+      this.props.changeUsersInfo("13520611623", {
+        sex
+      });
     });
   }
 
@@ -76,22 +83,44 @@ export default class MyAccountContainer extends Component {
         username: name,
         cover: false
       }, () => {
-        storage.set("userlist", [
-          {
-            username: this.state.username,
-            usercode: this.state.usercode,
-            head_address: this.state.head_address,
-            sex: this.state.sex
-          },
-          storage.get("userlist")[1]
-        ]);
+        this.props.changeUsersInfo("13520611623", {
+          nickname: name
+        });
       });
     }
     else {
       alert("昵称不能为空!");
-      // this.setState({
-      //   cover: false
-      // });
+    }
+  }
+
+  async handleConfirmHeadImg(files) {
+    if(files[0].name.match(/\.jpg|\.gif|\.png|\.bmp/i)) {
+      let data = new FormData();
+      let arr = files[0].name.split(".");
+      let ext = arr[arr.length - 1];
+      let randomNum = parseInt(Math.random() * 100000);
+      data.append('img_name', `profile_headimg_${randomNum}`);
+      data.append('img', files[0]);
+      let result = await ApiService.customRequest({
+        url: '/pic/photo/save',
+        method: 'post',
+        headers: {
+          'content-type': 'multipart/form-data'
+        },
+        data
+      });
+      if(result.ret) {
+        this.props.changeUsersInfo("13520611623", {
+          head_img: `http://lvyunfei.com/pic/profile_headimg_${randomNum}.${ext}`
+        });
+      }
+      this.setState({
+        cover: false
+      });
+    } else {
+      alert("请选择正确的图片格式!");
     }
   }
 }
+
+export default  MyAccountContainer

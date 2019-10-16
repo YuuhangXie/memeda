@@ -2,22 +2,22 @@ import React, { Component } from 'react'
 
 import Back from 'images/gift/back.png'
 
-import axios from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 
 import {
     GiftContainer
 } from '../view/StyledGift'
 
 export default class Home extends Component {
-  state = {
-    ourwish: []
-  }
+  keepWish() {
+    let giftMenu = storage.get('giftChosed')
+    storage.set('giftChosed', [{
+        id: giftMenu.length,
+        content: this.refs.textBox.value,
+        choose: false
+    }, ...storage.get('giftChosed')])
 
-  async componentDidMount() {
-      let result = await axios.get('/api/gift/tawish')
-      this.setState({
-          ourwish: result.data.ourWish
-      })
+    this.props.history.push('/memeda/gift/wish?our')
   }
 
   render() {
@@ -29,9 +29,9 @@ export default class Home extends Component {
                         <img src={Back} alt="返回"/>
                     </div>
                     <span className="title">{this.props.location.search.split('?')[1] === 'our' ? '我们的愿望' : '我的愿望'}</span>
-                    <span className="keep-btn">保存</span>
+                    <span className="keep-btn" onClick={() => this.keepWish()}>保存</span>
                 </div>
-                <textarea name="content" id="textarea" cols="30" rows="10"></textarea>
+                <textarea ref="textBox" name="content" id="textarea" cols="30" rows="10"></textarea>
             </div>    
         </GiftContainer>
     )
