@@ -21,6 +21,8 @@ export default class Upload extends Component {
         clickCover={this.handleClickCover.bind(this)}
         cancel={this.handleCancel.bind(this)}
         upload={this.handleUpload.bind(this)}
+        confirmHeadImg={this.handleConfirmHeadImg.bind(this)}
+        multiple={true}
       >
       </UploadUI>
     )
@@ -89,5 +91,13 @@ export default class Upload extends Component {
 
   handleUpload() {
     alert("上传");
+  }
+  
+  handleConfirmHeadImg(files) {
+    console.log(files);
+    this.setState({
+      showCarema: true,
+      cover: false
+    });
   }
 }

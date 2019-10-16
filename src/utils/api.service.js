@@ -17,8 +17,8 @@ const ApiService = {
       res => res.data
     )
   },
-  put(resource, data) {
-    return axios.put(resource, data).then(
+  patch(resource, data) {
+    return axios.patch(resource, data).then(
       res => res.data
     )
   },

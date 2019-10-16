@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 
-<<<<<<< HEAD
-=======
-// import ApiService from 'utils/api.service.js'
->>>>>>> dev-psj
-
 import Back from 'images/gift/back.png'
 
 import { AnniverContainer } from '../view/StyledAnniver'

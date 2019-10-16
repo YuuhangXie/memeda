@@ -18,20 +18,20 @@ function ProfileUI(props) {
         <div className="userInfo" onClick={() => {
           props.clickJump("/myAccount")
         }}>
-          <img src={props.users[0] ? props.users[0].head_address : "http://placehold.it/52x52"} alt="" className="head"/>
+          <img src={props.users ? props.users.head_img : "http://placehold.it/52x52"} alt="" className="head"/>
           <div className="infoText">
-            <span className="username">{props.users[0] ? props.users[0].username : ""}</span>
-            <span className="usercode">{props.users[0] ? props.users[0].usercode : ""}</span>
+            <span className="username">{props.users ? props.users.nickname : ""}</span>
+            <span className="usercode">{props.users ? props.users.lover_code : ""}</span>
           </div>
         </div>
         <div className="userInfo" onClick={() => {
           props.clickJump("/taAccount")
         }}>
           <div className="infoText">
-            <span className="username">{props.users[1] ? props.users[1].ta_username : ""}</span>
-            <span className="usercode">{props.users[1] ? props.users[1].ta_usercode : ""}</span>
+            <span className="username">{props.users ? props.users.bind_info.nickname : ""}</span>
+            <span className="usercode">{props.users ? props.users.bind_info.lover_code : ""}</span>
           </div>
-          <img src={props.users[1] ? props.users[1].head_address : "http://placehold.it/52x52"} alt="" className="head"/>
+          <img src={props.users ? props.users.bind_info.head_img : "http://placehold.it/52x52"} alt="" className="head"/>
         </div>
       </div>
 

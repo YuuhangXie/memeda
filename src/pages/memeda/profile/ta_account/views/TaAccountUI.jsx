@@ -30,7 +30,7 @@ function TaAccountUI(props) {
           listTitle="昵称"
           rightContent={{
             type: "text",
-            content: props.userInfo.ta_username
+            content: props.userInfo.username
           }}
         ></ListItem>
 
@@ -46,7 +46,7 @@ function TaAccountUI(props) {
           listTitle="恩爱号"
           rightContent={{
             type: "text",
-            content: props.userInfo.ta_usercode
+            content: props.userInfo.usercode
           }}
         ></ListItem>
       </ul>

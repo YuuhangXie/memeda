@@ -23,4 +23,9 @@ module.exports = function(app) {
       '^/community': ''
     }
   }))
+
+  app.use('/userlist', proxy({
+    target: 'http://localhost:9001',
+    changeOrigin: true
+  }))
 }

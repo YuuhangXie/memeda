@@ -94,7 +94,9 @@ export default (props) => {
         {
           props.rightContent
           ? (props.rightContent.type === "btn"
-          ? <div className={`reward-btn${props.received ? " received" : ""}`}>{props.rightContent.content}</div>
+          ? <div onClick={() => {
+            if(props.haveReceived)  props.haveReceived(props.rightContent.content)
+          }} className={`reward-btn${props.received ? " received" : ""}`}>{props.rightContent.content}</div>
           : "")
           : ""
         }
