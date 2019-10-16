@@ -19,6 +19,29 @@ const StyledRewards = styled.div `
       left: 0;
     }
   }
+  .reward{
+    position: absolute;
+    z-index: 9999;
+    width: 2.86rem;
+    height: 3.61rem;
+    top: 1rem;
+    left: .45rem;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: .05rem;
+    }
+    div{
+      font-size: .17rem;
+      font-weight: 400;
+      line-height: .24rem;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      position: absolute;
+      top: 1.16rem;
+    }
+  }
 `;
 
 export default StyledRewards

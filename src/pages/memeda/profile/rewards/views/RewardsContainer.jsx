@@ -3,6 +3,14 @@ import React, { Component } from 'react'
 import RewardsUI from "./RewardsUI";
 
 export default class Rewards extends Component {
+  state = {
+    received1: false,
+    received2: false,
+    received3: false,
+    received4: false,
+    received5: false,
+    showReward: "notshow"
+  }
   render() {
     return (
       <RewardsUI
@@ -13,11 +21,21 @@ export default class Rewards extends Component {
           "每充值恋爱基金一次领取红包",
           "每日种树领取红包"
         ]}
+        received={this.state}
+        haveReceived={this.handleReceived.bind(this)}
       ></RewardsUI>
     )
   }
 
   handleGoBack() {
     this.props.history.goBack();
+  }
+
+  handleReceived(title) {
+    if(title === "领取") {
+      this.setState({
+        showReward: "notOpen"
+      });
+    }
   }
 }

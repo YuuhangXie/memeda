@@ -55,6 +55,8 @@ export default (props) => {
           props.cover && <Menu
             clickCover={props.clickCover}
             menulist={["拍照", "从相册选择"]}
+            confirmHeadImg={props.confirmHeadImg}
+            multiple={props.multiple}
           ></Menu>
         }
       </StyledUpload>
