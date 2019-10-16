@@ -24,13 +24,16 @@
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2",
-    "swiper": "^5.0.4"
+    "swiper": "^5.0.4",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "socket": "nodemon server.js",
     "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
     "mockuser": "json-server --watch ./src/mock/user.json -p 9001",
     "aaaa": "json-server --watch ./src/mock/db.json -p 9009",
