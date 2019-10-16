@@ -213,6 +213,26 @@ export default connect(mapState, mapDispatch)
 // 请务必记住以上起始路径。
 ```
 
+## 关于json-server
+```js
+  GET => 查询某条记录
+  http://localhost:6666/showList/1
+  http://localhost:6666/showList?id=1
+  POST => 添加一条记录
+  http://localhost:6666/showList/
+  data: {
+    id: 123,
+    ....
+  }
+  PATCH => 更改一条记录
+  http://localhost:6666/showList/1  最后为id
+  data: {
+    修改的数据...
+  }
+  DELETE => 删除一条记录
+  http://localhost:6666/showList/333 最后为id
+```
+
 ## 当前目录结构
 ```
 ├── App.js
