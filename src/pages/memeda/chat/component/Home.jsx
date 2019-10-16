@@ -5,8 +5,6 @@ import {HomeContainer } from './StyledHome'
 import Back from 'images/gift/back.png'
 import Setting from 'images/chat/setting.png'
 import Voice from 'images/chat/voice.png'
-import Emoji from 'images/chat/emoji.png'
-import Picture from 'images/chat/picture.png'
 import History from 'images/chat/history.png'
 import Background from 'images/chat/background.png'
 
@@ -94,11 +92,9 @@ export default class ChatContainer extends Component {
               <div className="inputs">
                 <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
               </div>
-              <div className="emoji">
-                <img src={Emoji} alt="表情"/>
-              </div>
-              <div className="picture" onClick={()=>this.sendHandle()}>
-                <img src={Picture} alt="图片"/>
+
+              <div className="send" onClick={()=>this.sendHandle()}>
+                <button>发送</button>
               </div>
             </div>
           </div>
