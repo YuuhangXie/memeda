@@ -34,7 +34,9 @@
     "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
     "mockuser": "json-server --watch ./src/mock/user.json -p 9001",
     "mockcomm": "json-server --watch ./src/mock/community/community.json -p 9099",
-    "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010"
+    "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010",
+    "mockwish": "json-server --watch ./src/mock/gift/wish.json -p 9009",
+    "mockdiary": "json-server --watch ./src/mock/diary/diartMain.json -p 9089"
   },
   "eslintConfig": {
     "extends": "react-app"

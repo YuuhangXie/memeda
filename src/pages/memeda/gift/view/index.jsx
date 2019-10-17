@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import Index from '../components/index'
+import Index from '../components/index/index'
 import Wish from '../components/ourWish/ourWishContainer'
 // import MyWish from '../components/myWish'
 // import TaWish from '../components/taWish'

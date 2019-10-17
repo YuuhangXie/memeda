@@ -8,7 +8,7 @@ import {
     LineContainer
 } from '../view/StyledDiary'
 
-import axios from 'utils/api.service.js'
+import ApiService from 'utils/api.service.js'
 import { PullToRefresh } from 'antd-mobile';
 
 export default class Home extends Component {
@@ -23,9 +23,9 @@ export default class Home extends Component {
     }
 
   async componentDidMount() {
-      let result = await axios.get('/api/diary/diarycontent')
+      let result = await ApiService.get('/diarycontent')
       this.setState({
-          diaryList: result.data.diaryContent
+          diaryList: result
       })
 
       const hei = this.state.height - findDOMNode(this.ptr).offsetTop;

@@ -20,6 +20,7 @@ export default (props) => {
             <span>
               拍照
               <input id="camera-img" type="file" accept="image/*" capture="camera" multiple={props.multiple} onChange={(e) => {
+                
                 if(props.confirmHeadImg)  props.confirmHeadImg(e.target.files)
               }} />
             </span>
