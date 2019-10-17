@@ -33,11 +33,12 @@ const PhoneItemContainer = styled.div`
     width: 1rem;
     height: .32rem;
     background: #F2606C;
-    color: #fff;
+    color: ${props => props.btcolor};
     font-size: .16rem;
     line-height: .32rem;
     text-align: center;
     border-radius: .1rem;
+    border: none;
   }
   .phoneIpt{
     flex: 1;
@@ -69,7 +70,8 @@ class PhoneItem extends Component {
   state = {
     hasError: false,
     value: '',
-    getVali: true
+    getVali: false,
+    getValiNum: 60,
   }
   onErrorClick = () => {
     if (this.state.hasError) {
@@ -91,29 +93,47 @@ class PhoneItem extends Component {
     });
   }
 
-  getValiClick = ()=> {
-    console.log(0)
-    // console.log(this.state.getVali)
-    // if(this.state.getVali){
-    //   console.log(123456)
-    //   this.setState({
-    //     getVali: false
-    //   })
-    //   setTimeout(() => {
-    //     this.setState({
-    //       getVali: true
-    //     })
-    //   }, 30)
-    // }
-    
 
-    
+
+  getValiClick = ()=> {
+    if(!this.state.getVali){
+      this.se = setInterval(()=>{
+        console.log('get')
+        if(this.state.getValiNum > 0){
+          this.setState({
+            getValiNum: this.state.getValiNum - 1
+          })
+        }
+      },1000)
+      this.setState({
+        getVali: true
+      })
+      setTimeout(() => {
+        clearInterval(this.se)
+        this.setState({
+          getVali: false,
+          getValiNum: 60
+        })
+      }, 60000)
+    }
+  }
+  
+  componentDidMount(){
+    console.log(this.state.getValiNum)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.se)
+    this.setState({
+      getVali: false,
+      getValiNum: 60
+    })
   }
 
 
   render() {
     return (
-      <PhoneItemContainer>
+      <PhoneItemContainer btcolor={this.state.getVali ? "#ccc" : "#fff"}>
         <i>
           <img src={PhoneIcon} alt="手机号"/>
         </i>
@@ -127,7 +147,11 @@ class PhoneItem extends Component {
             value={this.state.value}
           ></InputItem>
         </div>
-        <div className="getValidate" onClick={this.getValiClick} >获取验证码</div>
+        <button
+          className="getValidate"
+          onClick={this.getValiClick.bind(this) }
+          disabled={this.state.getVali}
+          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>
       </PhoneItemContainer>
     )
   }
