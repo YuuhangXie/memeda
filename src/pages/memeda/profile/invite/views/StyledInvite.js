@@ -26,6 +26,15 @@ const StyledInvite = styled.div `
     font-weight: 400;
     align-items: center;
     margin: .05rem 0 0 .82rem;
+    #icode{
+      margin-top: .03rem;
+      line-height: .27rem;
+      font-size: .19rem;
+      color: #000;
+      font-weight: 400;
+      border: 0;
+      width: .78rem;
+    }
     span{
       display: inline-block;
       width: .45rem;
@@ -38,6 +47,7 @@ const StyledInvite = styled.div `
       line-height: .17rem;
       text-align: center;
       margin-left: .11rem;
+      margin-top: .04rem;
     }
   }
   .btns{

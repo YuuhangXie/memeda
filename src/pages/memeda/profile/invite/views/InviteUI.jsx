@@ -21,10 +21,8 @@ export default (props) => {
       <span>邀请好友注册成功你将获得红包</span>
 
       <div className="invite-code">
-        邀请码:&nbsp;&nbsp;&nbsp;{props.invite_code}
-        <span onClick={() => {
-          if(props.copy)  props.copy(props.invite_code)
-        }}>复制</span>
+        邀请码&nbsp;:&nbsp;&nbsp;<input id="icode" value={props.invite_code} readOnly />
+        <span className="copy-btn" data-clipboard-target="#icode">复制</span>
       </div>
 
       <div className="btns">
