@@ -8,6 +8,7 @@
       "head_img": "http://lvyunfei.com/pic/profile_headimg_97255.png",
       "age": 23,
       "lover_code": 888888,
+      "invite_code": 3838438,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-11",
@@ -32,6 +33,7 @@
       "head_img": "http://lvyunfei.com/pic/profile_headimg_29013.png",
       "age": 22,
       "lover_code": 666666,
+      "invite_code": 3737437,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-8",
@@ -56,6 +58,7 @@
       "head_img": "https://xxxxxxxx.com",
       "age": 23,
       "lover_code": 888888,
+      "invite_code": 3636436,
       "bind_status": false,
       "fund_status": false,
       "will_bind_info": {

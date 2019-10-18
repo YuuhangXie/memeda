@@ -94,6 +94,7 @@ class MyAccountContainer extends Component {
   }
 
   async handleConfirmHeadImg(files) {
+    if(!files)  return
     if(files[0].name.match(/\.jpg|\.gif|\.png|\.bmp/i)) {
       let data = new FormData();
       let arr = files[0].name.split(".");
@@ -109,6 +110,7 @@ class MyAccountContainer extends Component {
         },
         data
       });
+      alert(result)
       if(result.ret) {
         this.props.changeUsersInfo("13520611623", {
           head_img: `http://lvyunfei.com/pic/profile_headimg_${randomNum}.${ext}`
