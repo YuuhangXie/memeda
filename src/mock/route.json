@@ -3,10 +3,7 @@
   "/api/community/getCommunitys": "/getCommunitys",
   "/api/period": "/period",
   "/api/home": "/home",
-  "/api/gift/ourwish": "/ourwish",
   "/api/profile/users": "/users",
-  "/api/gift/tawish": "/tawish",
-  "/api/gift/mywish": "/mywish",
   "/api/gift/giftava": "/giftava",
   "/api/comment/getLoveRank": "/getLoveRank",
   "/api/diary/diarycontent": "/diarycontent"

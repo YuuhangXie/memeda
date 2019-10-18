@@ -5,16 +5,17 @@ import {HomeContainer } from './StyledHome'
 import Back from 'images/gift/back.png'
 import Setting from 'images/chat/setting.png'
 import Voice from 'images/chat/voice.png'
-import Emoji from 'images/chat/emoji.png'
-import Picture from 'images/chat/picture.png'
 import History from 'images/chat/history.png'
 import Background from 'images/chat/background.png'
+
+import storage from 'utils/storage.js'
 
 export default class ChatContainer extends Component {
   constructor() {
     super()
     this.state = {
-      hide : true
+      hide : true,
+      value : ''
     }
   }
 
@@ -35,6 +36,21 @@ export default class ChatContainer extends Component {
 
   GotoBac() {
     this.props.history.push('/memeda/chat/background')
+  }
+
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  sendHandle() {
+    storage.set('chats', this.state.value)
+    console.log(this.state.value)
+
+    this.setState({
+      value: ''
+    });
   }
 
   render() {
@@ -67,20 +83,18 @@ export default class ChatContainer extends Component {
 
           <div className="chat-body">
             <div className="chatting">
-              chat
+              chats
             </div>
             <div className="inputting">
               <div className="voice">
                 <img src={Voice} alt="语音"/>
               </div>
               <div className="inputs">
-                <input type="text"/>
+                <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
               </div>
-              <div className="emoji">
-                <img src={Emoji} alt="表情"/>
-              </div>
-              <div className="picture">
-                <img src={Picture} alt="图片"/>
+
+              <div className="send" onClick={()=>this.sendHandle()}>
+                <button>发送</button>
               </div>
             </div>
           </div>
