@@ -80,7 +80,6 @@ class Diary extends Component {
                     }}
                 >
                     {_.map(this.state.diaryList, (value, index) => {
-                        console.log(value,index)
                             return(
                                 <div className="diary-box" onClick={() => this.clickHandler(index)} key={value.id}>
                                     <div className="word-content">
