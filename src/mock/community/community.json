@@ -163,7 +163,6 @@
       }
     }
   ],
-  
   "rankList": [
     {
       "rankScore": 5555,
@@ -268,15 +267,30 @@
       ]
     }
   ],
-
   "lovetree": [
     {
       "id": 13520611622,
-      "treelevel": 5,
-      "treepower": 50,
+      "treelevel": 1,
+      "power": 10,
       "maxpower": 200,
       "watering": true,
-      "sunning": false
+      "sunning": true
+    },
+    {
+      "watering": true,
+      "sunning": true,
+      "treelevel": 1,
+      "power": 10,
+      "maxpower": 200,
+      "id": "13520611623"
+    },
+    {
+      "watering": true,
+      "sunning": true,
+      "treelevel": 1,
+      "power": 10,
+      "maxpower": 200,
+      "id": 13520611624
     }
   ]
 }
