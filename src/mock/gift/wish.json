@@ -1,0 +1,102 @@
+{
+  "ourwish": [
+    {
+      "id": 20341,
+      "content": "每个月一起爬一次山",
+      "choose": true
+    },
+    {
+      "content": "坚持每天互相通话1小时",
+      "id": 20342,
+      "choose": true
+    },
+    {
+      "content": "每个月一起约上朋友聚会",
+      "id": 20343,
+      "choose": true
+    },
+    {
+      "content": "一年之内结婚",
+      "id": 20344,
+      "choose": false
+    },
+    {
+      "content": "结婚一年内一起买辆奔驰glc suv",
+      "id": 20345,
+      "choose": false
+    },
+    {
+      "id": 5,
+      "content": "1111111111",
+      "choose": false
+    }
+  ],
+  "myWish": [
+    {
+      "content": "每天坚持锻炼1小时身体",
+      "id": 20351,
+      "choose": true
+    },
+    {
+      "content": "坚持每天互相通话1小时",
+      "id": 20352,
+      "choose": true
+    },
+    {
+      "content": "每天坚持读3页书",
+      "id": 20353,
+      "choose": true
+    },
+    {
+      "content": "每个月必须去她的城市找她一次",
+      "id": 20354,
+      "choose": false
+    },
+    {
+      "content": "攒钱买车",
+      "id": 20355,
+      "choose": false
+    }
+  ],
+  "taWish": [
+    {
+      "content": "每天坚持读书",
+      "id": 20361,
+      "choose": false
+    },
+    {
+      "content": "坚持每天互相通话1小时",
+      "id": 20362,
+      "choose": false
+    },
+    {
+      "content": "每天坚持瑜伽",
+      "id": 20363,
+      "choose": false
+    },
+    {
+      "content": "每个月无论多忙都要抽时间和他在一起",
+      "id": 20364,
+      "choose": false
+    },
+    {
+      "content": "攒钱",
+      "id": 20365,
+      "choose": false
+    }
+  ],
+  "giftavatar": [
+    {
+      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_75613.jpg",
+      "id": 0
+    },
+    {
+      "imgAddress": "http://pz394k5aw.bkt.clouddn.com/WeChat18ab88ae51ded08e8c1ba0cc10c4f985@3x.png",
+      "id": 1
+    },
+    {
+      "imgAddress": "http://pz394k5aw.bkt.clouddn.com/WeChate3ec614be052ecf701a6a2d89d50d8a5@3x.png",
+      "id": 2
+    }
+  ]
+}

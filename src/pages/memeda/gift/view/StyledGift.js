@@ -31,6 +31,7 @@ const GiftContainer = styled.div `
         img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
         }
         .gift-body {
             flex: 1;

@@ -6,7 +6,7 @@ import Back from 'images/gift/back.png'
 import Choose from 'images/gift/choose.png'
 import Delete from 'images/gift/delete.png'
 
-import Determine from './determine/Determine'
+import Determine from '../determine/Determine'
 
 function ourWishUI(props) {
     return(
@@ -15,7 +15,7 @@ function ourWishUI(props) {
                     <div className="back"  onClick={() => props.ourList.hideBtnShow ? props.hideBtn() : props.loadRouter('/memeda/gift/index')}>
                         <img src={Back} alt="返回"/>
                     </div>
-                    <span className="title">我们的愿望</span>
+                    <span className="title">{props.ourList.search === 'our' ? '我们的愿望' : '我的愿望'}</span>
                     <div 
                         className={props.ourList.hideBtnShow ? "hideAva" : "addTip"} 
                         onClick={() => props.loadRouter('/memeda/gift/add?our')}
