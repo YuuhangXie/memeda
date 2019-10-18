@@ -291,6 +291,14 @@
       "power": 10,
       "maxpower": 200,
       "id": 13520611624
+    },
+    {
+      "watering": false,
+      "sunning": false,
+      "treelevel": 1,
+      "power": 0,
+      "maxpower": 200,
+      "id": 13520611625
     }
   ]
 }
