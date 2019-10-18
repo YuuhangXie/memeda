@@ -28,4 +28,14 @@ module.exports = function(app) {
     target: 'http://localhost:9001',
     changeOrigin: true
   }))
+
+  app.use(['/ourwish', '/mywish', '/tawish', '/giftavatar'], proxy({
+    target: 'http://localhost:9009',
+    changeOrigin: true
+  }))
+
+  app.use('/diarycontent', proxy({
+    target: 'http://localhost:9089',
+    changeOrigin: true
+  }))
 }

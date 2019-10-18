@@ -2,11 +2,7 @@ const test = require('./test.json')
 const getCommunitys = require('./community/getCommunitys.json')
 const period = require('./period/period.json')
 const home = require('./home/home.json')
-const ourWish = require('./gift/ourwish.json')
-const taWish = require('./gift/tawish.json')
 const users = require('./profile/profile.json')
-const myWish = require('./gift/mywish.json')
-const giftAva = require('./gift/giftAva.json')
 const getLoveRank = require('./community/getLoveRank.json')
 const diaryContent = require('./diary/diartMain.json')
 
@@ -16,11 +12,7 @@ module.exports = function() {
     getCommunitys,
     period,
     home,
-    ourWish,
-    taWish,
     users,
-    myWish,
-    giftAva,
     getLoveRank,
     diaryContent
   }

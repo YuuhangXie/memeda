@@ -31,15 +31,25 @@ const StyledRewards = styled.div `
       height: 100%;
       border-radius: .05rem;
     }
-    div{
+    div.getHB{
       font-size: .17rem;
-      font-weight: 400;
+      font-weight: 500;
       line-height: .24rem;
       width: 100%;
       color: #fff;
       text-align: center;
       position: absolute;
       top: 1.16rem;
+    }
+    div.openedHB{
+      font-size: .16rem;
+      font-weight: 400;
+      line-height: .28rem;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      position: absolute;
+      top: 1.98rem;
     }
   }
 `;

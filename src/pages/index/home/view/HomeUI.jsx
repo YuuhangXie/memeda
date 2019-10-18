@@ -7,9 +7,9 @@ export default (props) => {
             <div className="home-title">
                 <div className="femaleAva avatar">
                     <div className="avatar-box">
-                        <img src={props.avatar.female.avatarImg} alt="头像"/>
+                        <img src={props.userInfo[1].head_img} alt="头像"/>
                     </div>
-                    <span>{props.avatar.female.name}</span>
+                    <span>{props.userInfo[1].nickname}</span>
                 </div>
                 <div className="homeDate">
                     <span>我们已相爱</span>
@@ -17,9 +17,9 @@ export default (props) => {
                 </div>
                 <div className="maleAva avatar">
                     <div className="avatar-box">
-                        <img src={props.avatar.male.avatarImg} alt="头像"/>
+                        <img src={props.userInfo[0].head_img} alt="头像"/>
                     </div>
-                    <span>{props.avatar.male.name}</span>
+                    <span>{props.userInfo[0].nickname}</span>
                 </div>
             </div>
         </div>

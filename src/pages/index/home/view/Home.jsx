@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import HomeUI from './HomeUI'
 
 
-import axios from 'utils/api.service.js'
+import Apiservice from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 
 import {
   HomeContainer
@@ -13,11 +14,16 @@ export default class Home extends Component {
   state = {
     date: '',
     avatar: {},
-    tabList: []
+    tabList: [],
+    userInfo: []
   }
 
   async componentDidMount() {
-    let result = await axios.get('/api/home')
+    let result = await Apiservice.get('/api/home')
+    this.state.userInfo = await Apiservice.get('/userlist')
+
+    storage.set('userMsg', this.state.userInfo)
+
     this.setState({
       tabList: result.data.tabMsg,
       date: result.data.date,
@@ -37,6 +43,7 @@ export default class Home extends Component {
           tabList={this.state.tabList}
           date={this.state.date}
           avatar={this.state.avatar}
+          userInfo={this.state.userInfo}
         ></HomeUI>
         <div className="home-tabbar">
           <div className="home-member" onClick={() => this.clickHandler('album')} key={this.state.tabList[0].key}>
