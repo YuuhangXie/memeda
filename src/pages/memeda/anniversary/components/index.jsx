@@ -15,22 +15,13 @@ export default class Home extends Component {
                         <img src={Back} alt="返回"/>
                     </div>
                     <span className="title">纪念日</span>
-                    <div className="add">
-                        <img src="http://pz394k5aw.bkt.clouddn.com/jia%20%281%29.png" alt="添加"/>
-                    </div>
                 </div>
                 <div className="date-box">
                     <div className="date-container">
-                        <div className="passed-time">
-                            <div className="anniver-icon">
-                                <img src="http://pz394k5aw.bkt.clouddn.com/301568895059_.pic@3x.png" alt="icon"/>
-                            </div>
-                        </div>
-                        <div className="passed-date">
-                            <span>我们已相爱</span>
-                            
-                        </div>
+                        <img src="http://pz394k5aw.bkt.clouddn.com/timg.jpg" alt="loading"/>
+                        <span>努力开发中，敬请期待……</span>
                     </div>
+                    
                 </div>
             </div>
         </AnniverContainer>

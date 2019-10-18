@@ -1,7 +1,7 @@
-import Diary from './view/index'
+import Album from './view/index'
 import reducer from './reducer'
 
 export {
-    Diary,
+    Album,
     reducer
 }

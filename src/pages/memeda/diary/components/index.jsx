@@ -9,30 +9,43 @@ import {
 } from '../view/StyledDiary'
 
 import ApiService from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 import { PullToRefresh } from 'antd-mobile';
+import connect from './connect'
+import _ from 'lodash'
 
-export default class Home extends Component {
+@connect
+class Diary extends Component {
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
             down: true,
             height: document.documentElement.clientHeight,
-            diaryList: []
+            diaryList: [],
+            userList: []
         };
     }
 
   async componentDidMount() {
       let result = await ApiService.get('/diarycontent')
       this.setState({
-          diaryList: result
+          diaryList: result,
+          userList: await ApiService.get('/userlist')
       })
+      storage.set('diaryContent', result)
 
       const hei = this.state.height - findDOMNode(this.ptr).offsetTop;
         setTimeout(() => this.setState({
             height: hei,
-            data: this.state.diaryList,
+            data: _.reverse(this.state.diaryList),
         }), 0);
+  }
+
+  clickHandler(index) {
+      this.props.getDiaryIndex(index)
+      this.props.history.push('/memeda/diary/detail?' + index)
+      
   }
 
   render() {
@@ -66,20 +79,17 @@ export default class Home extends Component {
                     }, 1000);
                     }}
                 >
-                    {this.state.diaryList.map((value, index) => {
+                    {_.map(this.state.diaryList, (value, index) => {
                             return(
-                                <div className="diary-box" key={value.id}>
+                                <div className="diary-box" onClick={() => this.clickHandler(index)} key={value.id}>
                                     <div className="word-content">
                                         <div className="user-message">
                                             <div className="avatar">
-                                                <img src={value.avatar} alt="头像"/>
+                                                <img src={this.state.userList[1].head_img} alt="头像"/>
                                             </div>
                                             <div className="diary-date">{value.date}</div>
                                         </div>
                                         <div className="diary-content">{value.content}</div>
-                                    </div>
-                                    <div className="pic-content">
-                                        {value.pic !== "" ? <img src={value.pic} alt="用户图片"/> : ""}
                                     </div>
                                     <LineContainer>
                                         <div className="line"></div>
@@ -93,3 +103,5 @@ export default class Home extends Component {
     )
   }
 }
+
+export default Diary

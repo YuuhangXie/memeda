@@ -7,17 +7,27 @@ import {
 } from '../view/StyledDiary'
 import Picture from '../../gift/components/picture'
 
+import ApiService from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 
 export default class Home extends Component {
   state = {
       hide: true
   }
 
-  modificationPage(event) {
-    event.stopPropagation()
-    this.setState({
-      hide: !this.state.hide
+  async contentPost() {
+    let length = storage.get('diaryContent').length + 1
+    let date = new Date()
+    await ApiService.post('/diarycontent',{
+        'content': this.refs.textBox.value,
+        'date': this.addZero(date.getMonth()) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
+        'id': length
     })
+    this.props.history.go(-1)
+  }
+
+  addZero(time) {
+    return time < 10 ? '0' + time : time
   }
 
   render() {
@@ -29,14 +39,10 @@ export default class Home extends Component {
                         <img src={Back} alt="返回"/>
                     </div>
                     <div className="diary-icon-box">
-                        <span className="keep-btn" onClick={() => {this.props.history.go(-1)}}>保存</span>
-                        <div className="carema-box"  onClick={(e) => this.modificationPage(e)}>
-                            
-                            <img src="http://pz394k5aw.bkt.clouddn.com/%E7%9B%B8%E6%9C%BA%20%5B%E8%BD%AC%E6%8D%A2%5D@3x.png" alt="icon"/>
-                        </div>    
+                        <span className="keep-btn" onClick={() => this.contentPost(this.refs.textBox.value)}>保存</span>   
                     </div>
                 </div>
-                <textarea name="content" id="textarea" cols="30" rows="40" placeholder="记录此刻心情动态"></textarea>
+                <textarea name="content" id="textarea" cols="30" rows="40" ref="textBox" placeholder="记录此刻心情动态"></textarea>
                 <div className={this.state.hide ? "hideAva" : "gift-component"}>
                     <Picture
                         changeProps={(e) => this.modificationPage(e)}
