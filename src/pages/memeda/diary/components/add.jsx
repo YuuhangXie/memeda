@@ -29,7 +29,7 @@ export default class Home extends Component {
                         <img src={Back} alt="返回"/>
                     </div>
                     <div className="diary-icon-box">
-                        <span className="keep-btn" onClick={() => {this.props.history.push('/memeda/diary/index')}}>保存</span>
+                        <span className="keep-btn" onClick={() => {this.props.history.go(-1)}}>保存</span>
                         <div className="carema-box"  onClick={(e) => this.modificationPage(e)}>
                             
                             <img src="http://pz394k5aw.bkt.clouddn.com/%E7%9B%B8%E6%9C%BA%20%5B%E8%BD%AC%E6%8D%A2%5D@3x.png" alt="icon"/>

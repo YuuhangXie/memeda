@@ -7,9 +7,10 @@ import {
     GiftContainer
 } from '../../view/StyledGift'
 
-import connect from '../connect'
+import connect from './connect'
 
 import OurWishUI from './ourWishUI'
+import TaWishUI from '../taWish/taWishContainer'
 
 @connect
 class Home extends Component {
@@ -21,30 +22,48 @@ class Home extends Component {
     timeOutEvent: 0,
     longTouch: 0,
     determine: false,
-    search: ''
+    search: _.split(this.props.location.search, '?')[1],
+    targetList: {
+        'our': 'giftChosed',
+        'my': 'myGiftChosed'
+    }
   }
 
   componentDidMount() {
-      if(storage.get('giftChosed')) {
-          this.props.getGiftList()
-      }
-      else {
-          this.props.detailGiftMsg(_.split(this.props.location.search, '?')[1])
-          this.forceUpdate()
-      }
+      if(this.state.search === 'our') {
+          if(storage.get('giftChosed')) this.props.getGiftList()
 
-      this.setState({
-          search: _.split(this.props.location.search, '?')[1]
-      })
+          else  this.props.detailGiftMsg()
+      }
+      else if(this.state.search === 'my') {
+        if(storage.get('myGiftChosed')) this.props.getMyGiftList()
+
+        else this.props.myDetailGiftMsg()
+      }
+      
+      this.forceUpdate()
   }
 
   clickHandler(index) {
-      let _giftList = storage.get("giftChosed")
+      let _giftList = storage.get(this.state.targetList[this.state.search])
+      let target_id =  _giftList[index].id
       _giftList[index].choose = !_giftList[index].choose
-      storage.set('giftChosed', 
+
+      storage.set(this.state.targetList[this.state.search], 
           _giftList 
       )
-      this.props.getGiftList()
+
+      switch(this.state.search) {
+          case 'our': 
+            this.props.getGiftList()
+            this.props.ourGiftListDispatch(_giftList[index], target_id)
+            break
+          case 'my': 
+            this.props.getMyGiftList()
+            this.props.myGiftListDispatch(_giftList[index], target_id)
+            break
+          default: return false
+      }
   }
 
   hideBtn() {
@@ -55,17 +74,23 @@ class Home extends Component {
   }
 
   determineDelete() {
-    let _giftList = storage.get("giftChosed")
+    let _giftList = storage.get(this.state.targetList[this.state.search])
+    
     _.forEachRight(this.state.deleteMenu, (value) => {
+       let target_id = _giftList[value].id
+       this.state.search === 'our' ? this.props.deleteOurWish(target_id) : this.props.deleteMyWish(target_id)
+
        _.remove(_giftList, (item) => {
             return _.indexOf(_giftList, item) === value
        })
     })
-    storage.set('giftChosed', 
+    storage.set(this.state.targetList[this.state.search], 
         _giftList 
     )
 
-    this.props.getGiftList()
+
+
+    this.state.search === 'our' ? this.props.getGiftList() : this.props.getMyGiftList()
 
     this.hideBtn()
     this.deleteList()
@@ -114,18 +139,17 @@ class Home extends Component {
   }
 
   render() {
-    let search = _.split(this.props.location.search, '?')[1]
     return (
         <GiftContainer>
             {
                 (() => {
-                    switch(search) {
+                    switch(this.state.search) {
                         case 'my':
                         case 'our':
                             return (
                                 <OurWishUI
                                     ourList={this.state}
-                                    giftList={this.props.giftChosed.toJS()}
+                                    giftList={this.state.search === 'our' ? this.props.giftChosed.toJS() : this.props.myGiftChosed.toJS()}
                                     clickHandler={this.clickHandler.bind(this)}
                                     deleteHandler={this.deleteHandler.bind(this)}
                                     touchStart={this.touchStart.bind(this)}
@@ -140,7 +164,9 @@ class Home extends Component {
                             )
                         case 'ta':
                             return (
-                                <div></div>
+                                <TaWishUI
+                                    loadRouter={this.loadRouter.bind(this)}
+                                ></TaWishUI>
                             )
                         default: return false
                     }

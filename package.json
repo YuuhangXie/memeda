@@ -8,13 +8,11 @@
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
     "clipboard": "^2.0.4",
-    "express": "^4.17.1",
     "http-proxy-middleware": "^0.20.0",
     "immutable": "^4.0.0-rc.12",
     "json-server": "^0.15.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "pm2": "^3.5.1",
     "rc-form": "^2.4.9",
     "react": "16.8",
     "react-dom": "16.8",
@@ -25,7 +23,6 @@
     "redux": "^4.0.4",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "socket.io": "^2.3.0",
     "styled-components": "^4.3.2",
     "swiper": "^5.0.4"
   },
@@ -34,11 +31,12 @@
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "socket": "nodemon server.js",
     "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 -w",
     "mockuser": "json-server --watch ./src/mock/user.json -p 9001",
     "mockcomm": "json-server --watch ./src/mock/community/community.json -p 9099",
-    "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010"
+    "mock-profile": "json-server --watch ./src/mock/profile/profile.json -p 9010",
+    "mockwish": "json-server --watch ./src/mock/gift/wish.json -p 9009",
+    "mockdiary": "json-server --watch ./src/mock/diary/diartMain.json -p 9089"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -113,13 +113,16 @@ const HomeContainer = styled.div`
                             border: 1px #B9B9B9 solid;
                         }
                     }
-                    .emoji {
-                        width: .25rem;
-                        height: .25rem;
-                    }
-                    .picture {
-                        width: .25rem;
-                        height: .25rem;
+
+                    .send {
+                        width: .5rem;
+                        height: .3rem;
+                        button {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            background: #F09199;
+                        }
                     }
                 }
             }
