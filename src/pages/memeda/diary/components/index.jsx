@@ -81,7 +81,7 @@ class Diary extends Component {
                 >
                     {_.map(this.state.diaryList, (value, index) => {
                             return(
-                                <div className="diary-box" onClick={() => this.clickHandler(index)} key={value.id}>
+                                <div className="diary-box" onClick={() => this.clickHandler(value.id)} key={value.id}>
                                     <div className="word-content">
                                         <div className="user-message">
                                             <div className="avatar">

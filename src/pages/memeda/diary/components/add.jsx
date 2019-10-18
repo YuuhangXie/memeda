@@ -42,7 +42,7 @@ export default class Home extends Component {
                         <span className="keep-btn" onClick={() => this.contentPost(this.refs.textBox.value)}>保存</span>   
                     </div>
                 </div>
-                <textarea name="content" id="textarea" cols="30" rows="40" ref="textBox" placeholder="记录此刻心情动态"></textarea>
+                <textarea name="content" id="textarea" cols="40" rows="10" ref="textBox" placeholder="记录此刻心情动态"></textarea>
                 <div className={this.state.hide ? "hideAva" : "gift-component"}>
                     <Picture
                         changeProps={(e) => this.modificationPage(e)}

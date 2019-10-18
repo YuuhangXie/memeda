@@ -33,7 +33,7 @@ const DiaryDetailContainer = styled.div `
                 margin-left: 0.1rem;
             }
             .diary-icon-box {
-                margin-left: 2.8rem;
+                margin-left: 3rem;
             }
         }
 `

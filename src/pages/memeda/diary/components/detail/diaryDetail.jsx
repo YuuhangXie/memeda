@@ -15,16 +15,12 @@ import _ from 'lodash'
 @connect
 class Detail extends Component {
   state = {
-      diaryContent: [],
+      diaryContent: storage.get('diaryContent'),
       index: _.split(this.props.location.search, '?')[1],
-      timer: null
-  }
-
-  componentDidMount() {
-      this.setState({
-          diaryContent: storage.get('diaryContent')
-      })
-      
+      timer: null,
+      targetContent: _.find(storage.get('diaryContent'),(value) => {
+          return Number(value.id) === Number(_.split(this.props.location.search, '?')[1])
+      }).content
   }
 
   async contentDispatch(content) {
@@ -34,7 +30,7 @@ class Detail extends Component {
     clearTimeout(this.state.timer)
     this.setState({
         timer: setTimeout(async () => {
-            await ApiService.patch('/diarycontent/' + (Number(this.state.index) + 1),{
+            await ApiService.patch('/diarycontent/' + Number(this.state.index),{
                 ...this.state.diaryContent[this.state.index],
                 content
             })
@@ -60,7 +56,7 @@ class Detail extends Component {
                         <span className="keep-btn" onClick={() => {this.props.history.push('/memeda/diary/index')}}>保存</span>
                     </div>
                 </div>
-                <textarea ref="textBox" name="content" id="textarea" cols="30" rows="40" onChange={() => this.contentDispatch(this.refs.textBox.value)} defaultValue={this.state.diaryContent[this.state.index].content} placeholder="记录此刻心情动态"></textarea>
+                <textarea ref="textBox" name="content" id="textarea" cols="30" rows="10" onChange={() => this.contentDispatch(this.refs.textBox.value)} defaultValue={this.state.targetContent} placeholder="记录此刻心情动态"></textarea>
             </div>        
         </DiaryDetailContainer>    
     )

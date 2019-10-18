@@ -1,34 +1,29 @@
 {
   "ourwish": [
     {
-      "id": 20341,
-      "content": "每个月一起爬一次山",
-      "choose": false
-    },
-    {
-      "content": "坚持每天互相通话1小时",
-      "id": 20342,
-      "choose": false
-    },
-    {
-      "content": "每个月一起约上朋友聚会",
-      "id": 20343,
-      "choose": false
-    },
-    {
       "content": "一年之内结婚",
       "id": 20344,
-      "choose": true
+      "choose": false
     },
     {
       "content": "结婚一年内一起买辆奔驰glc suv",
       "id": 20345,
+      "choose": false
+    },
+    {
+      "id": 2,
+      "content": "每个月一起爬一次山",
+      "choose": false
+    },
+    {
+      "id": 3,
+      "content": "坚持每天互通电话一小时",
       "choose": true
     },
     {
-      "id": 6,
-      "content": "赶紧把项目写完啊啊啊啊啊",
-      "choose": false
+      "id": 4,
+      "content": "每个月一起约上朋友聚会",
+      "choose": true
     }
   ],
   "myWish": [
@@ -87,7 +82,7 @@
   ],
   "giftavatar": [
     {
-      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_75613.jpg",
+      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_10847.jpg",
       "id": 0
     },
     {
