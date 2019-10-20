@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import LoginBoxContainer from './StyledLoginBox'
 import TrueLogin from './components/trueLogin/TrueLoginUI'
-import DynamicPwd from './components/dynamic/DynamicPwd'
-import ForgetPwd from './components/forget/ForgetPwd'
+import DynamicPwd from './components/dynamic/DynamicPwdContainer'
+import ForgetPwd from './components/forget/ForgetPwdContainer'
 
 export default class LoginBox extends PureComponent {
   render() {
