@@ -75,11 +75,12 @@ class PhoneItem extends Component {
   }
   onErrorClick = () => {
     if (this.state.hasError) {
-      Toast.info('Please enter 11 digits');
+      Toast.info('请输入正确的手机号');
     }
   }
   onChange = (value) => {
     if (value.replace(/\s/g, '').length < 11) {
+      this.props.clearPhone()
       this.setState({
         hasError: true,
       });
@@ -87,6 +88,7 @@ class PhoneItem extends Component {
       this.setState({
         hasError: false,
       });
+      this.props.getPhone(value)
     }
     this.setState({
       value,
@@ -147,11 +149,12 @@ class PhoneItem extends Component {
             value={this.state.value}
           ></InputItem>
         </div>
-        <button
+        {this.props.noGetvali ? '' : <button
           className="getValidate"
           onClick={this.getValiClick.bind(this) }
           disabled={this.state.getVali}
-          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>
+          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>}
+        
       </PhoneItemContainer>
     )
   }
