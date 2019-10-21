@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import LoginBackGround from 'images/login/login-bgimg.png'
+import border from 'components/styled/border'
 
 const LoginBoxContainer = styled.div`
   display: flex;
@@ -14,4 +15,21 @@ const LoginBoxContainer = styled.div`
   }
 `
 
-export default LoginBoxContainer
+const BorderLi = border({
+  width: '0 0 1px 0',
+  color: '#fff',
+  comp: styled.li``
+})
+
+const BorderDiv = border({
+  width: '1px',
+  color: '#fff',
+  radius: 5,
+  comp: styled.div``
+})
+
+export {
+  LoginBoxContainer,
+  BorderLi,
+  BorderDiv
+} 

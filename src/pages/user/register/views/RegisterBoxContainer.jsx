@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import RegisterBoxContainer from './StyledRegisterBox'
+import {RegisterBoxContainer, BorderLi} from './StyledRegisterBox'
 
 import RegisterHeader from './components/RegisterHeader'
 import PhoneItem from './components/PhoneItemContainer'
@@ -25,28 +25,28 @@ export default class RegisterBox extends Component {
         <div>
           <RegisterHeader back={this.handleBack}></RegisterHeader>
           <ul className="register-form">
-            <li>
+            <BorderLi>
               <PhoneItem></PhoneItem>
-            </li>
-            <li>
+            </BorderLi>
+            <BorderLi>
               <i>
                 <img src={ValiIcon} alt="验证码"/>
               </i>
               <input type="password" placeholder="输入验证码"/>
-            </li>
-            <li>
+            </BorderLi>
+            <BorderLi>
               <i>
                 <img src={PwdIcon} alt="密码"/>
               </i>
               <input type="password" placeholder="输入密码"/>
-            </li>
-            <li>
+            </BorderLi>
+            <BorderLi>
               <i>
                 <img src={PwdIcon} alt="密码"/>
               </i>
               <input type="password" placeholder="确认密码"/>
-            </li>
-              <li className="login-reg">
+            </BorderLi>
+            <li className="login-reg">
               <div onClick={this.toRegister}>注册</div>
             </li>
           </ul>

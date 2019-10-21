@@ -12,7 +12,7 @@ const ForgetPwdContainer = styled.div`
     padding: 0 .15rem;
     border: 0 !important;
     li{
-      border-bottom: 1px solid #fff;
+      /* border-bottom: 1px solid #fff; */
       height: .5rem;
       display: flex;
       align-items: center;
@@ -30,9 +30,23 @@ const ForgetPwdContainer = styled.div`
         color: #fff;
       }
     }
+    .getvali-btn{
+      margin-top: .36rem;
+      border: none;
+      color: #fff;
+      >div{
+        width: 100%;
+        height: .5rem;
+        line-height: .5rem;
+        text-align: center;
+        font-size: .17rem;
+        border-radius: .05rem;
+        background: #F2606C;
+      }
+    }
 
 
-    
+
   }
 `
 export default ForgetPwdContainer

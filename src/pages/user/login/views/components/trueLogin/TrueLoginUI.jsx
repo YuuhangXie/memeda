@@ -1,5 +1,5 @@
 import React from 'react'
-import TrueLogin from './StyledTrueLogin'
+import { TrueLoginContainer as TrueLogin, BorderLi, BorderDiv } from './StyledTrueLogin'
 import PhoneItem from '../PhoneItemContainer'
 import PwdIcon from 'images/login/login-icon3.png'
 
@@ -16,15 +16,15 @@ class TrueLoginUI extends React.Component{
           <p className="login-text">情侣恋爱神器</p>
         </div>
         <ul className="login-form">
-          <li>
+          <BorderLi>
             <PhoneItem></PhoneItem>
-          </li>
-          <li>
+          </BorderLi>
+          <BorderLi>
             <i>
               <img src={PwdIcon} alt="密码"/>
             </i>
             <input type="password" placeholder="输入密码"/>
-          </li>
+          </BorderLi>
           <li className="login-else">
             <span onClick={()=>{this.props.history.push('/login/dynpwd')}}>动态密码</span>
             <span onClick={()=>{this.props.history.push('/login/forgpwd')}}>忘记密码？</span>
@@ -33,7 +33,7 @@ class TrueLoginUI extends React.Component{
             <div>登录</div>
           </li>
           <li className="login-reg">
-            <div onClick={()=>{this.props.history.push('/register')}}>注册</div>
+            <BorderDiv onClick={()=>{this.props.history.push('/register')}}>注册</BorderDiv>
           </li>
         </ul>
       </TrueLogin>

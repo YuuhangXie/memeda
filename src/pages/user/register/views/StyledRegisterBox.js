@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import RegisterBackGround from 'images/login/login-bgimg.png'
+import border from 'components/styled/border'
 
 const RegisterBoxContainer = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const RegisterBoxContainer = styled.div`
     padding: 0 .15rem;
     border: 0 !important;
     li{
-      border-bottom: 1px solid #fff;
+      /* border-bottom: 1px solid #fff; */
       height: .5rem;
       display: flex;
       align-items: center;
@@ -63,4 +64,22 @@ const RegisterBoxContainer = styled.div`
 
 `
 
-export default RegisterBoxContainer
+const BorderLi = border({
+  width: '0 0 1px 0',
+  color: '#fff',
+  comp: styled.li``
+})
+
+const BorderDiv = border({
+  width: '1px',
+  color: '#fff',
+  radius: 5,
+  comp: styled.div``
+})
+
+
+export {
+  RegisterBoxContainer,
+  BorderLi,
+  BorderDiv
+} 
