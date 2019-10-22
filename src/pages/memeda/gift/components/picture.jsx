@@ -29,7 +29,6 @@ export default class Home extends Component {
 
   async setImage(files, e) {
     e.persist()
-    
     if(files[0].name.match(/\.jpg|\.gif|\.png|\.bmp/i)) {
       let data = new FormData();
       let arr = files[0].name.split(".");

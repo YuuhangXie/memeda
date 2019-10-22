@@ -45,11 +45,11 @@ class Detail extends Component {
 
   render() {
     return (
-        this.state.diaryContent.length === 0 || this.state.index === 'undefined' ? false :
+        this.state.diaryContent.length === 0 ? false :
         <DiaryDetailContainer>
             <div className="diary-container">
                 <div className="header-container">
-                    <div className="back"  onClick={() => {this.props.history.go(-1)}}>
+                    <div className="back"  onClick={() => {this.props.history.go(-1);document.activeElement.blur();}}>
                         <img src={Back} alt="返回"/>
                     </div>
                     <div className="diary-icon-box">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { findDOMNode }  from 'react-dom'
+// import { findDOMNode }  from 'react-dom'
 
 import Back from 'images/gift/back.png'
 import {
@@ -23,23 +23,24 @@ class Diary extends Component {
             down: true,
             height: document.documentElement.clientHeight,
             diaryList: [],
-            userList: []
+            userList: [],
+            target_height: storage.get('target_height')
         };
     }
 
   async componentDidMount() {
+      
+      if(!storage.get('target_height'))  storage.set('target_height', window.screen.height)
+      
+
       let result = await ApiService.get('/diarycontent')
       this.setState({
-          diaryList: result,
-          userList: await ApiService.get('/userlist')
+          diaryList: _.reverse(result),
+          userList: await ApiService.get('/userlist'),
+          target_height: storage.get('target_height')
       })
-      storage.set('diaryContent', result)
 
-      const hei = this.state.height - findDOMNode(this.ptr).offsetTop;
-        setTimeout(() => this.setState({
-            height: hei,
-            data: _.reverse(this.state.diaryList),
-        }), 0);
+      storage.set('diaryContent', result)
   }
 
   clickHandler(index) {
@@ -50,7 +51,7 @@ class Diary extends Component {
 
   render() {
     return (
-        <DiaryContainer>
+        <DiaryContainer targetHeight={this.state.target_height}>
             <div className="diary-container">
                 <div className="header-container">
                     <div className="back" onClick={() => this.props.history.push('/index/home')}>
@@ -66,7 +67,7 @@ class Diary extends Component {
                     damping={60}
                     ref={el => this.ptr = el}
                     style={{
-                    height: this.state.height,
+                    height: this.state.target_height,
                     overflow: 'auto',
                     }}
                     indicator={this.state.down ? {} : { deactivate: '上拉可以刷新' }}

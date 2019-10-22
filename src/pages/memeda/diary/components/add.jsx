@@ -12,7 +12,14 @@ import storage from 'utils/storage.js'
 
 export default class Home extends Component {
   state = {
-      hide: true
+      hide: true,
+      target_height: ''
+  }
+
+  componentDidMount() {
+      this.setState({
+          target_height: storage.get('target_height')
+      })
   }
 
   async contentPost() {
@@ -20,7 +27,7 @@ export default class Home extends Component {
     let date = new Date()
     await ApiService.post('/diarycontent',{
         'content': this.refs.textBox.value,
-        'date': this.addZero(date.getMonth()) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
+        'date': this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
         'id': length
     })
     this.props.history.go(-1)
@@ -32,7 +39,7 @@ export default class Home extends Component {
 
   render() {
     return (
-        <DiaryContainer>
+        <DiaryContainer targetHeight={this.state.target_height}>
             <div className="diary-container">
                 <div className="header-container">
                     <div className="back"  onClick={() => {this.props.history.go(-1)}}>
