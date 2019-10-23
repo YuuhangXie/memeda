@@ -25,12 +25,38 @@ export default class Home extends Component {
   async contentPost() {
     let length = storage.get('diaryContent').length + 1
     let date = new Date()
-    await ApiService.post('/diarycontent',{
-        'content': this.refs.textBox.value,
-        'date': this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
-        'id': length
-    })
-    this.props.history.go(-1)
+    if(this.props.location.state.from === 'comm') {
+        await ApiService.customRequest({
+            method: 'post',
+            url: '/community/showList',
+            'content-type': 'application/json',
+            data: {
+                "showId": parseInt(Math.random()*1000000),
+                "showText": this.refs.textBox.value,
+                "showTime": new Date(),
+                "likeCount": 0,
+                "userId": storage.get('user_id'),
+                "@user": "ta",
+                "@userId": 100899,
+                "commentCount": 0,
+                "images": [],
+                "user": {
+                  "img_url": "http://39.96.74.243/img/my_head.png",
+                  "kickName": "瞅瞅1231",
+                  "age": 21,
+                  "sex": "女"
+                }
+              }
+        })
+        this.props.history.go(-1)
+    } else {
+        await ApiService.post('/diarycontent',{ 
+            'content': this.refs.textBox.value,
+            'date': this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
+            'id': length + 1
+        })
+        this.props.history.go(-1)
+    }
   }
 
   addZero(time) {

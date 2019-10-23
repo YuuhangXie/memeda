@@ -19,14 +19,15 @@ class Share extends Component {
   async componentDidMount() {
     const requestData = {
       method: 'get',
-      url: '/api/community/getCommunitys',
+      url: '/community/showList',
     }
     let list = await ApiService.customRequest(requestData)
     let userInfo = await ApiService.customRequest({
       url: '/api/profile/users'
     })
+    list = list.reverse()
     this.setState({
-      shareList: list.showList,
+      shareList: list,
       userInfo: userInfo.UserList[0]
     })
   }
@@ -34,13 +35,13 @@ class Share extends Component {
   async handleAddPage () {
     const requestData = {
       method: 'get',
-      url: '/api/community/getCommunitys'
+      url: '/community/showList',
     }
     let list = await ApiService.customRequest(requestData)
     this.setState({
       shareList: [
         // ...this.state.shareList,
-        ...list.showList
+        ...list.reverse()
       ]
     })
   }
