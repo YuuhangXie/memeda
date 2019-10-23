@@ -38,4 +38,9 @@ module.exports = function(app) {
     target: 'http://localhost:9089',
     changeOrigin: true
   }))
+
+  app.use('/album', proxy({
+    target: 'http://localhost:9889',
+    changeOrigin: true
+  }))
 }

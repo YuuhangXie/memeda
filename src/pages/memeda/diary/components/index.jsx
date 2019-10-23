@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { findDOMNode }  from 'react-dom'
+// import { findDOMNode }  from 'react-dom'
 
 import Back from 'images/gift/back.png'
 import {
@@ -9,35 +9,49 @@ import {
 } from '../view/StyledDiary'
 
 import ApiService from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 import { PullToRefresh } from 'antd-mobile';
+import connect from './connect'
+import _ from 'lodash'
 
-export default class Home extends Component {
+@connect
+class Diary extends Component {
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
             down: true,
             height: document.documentElement.clientHeight,
-            diaryList: []
+            diaryList: [],
+            userList: [],
+            target_height: storage.get('target_height')
         };
     }
 
   async componentDidMount() {
+      
+      if(!storage.get('target_height'))  storage.set('target_height', window.screen.height)
+      
+
       let result = await ApiService.get('/diarycontent')
       this.setState({
-          diaryList: result
+          diaryList: _.reverse(result),
+          userList: await ApiService.get('/userlist'),
+          target_height: storage.get('target_height')
       })
 
-      const hei = this.state.height - findDOMNode(this.ptr).offsetTop;
-        setTimeout(() => this.setState({
-            height: hei,
-            data: this.state.diaryList,
-        }), 0);
+      storage.set('diaryContent', result)
+  }
+
+  clickHandler(index) {
+      this.props.getDiaryIndex(index)
+      this.props.history.push('/memeda/diary/detail?' + index)
+      
   }
 
   render() {
     return (
-        <DiaryContainer>
+        <DiaryContainer targetHeight={this.state.target_height}>
             <div className="diary-container">
                 <div className="header-container">
                     <div className="back" onClick={() => this.props.history.push('/index/home')}>
@@ -53,7 +67,7 @@ export default class Home extends Component {
                     damping={60}
                     ref={el => this.ptr = el}
                     style={{
-                    height: this.state.height,
+                    height: this.state.target_height,
                     overflow: 'auto',
                     }}
                     indicator={this.state.down ? {} : { deactivate: '上拉可以刷新' }}
@@ -66,20 +80,17 @@ export default class Home extends Component {
                     }, 1000);
                     }}
                 >
-                    {this.state.diaryList.map((value, index) => {
+                    {_.map(this.state.diaryList, (value, index) => {
                             return(
-                                <div className="diary-box" key={value.id}>
+                                <div className="diary-box" onClick={() => this.clickHandler(value.id)} key={value.id}>
                                     <div className="word-content">
                                         <div className="user-message">
                                             <div className="avatar">
-                                                <img src={value.avatar} alt="头像"/>
+                                                <img src={this.state.userList[1].head_img} alt="头像"/>
                                             </div>
                                             <div className="diary-date">{value.date}</div>
                                         </div>
                                         <div className="diary-content">{value.content}</div>
-                                    </div>
-                                    <div className="pic-content">
-                                        {value.pic !== "" ? <img src={value.pic} alt="用户图片"/> : ""}
                                     </div>
                                     <LineContainer>
                                         <div className="line"></div>
@@ -93,3 +104,5 @@ export default class Home extends Component {
     )
   }
 }
+
+export default Diary
