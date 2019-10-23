@@ -88,6 +88,53 @@ const HomeContainer = styled.div`
                 flex-direction: column;
                 .chatting {
                     flex: 1;
+                    .he {
+                        width: 100%;
+                        height: .8rem;
+                        padding: .15rem;
+                        .avater {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            img {
+                                width: .58rem;
+                                height: .58rem;
+                                margin-right: .15rem;
+                            }
+                            .hesay {
+                                width: .95rem;
+                                height: .4rem;
+                                background: #fff;
+                                text-align: center;
+                                line-height: .4rem;
+                            }
+                        }
+                        
+                        
+                    }
+                    .she {
+                        width: 100%;
+                        height: .8rem;
+                        padding: .15rem;
+                        .avater {
+                            display: flex;
+                            flex-direction: row-reverse;
+                            justify-content: flex-start;
+                            align-items: center;
+                            img {
+                                width: .58rem;
+                                height: .58rem;
+                                margin-left: .15rem;
+                            }
+                            .shesay {
+                                width: .95rem;
+                                height: .4rem;
+                                background: #fff;
+                                text-align: center;
+                                line-height: .4rem;
+                            }
+                        }
+                    }
                 }
                 .inputting {
                     width: 100%;
