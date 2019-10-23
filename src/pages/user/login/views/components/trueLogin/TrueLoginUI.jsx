@@ -1,13 +1,56 @@
 import React from 'react'
-import TrueLogin from './StyledTrueLogin'
+import { TrueLoginContainer as TrueLogin, BorderLi, BorderDiv } from './StyledTrueLogin'
+// import PhoneIcon from 'images/login/login-icon1.png'
 import PhoneItem from '../PhoneItemContainer'
 import PwdIcon from 'images/login/login-icon3.png'
+import ApiService from 'utils/api.service'
+import Storage from 'utils/storage'
 
 
 class TrueLoginUI extends React.Component{
+  state={
+    phoneNum: '',
+    passNum: ''
+  }
 
-  toRegister = ()=>{
-    this.props.history.push('/register')
+  getPhone = (value) => {
+    this.setState({
+      phoneNum: value
+    })
+  }
+
+  passChange=(e)=>{
+    this.setState({
+      passNum: e.target.value
+    })
+  }
+
+  clearPhone= ()=>{
+    this.setState({
+      passNum: '',
+      phoneNum: ''
+    })
+  }
+  
+  handleLogin= async()=>{
+    console.log(this.state)
+    try{
+      let result = await ApiService.get('/userlist/' + this.state.phoneNum)
+      if(result.password === this.state.passNum){
+        Storage.set('isSign', true)
+        Storage.set('user_id', result.id)
+        console.log(result)
+
+          this.props.history.push('/userbind')
+          
+      } else {
+        alert("用户名或密码不正确")
+      }
+    }
+    catch(err){
+      alert("请先注册")
+    }
+  
   }
 
   render() {
@@ -19,24 +62,28 @@ class TrueLoginUI extends React.Component{
           <p className="login-text">情侣恋爱神器</p>
         </div>
         <ul className="login-form">
-          <li>
-            <PhoneItem></PhoneItem>
-          </li>
-          <li>
+          <BorderLi>
+            <PhoneItem 
+              noGetvali="true" 
+              getPhone={(value)=>{this.getPhone(value)}}
+              clearPhone={this.clearPhone}
+            ></PhoneItem>
+          </BorderLi>
+          <BorderLi>
             <i>
               <img src={PwdIcon} alt="密码"/>
             </i>
-            <input type="password" placeholder="输入密码"/>
-          </li>
+            <input type="password" placeholder="输入密码" value={this.state.passNum} onChange={this.passChange}/>
+          </BorderLi>
           <li className="login-else">
-            <span>动态密码</span>
-            <span>忘记密码？</span>
+            <span onClick={()=>{this.props.history.push('/login/dynpwd')}}>动态密码</span>
+            <span onClick={()=>{this.props.history.push('/login/forgpwd')}}>忘记密码？</span>
           </li>
           <li className="login-log">
-            <div>登录</div>
+            <div onClick={this.handleLogin}>登录</div>
           </li>
           <li className="login-reg">
-            <div onClick={this.toRegister}>注册</div>
+            <BorderDiv onClick={()=>{this.props.history.push('/register')}}>注册</BorderDiv>
           </li>
         </ul>
       </TrueLogin>

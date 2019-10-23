@@ -42,10 +42,6 @@ class RegisterHeader extends Component {
     this.props.back()
   }
 
-  componentDidMount(){
-    console.log(this)
-  }
-
   render() {
     return (
       <RegHeadContainer>

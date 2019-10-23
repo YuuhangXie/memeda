@@ -71,24 +71,24 @@ class PhoneItem extends Component {
     hasError: false,
     value: '',
     getVali: false,
-    getValiNum: 60
+    getValiNum: 60,
   }
   onErrorClick = () => {
     if (this.state.hasError) {
-      Toast.info('请输入正确的手机号');
+      Toast.info('Please enter 11 digits');
     }
   }
   onChange = (value) => {
     if (value.replace(/\s/g, '').length < 11) {
-      this.props.clearPhone()
       this.setState({
         hasError: true,
       });
     } else {
+      // 传输手机号
+      this.props.getPhone(value.replace(/\s*/g,""))
       this.setState({
         hasError: false,
       });
-      this.props.getPhone(value.replace(/\s*/g,""))
     }
     this.setState({
       value,
@@ -99,6 +99,8 @@ class PhoneItem extends Component {
 
   getValiClick = ()=> {
     if(!this.state.getVali){
+      // 点击获取验证码
+      this.props.getValidate('123456')
       this.se = setInterval(()=>{
         if(this.state.getValiNum > 0){
           this.setState({
@@ -115,6 +117,7 @@ class PhoneItem extends Component {
           getVali: false,
           getValiNum: 60
         })
+        console.log('又可以发送短信啦')
       }, 60000)
     }
   }
@@ -147,12 +150,11 @@ class PhoneItem extends Component {
             value={this.state.value}
           ></InputItem>
         </div>
-        {this.props.noGetvali ? '' : <button
+        <button
           className="getValidate"
           onClick={this.getValiClick.bind(this) }
           disabled={this.state.getVali}
-          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>}
-        
+          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>
       </PhoneItemContainer>
     )
   }

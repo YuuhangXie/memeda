@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class ForgetPwd extends Component {
+export default class Notice extends Component {
   render() {
     return (
       <div>
-        forget
+        Notice
       </div>
     )
   }
