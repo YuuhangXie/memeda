@@ -25,10 +25,10 @@ export default class Home extends Component {
   async contentPost() {
     let length = storage.get('diaryContent').length + 1
     let date = new Date()
-    await ApiService.post('/diarycontent',{
-        'content': this.refs.textBox.value,
-        'date': this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
-        'id': length
+    await ApiService.post('/diarycontent/',{
+        content: this.refs.textBox.value,
+        date: this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),
+        id: length + 1
     })
     this.props.history.go(-1)
   }
