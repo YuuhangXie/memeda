@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import border from 'components/styled/border'
 import ApiService from 'utils/api.service'
 import Storage from 'utils/storage'
+import herPng from 'images/login/herAva.png'
 
 import { ActionSheet, WingBlank, Button, Toast } from 'antd-mobile';
 
@@ -89,6 +90,48 @@ const TrueBindContainer = styled.div`
     margin-right: 0 !important;
     height: 100% !important;
   }
+
+
+  .cancel-bind{
+    height: 1.4rem;
+    width: 100%;
+    position: absolute;
+    top: 4.3%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .head-img{
+      width: .74rem;
+      height: .74rem;
+      border-radius: 50%;
+      overflow: hidden;
+      img{
+        width: .74rem;
+        height: .74rem;
+        border-radius: 50%;
+      }
+    }
+    p{
+      font-size: .14rem;
+      height: .2rem;
+      line-height: .2rem;
+      color: #191717;
+    }
+    span{
+      width: 1rem;
+      height: .3rem;
+      text-align: center;
+      line-height: .3rem;
+      font-size: .14rem;
+      color: #fff;
+      background: #f09199;
+      border-radius: .05rem;
+    }
+  }
+
   /* .invitate-wrap{
     height: 1rem;
     width: 100%;
@@ -198,7 +241,7 @@ export default class TrueBind extends Component {
       alert("请输入另一半真爱码")
     } else {
       let hasLoverCode = await ApiService.get('/userlist?lover_code='+this.state.halfLover)
-      if(isNaN(Number(this.state.halfLover)) || hasLoverCode.length === 0 || hasLoverCode[0].lover_code === this.state.myLover || hasLoverCode[0].bind_info.id !== ''){
+      if(isNaN(Number(this.state.halfLover)) || hasLoverCode.length === 0 || hasLoverCode[0].lover_code === this.state.myLover || hasLoverCode[0].bind_info.id !== '' || hasLoverCode[0].bind_status){
         alert("请输入正确的真爱码")
       } else {
         let data = {
@@ -208,16 +251,17 @@ export default class TrueBind extends Component {
           invited_to_bind: this.state.myLover
         }
         await ApiService.patch('/userlist/'+this.phone, data)
-        let halfLoverCode = hasLoverCode[0].id
-        await ApiService.patch('/userlist/'+halfLoverCode, halfData)
+        let halfPhone = hasLoverCode[0].id
+        Storage.set('half_id', halfPhone)
+        await ApiService.patch('/userlist/'+halfPhone, halfData)
         this.setState({
           willBind: true
         })
 
-        console.log(hasLoverCode)
+        // console.log(hasLoverCode)
         // console.log(halfLoverCode)
       }
-     
+    
     }
   }
 
@@ -232,10 +276,34 @@ export default class TrueBind extends Component {
     this.phone = Storage.get('user_id')
     let userData = await ApiService.get('/userlist/' + this.phone)
     let myLover= userData.lover_code
+    let willBindInfo = userData.will_bind_info
+    let invitedBindNum = userData.invited_to_bind
     this.setState({
       myLover: myLover
     })
+    if(willBindInfo || invitedBindNum){
+      this.setState({
+        willBind: true
+      })
+    }
   }
+
+  cancelBind = () => {
+    let myPhone = Storage.get('user_id')
+    let halfPhone = Storage.get('half_id')
+    let myData = {
+      will_bind_info: ""
+    }
+    let halfData = {
+      invited_to_bind: ""
+    }
+    ApiService.patch('/userlist/'+myPhone, myData)
+    ApiService.patch('/userlist/'+halfPhone, halfData)
+    this.setState({
+      willBind: false
+    })
+  }
+  
 
   render() {
     return (
@@ -252,17 +320,20 @@ export default class TrueBind extends Component {
                 />
                 <span onClick={this.handleBind}>绑定</span>
               </BorderDiv>
+          </div> 
+        : <div className="cancel-bind">
+            <div className="head-img">
+              <img src={herPng} alt="头像"/>
+            </div>
+            <p>请求已发出，等待对方接受</p>
+            <span onClick={this.cancelBind}>取消请求</span>
           </div>
-         : ''}
-
-         <div>
-
-         </div>
+        }
+        
 
         <div className="invitate-wrap">
           <span><Test/></span>
           <p>体验全部情侣功能需要先绑定另一半</p>
-          
         </div>
       </TrueBindContainer>
     )

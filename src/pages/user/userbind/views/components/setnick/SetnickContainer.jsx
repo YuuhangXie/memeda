@@ -43,6 +43,21 @@ export default class Setnick extends Component {
     }
   }
 
+  async componentDidMount(){
+    let phone = Storage.get('user_id')
+    let userData = await ApiService.get('/userlist/'+phone)
+    let myNickName = userData.nickname
+    let myBindStytus = userData.bind_status
+    // console.log(myNickName, myBindStytus)
+    if(myNickName === ''){
+      return ''
+    } else if(myBindStytus === false){
+      this.props.history.push('/userbind/binding/bind')
+    } else {
+      this.props.history.push('/index/home')
+    }
+  }
+
   render() {
     return (
       <SetnickContainer>

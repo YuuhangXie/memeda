@@ -11,9 +11,8 @@ import Notice from './component/Notice'
 
 export default class Binding extends Component {
 
-
+  
   toNotice = ()=>{
-    console.log(this)
     this.props.history.push('/userbind/binding/notice')
   }
 
