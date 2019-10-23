@@ -7,13 +7,36 @@ import PwdIcon from 'images/login/login-icon3.png'
 import {BorderLi} from '../../StyledLoginBox'
 
 export default class ForgetPwd extends Component {
+
+  state={
+    phoneNum: '',
+    passNum: ''
+  }
+
+
+  getPhone = (value) => {
+    this.setState({
+      phoneNum: value
+    })
+  }
+
+  clearPhone= ()=>{
+    this.setState({
+      passNum: '',
+      phoneNum: ''
+    })
+  }
+  
   render() {
     return (
       <ForgetPwdContainer>
         <LoginHeader back={()=>{this.props.history.go(-1)}} text="忘记密码"></LoginHeader>
         <ul className="forget-form">
           <BorderLi>
-            <PhoneItem></PhoneItem>
+            <PhoneItem
+              getPhone={(value)=>{this.getPhone(value)}}
+              clearPhone={this.clearPhone}
+            ></PhoneItem>
           </BorderLi>
           <BorderLi>
             <i>

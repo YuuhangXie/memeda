@@ -71,7 +71,7 @@ class PhoneItem extends Component {
     hasError: false,
     value: '',
     getVali: false,
-    getValiNum: 60,
+    getValiNum: 60
   }
   onErrorClick = () => {
     if (this.state.hasError) {
@@ -88,7 +88,7 @@ class PhoneItem extends Component {
       this.setState({
         hasError: false,
       });
-      this.props.getPhone(value)
+      this.props.getPhone(value.replace(/\s*/g,""))
     }
     this.setState({
       value,
@@ -100,7 +100,6 @@ class PhoneItem extends Component {
   getValiClick = ()=> {
     if(!this.state.getVali){
       this.se = setInterval(()=>{
-        console.log('get')
         if(this.state.getValiNum > 0){
           this.setState({
             getValiNum: this.state.getValiNum - 1
@@ -110,7 +109,7 @@ class PhoneItem extends Component {
       this.setState({
         getVali: true
       })
-      setTimeout(() => {
+      this.st = setTimeout(() => {
         clearInterval(this.se)
         this.setState({
           getVali: false,
@@ -120,12 +119,11 @@ class PhoneItem extends Component {
     }
   }
   
-  componentDidMount(){
-    console.log(this.state.getValiNum)
-  }
+
 
   componentWillUnmount(){
     clearInterval(this.se)
+    clearTimeout(this.st)
     this.setState({
       getVali: false,
       getValiNum: 60

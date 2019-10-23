@@ -84,6 +84,8 @@ class PhoneItem extends Component {
         hasError: true,
       });
     } else {
+      // 传输手机号
+      this.props.getPhone(value.replace(/\s*/g,""))
       this.setState({
         hasError: false,
       });
@@ -97,8 +99,9 @@ class PhoneItem extends Component {
 
   getValiClick = ()=> {
     if(!this.state.getVali){
+      // 点击获取验证码
+      this.props.getValidate('123456')
       this.se = setInterval(()=>{
-        console.log('get')
         if(this.state.getValiNum > 0){
           this.setState({
             getValiNum: this.state.getValiNum - 1
@@ -108,22 +111,22 @@ class PhoneItem extends Component {
       this.setState({
         getVali: true
       })
-      setTimeout(() => {
+      this.st = setTimeout(() => {
         clearInterval(this.se)
         this.setState({
           getVali: false,
           getValiNum: 60
         })
+        console.log('又可以发送短信啦')
       }, 60000)
     }
   }
   
-  componentDidMount(){
-    console.log(this.state.getValiNum)
-  }
+
 
   componentWillUnmount(){
     clearInterval(this.se)
+    clearTimeout(this.st)
     this.setState({
       getVali: false,
       getValiNum: 60

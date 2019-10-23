@@ -7,14 +7,13 @@
       "sex": "男",
       "head_img": "http://lvyunfei.com/pic/profile_headimg_97255.png",
       "age": 23,
-      "lover_code": 888888,
+      "lover_code": 123453,
       "invite_code": 3838438,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-11",
-      "will_bind_info": {
-        "lover_code": 666666
-      },
+      "will_bind_info": 666666,
+      "invited_to_bind": 495341,
       "bind_info": {
         "id": 13520611623,
         "nickname": "颖宝",
@@ -32,14 +31,13 @@
       "sex": "女",
       "head_img": "http://lvyunfei.com/pic/profile_headimg_48872.png",
       "age": 22,
-      "lover_code": 666666,
+      "lover_code": 123452,
       "invite_code": 3737437,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-8",
-      "will_bind_info": {
-        "lover_code": 888888
-      },
+      "will_bind_info": 888888,
+      "invited_to_bind": 254089,
       "bind_info": {
         "id": 13520611622,
         "nickname": "李健",
@@ -57,13 +55,57 @@
       "sex": "女",
       "head_img": "https://xxxxxxxx.com",
       "age": 23,
-      "lover_code": 888888,
+      "lover_code": 123451,
       "invite_code": 3636436,
       "bind_status": false,
       "fund_status": false,
-      "will_bind_info": {
+      "will_bind_info": "",
+      "invited_to_bind": 495341,
+      "bind_info": {
+        "id": "",
+        "sex": "",
+        "nickname": "",
+        "head_img": "",
+        "age": "",
+        "lover_code": ""
+      }
+    },
+    {
+      "id": 15151515151,
+      "password": "qwer",
+      "nickname": "123",
+      "sex": "男",
+      "head_img": "",
+      "age": 25,
+      "lover_code": 254089,
+      "invite_code": 611527,
+      "bind_status": false,
+      "fund_status": false,
+      "will_bind_info": 123452,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": "",
+        "sex": "",
+        "nickname": "",
+        "head_img": "",
+        "age": "",
         "lover_code": ""
       },
+      "nickName": "123"
+    },
+    {
+      "id": 16161616161,
+      "password": "qwer",
+      "nickname": "吴彦祖",
+      "sex": "男",
+      "head_img": "",
+      "age": 21,
+      "lover_code": 495341,
+      "invite_code": 325404,
+      "bind_status": false,
+      "fund_status": false,
+      "will_bind_info": 123451,
+      "invited_to_bind": 495341,
       "bind_info": {
         "id": "",
         "sex": "",

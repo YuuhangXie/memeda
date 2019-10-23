@@ -14,7 +14,6 @@ class TrueLoginUI extends React.Component{
   }
 
   getPhone = (value) => {
-    console.log(value)
     this.setState({
       phoneNum: value
     })
@@ -36,11 +35,14 @@ class TrueLoginUI extends React.Component{
   handleLogin= async()=>{
     console.log(this.state)
     try{
-      let result = await ApiService.get('/userlist/' + this.state.phoneNum.replace(/\s*/g,""))
+      let result = await ApiService.get('/userlist/' + this.state.phoneNum)
       if(result.password === this.state.passNum){
         Storage.set('isSign', true)
         Storage.set('user_id', result.id)
-        this.props.history.push('/userbind')
+        console.log(result)
+
+          this.props.history.push('/userbind')
+          
       } else {
         alert("用户名或密码不正确")
       }

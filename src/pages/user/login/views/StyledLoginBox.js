@@ -31,5 +31,5 @@ const BorderDiv = border({
 export {
   LoginBoxContainer,
   BorderLi,
-  BorderDiv
+  BorderDiv,
 } 
