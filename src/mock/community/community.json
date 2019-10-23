@@ -308,5 +308,148 @@
       "maxpower": 200,
       "id": 13520611626
     }
+  ],
+  "productList": [
+    {
+      "id": 1,
+      "name": "page1",
+      "more": true,
+      "data": [
+        {
+          "productId": 1,
+          "productName": "生日礼物送给女生女朋友闺蜜精致走心网红高端大气",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product1.png",
+          "price": 188,
+          "discountPrice": 118
+        },
+        {
+          "productId": 2,
+          "productName": "创意杯子一对马克杯子情侣对杯带勺陶瓷杯咖啡杯个性礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product2.png",
+          "price": 138,
+          "discountPrice": null
+        },
+        {
+          "productId": 3,
+          "productName": "生日礼物送给女生女朋友闺蜜特别的实用创意精致走心小惊喜",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product3.png",
+          "price": 299,
+          "discountPrice": 219
+        },
+        {
+          "productId": 4,
+          "productName": "抖音同款一鹿有你纯银一对小众设计投影手链",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product4.png",
+          "price": 98,
+          "discountPrice": null
+        },
+        {
+          "productId": 5,
+          "productName": "加湿器生日礼物女生朋友可爱闺蜜创意走心小礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product5.png",
+          "price": 98,
+          "discountPrice": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "page2",
+      "more": true,
+      "data": [
+        {
+          "productId": 6,
+          "productName": "生日礼物送给女生女朋友闺蜜精致走心网红高端大气",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product1.png",
+          "price": 188,
+          "discountPrice": 118
+        },
+        {
+          "productId": 7,
+          "productName": "创意杯子一对马克杯子情侣对杯带勺陶瓷杯咖啡杯个性礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product2.png",
+          "price": 138,
+          "discountPrice": null
+        },
+        {
+          "productId": 8,
+          "productName": "生日礼物送给女生女朋友闺蜜特别的实用创意精致走心小惊喜",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product3.png",
+          "price": 299,
+          "discountPrice": 219
+        },
+        {
+          "productId": 9,
+          "productName": "抖音同款一鹿有你纯银一对小众设计投影手链",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product4.png",
+          "price": 98,
+          "discountPrice": null
+        },
+        {
+          "productId": 10,
+          "productName": "加湿器生日礼物女生朋友可爱闺蜜创意走心小礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product5.png",
+          "price": 98,
+          "discountPrice": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "page3",
+      "more": false,
+      "data": [
+        {
+          "productId": 11,
+          "productName": "生日礼物送给女生女朋友闺蜜精致走心网红高端大气",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product1.png",
+          "price": 188,
+          "discountPrice": 118
+        },
+        {
+          "productId": 12,
+          "productName": "创意杯子一对马克杯子情侣对杯带勺陶瓷杯咖啡杯个性礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product2.png",
+          "price": 138,
+          "discountPrice": null
+        },
+        {
+          "productId": 13,
+          "productName": "生日礼物送给女生女朋友闺蜜特别的实用创意精致走心小惊喜",
+          "productClass":"折扣",
+          "productImg":"http://39.96.74.243/img/comm/product3.png",
+          "price": 299,
+          "discountPrice": 219
+        },
+        {
+          "productId": 14,
+          "productName": "抖音同款一鹿有你纯银一对小众设计投影手链",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product4.png",
+          "price": 98,
+          "discountPrice": null
+        },
+        {
+          "productId": 15,
+          "productName": "加湿器生日礼物女生朋友可爱闺蜜创意走心小礼物",
+          "productClass":"精选",
+          "productImg":"http://39.96.74.243/img/comm/product5.png",
+          "price": 98,
+          "discountPrice": null
+        }
+      ]
+    }
   ]
 }
