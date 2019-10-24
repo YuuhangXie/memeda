@@ -37,7 +37,7 @@ class TrueLoginUI extends React.Component{
     try{
       let result = await ApiService.get('/userlist/' + this.state.phoneNum)
       if(result.password === this.state.passNum){
-        Storage.set('isSign', true)
+        Storage.set('isSignin', true)
         Storage.set('user_id', result.id)
         console.log(result)
 
