@@ -8,6 +8,7 @@ import Voice from 'images/chat/voice.png'
 import History from 'images/chat/history.png'
 import Background from 'images/chat/background.png'
 
+import Apiservice from 'utils/api.service.js'
 import storage from 'utils/storage.js'
 
 export default class ChatContainer extends Component {
@@ -15,10 +16,31 @@ export default class ChatContainer extends Component {
     super()
     this.state = {
       hide : true,
-      value : ''
+      value : '',
+      avatar: {},
+      tabList: [],
+      userInfo: []
     }
   }
 
+  async componentDidMount() {
+    console.log(this.props)
+    let result = await Apiservice.get('/api/home')
+    this.state.userInfo = await Apiservice.get('/userlist')
+
+    storage.set('userMsg', this.state.userInfo)
+
+    this.setState({
+      tabList: result.data.tabMsg,
+      avatar: result.data.avatar
+    })
+
+    if(this.props.location.state) {
+      this.setState({
+        value : this.props.location.state.msg
+      })
+    }
+  }
 
   clickHandle() {
     this.setState({
@@ -54,7 +76,10 @@ export default class ChatContainer extends Component {
   }
 
   render() {
+
+
     return (
+      this.state.userInfo.length === 0 ? null:
       <HomeContainer>
         <div className="chat-container">
           <div className={this.state.hide ? "hidden" : "settings-container"}>
@@ -83,7 +108,18 @@ export default class ChatContainer extends Component {
 
           <div className="chat-body">
             <div className="chatting">
-              chats
+              <div className="he">
+                <div className="avater">
+                  <img src={this.state.userInfo[0].head_img} alt="对方头像"/>
+                  <div className="hesay">爱你，丽颖</div>
+                </div>
+              </div>
+              <div className="she">
+                <div className="avater">
+                  <img src={this.state.userInfo[1].head_img} alt="对方头像"/>
+                  <div className="shesay">爱你，李健</div>
+                </div>
+              </div>
             </div>
             <div className="inputting">
               <div className="voice">

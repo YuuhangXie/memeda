@@ -11,6 +11,8 @@ import { SettingContainer } from './StyledSetting'
 import {  DatePicker, Picker, List, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
+import storage from 'utils/storage.js'
+
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 
@@ -29,6 +31,10 @@ class Test extends Component {
       if (!error) {
         console.log(moment(this.props.form.getFieldsValue().lasttime).format('ll'),
         this.props.form.getFieldsValue().distance[0]);
+
+        storage.set('period', { 'lasttime' : moment(this.props.form.getFieldsValue().lasttime).format('ll'), 'distance' : this.props.form.getFieldsValue().distance[0]})
+
+        this.props.history.push("/memeda/period/home")
         
       } else {
         alert('请填写完整资料');
