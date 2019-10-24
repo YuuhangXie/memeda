@@ -33,13 +33,13 @@ class TrueLoginUI extends React.Component{
   }
   
   handleLogin= async()=>{
-    console.log(this.state)
+    // console.log(this.state)
     try{
       let result = await ApiService.get('/userlist/' + this.state.phoneNum)
       if(result.password === this.state.passNum){
         Storage.set('isSign', true)
         Storage.set('user_id', result.id)
-        console.log(result)
+        // console.log(result)
 
           this.props.history.push('/userbind')
           
