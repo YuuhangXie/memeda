@@ -3,7 +3,7 @@ import ApiService from 'utils/api.service'
 import Storage from 'utils/storage'
 import styled from 'styled-components'
 import NoticebindBG from 'images/login/login-noticebind.png'
-import herPng from 'images/login/herAva.png'
+// import herPng from 'images/login/herAva.png'
 
 const NoticeContainer = styled.div`
   width: 100%;
@@ -87,7 +87,8 @@ export default class Notice extends Component {
 
   state = {
     noticeBind: false,
-    nickName: ''
+    nickName: '',
+    halfHeadImg: ''
   }
 
   async componentDidMount(){
@@ -100,10 +101,13 @@ export default class Notice extends Component {
     let invitateBind = this.userData.invited_to_bind
     // 邀请者的数据
     this.invitateData = await ApiService.get('/userlist?lover_code='+invitateBind)
-    if(invitateBind){
+    if(this.invitateData.bind_status){
+      this.props.history.push('index/home')
+    } else if(invitateBind){
       this.setState({
         noticeBind: true,
-        halfNickName: this.invitateData[0].nickname
+        halfNickName: this.invitateData[0].nickname,
+        halfHeadImg: this.invitateData[0].head_img
       })
     }
     // console.log(this.phone, userData, invitateBind)
@@ -161,7 +165,7 @@ export default class Notice extends Component {
           <p className="notice-msg">暂无通知消息</p> 
           : <div className="notice-bind">
               <div className="head-img">
-                <img src={herPng} alt="头像"/>
+                <img src={this.state.halfHeadImg} alt="头像"/>
               </div>
               <div className="notice-nick">{this.state.halfNickName}</div>
               <div className="notice-text">请求与你绑定</div>
