@@ -36,6 +36,7 @@ class MyAccountContainer extends Component {
   }
 
   componentDidMount() {
+    this.userId = storage.get("user_id");
     if(storage.get("userInfo")) {
       this.props.getUsersInfoFromStorage();
     }
@@ -65,7 +66,7 @@ class MyAccountContainer extends Component {
     this.setState({
       sex
     }, () => {
-      this.props.changeUsersInfo("13520611623", {
+      this.props.changeUsersInfo(this.userId, {
         sex
       });
     });
@@ -83,7 +84,7 @@ class MyAccountContainer extends Component {
         username: name,
         cover: false
       }, () => {
-        this.props.changeUsersInfo("13520611623", {
+        this.props.changeUsersInfo(this.userId, {
           nickname: name
         });
       });
@@ -112,7 +113,7 @@ class MyAccountContainer extends Component {
       });
       alert(result)
       if(result.ret) {
-        this.props.changeUsersInfo("13520611623", {
+        this.props.changeUsersInfo(this.userId, {
           head_img: `http://lvyunfei.com/pic/profile_headimg_${randomNum}.${ext}`
         });
       }
