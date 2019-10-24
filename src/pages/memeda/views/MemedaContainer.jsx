@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../home/Home'
 import { Profile } from "../profile/"
 import { Gift } from '../gift/index.js'
-import Album from '../album/index'
+import { Album } from '../album/index.js'
 import { Diary } from '../diary/index.js'
 import { Anniversary } from '../anniversary/index.js'
 import Period from '../period/view/Index'

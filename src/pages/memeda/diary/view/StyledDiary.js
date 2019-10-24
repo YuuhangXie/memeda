@@ -2,14 +2,12 @@ import styled from 'styled-components'
 import border from 'components/styled/border'
 
 const DiaryContainer = styled.div `
-        display: flex;
-        height: 100%;
+        // display: flex;
+        height: ${props => props.targetHeight}rem;
+        background-color: #ffffff;
         .diary-container {
-            display: flex;
-            flex-direction: column;
             width: 100%;
             background-color: #ffffff;
-            position: relative;
         }
         .header-container {
             display: flex;
@@ -120,7 +118,7 @@ const DiaryContainer = styled.div `
         .diary-icon-box {
             display: flex;
             align-items: center;
-            margin-left: 2.63rem;
+            margin-left: 2.93rem;
         }
         .gift-component {
             position: absolute;
