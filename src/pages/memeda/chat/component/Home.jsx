@@ -24,6 +24,7 @@ export default class ChatContainer extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     let result = await Apiservice.get('/api/home')
     this.state.userInfo = await Apiservice.get('/userlist')
 
@@ -33,6 +34,12 @@ export default class ChatContainer extends Component {
       tabList: result.data.tabMsg,
       avatar: result.data.avatar
     })
+
+    if(this.props.location.state) {
+      this.setState({
+        value : this.props.location.state.msg
+      })
+    }
   }
 
   clickHandle() {
@@ -69,6 +76,8 @@ export default class ChatContainer extends Component {
   }
 
   render() {
+
+
     return (
       this.state.userInfo.length === 0 ? null:
       <HomeContainer>
