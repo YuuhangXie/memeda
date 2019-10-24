@@ -31,10 +31,29 @@ const HistoryContainer = styled.div`
                 }
 
             }
+            .history-body {
+              display: flex;
+              justify-content: center;
+              .date-container {
+                  width: 60%;
+                  height: 80%;
+                  margin-top: 1rem;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  font-size: 16px;
+              }
+              img {
+                width:100%;
+                height: 100%;
+                
+              }
+              span {
+                  text-align: center;
+              }
+            }
       }
-      .history-body {
-        flex: 1;
-      }
+      
 
 `
 
