@@ -20,13 +20,27 @@ const SetnickContainer = styled.div`
       .headImg{
         width: .78rem;
         height: .78rem;
-        border-radius: 50%;
+        /* border-radius: 50%; */
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .img-ipt{
+          width: .78rem;
+        }
         img{
         width: .78rem;
         height: .78rem;
         border-radius: 50%;
         }
+      }
+      .am-image-picker, .am-image-picker-list, .am-flexbox-align-center, .am-flexbox-item{
+        width: .76rem !important;
+        height: .76rem !important;
+      }
+      .am-image-picker-list, .am-flexbox-item{
+        margin: 0 !important;
+        padding: 0 !important;
       }
       p{
         font-size: .17rem;

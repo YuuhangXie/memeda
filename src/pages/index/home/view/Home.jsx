@@ -20,14 +20,15 @@ export default class Home extends Component {
 
   async componentDidMount() {
     let result = await Apiservice.get('/api/home')
-    this.state.userInfo = await Apiservice.get('/userlist')
-
-    storage.set('userMsg', this.state.userInfo)
+    let user_id = storage.get('user_id')
+    let userInfo =  await Apiservice.get('/userlist/' + user_id)
+    storage.set('userMsg', userInfo)
 
     this.setState({
       tabList: result.data.tabMsg,
       date: result.data.date,
-      avatar: result.data.avatar
+      avatar: result.data.avatar,
+      userInfo
     })
   }
 

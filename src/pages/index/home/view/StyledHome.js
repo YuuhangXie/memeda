@@ -7,7 +7,7 @@ const HomeContainer = styled.div`
     height: 100%;
     flex-direction: column;
     background: url(${Homeackground});
-    background-size: 100%
+    background-size: 100%;
     .home-tabbar {
         background-color: orange;
         position: absolute;
