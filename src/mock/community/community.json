@@ -387,6 +387,14 @@
       "power": 0,
       "maxpower": 200,
       "id": 17171717171
+    },
+    {
+      "watering": true,
+      "sunning": true,
+      "treelevel": 1,
+      "power": 10,
+      "maxpower": 200,
+      "id": 17777777777
     }
   ],
   "productList": [
