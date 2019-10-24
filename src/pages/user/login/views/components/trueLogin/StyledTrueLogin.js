@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import LoginMemeda from 'images/login/login-memeda.png'
+import border from 'components/styled/border'
 
 const TrueLoginContainer = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const TrueLoginContainer = styled.div`
     padding: 0 .15rem;
     border: 0 !important;
     li{
-      border-bottom: 1px solid #fff;
+      /* border-bottom: 1px solid #fff; */
       height: .5rem;
       display: flex;
       align-items: center;
@@ -97,7 +98,7 @@ const TrueLoginContainer = styled.div`
     }
     .login-reg{
       >div{
-        border: 1px solid #fff;
+        /* border: 1px solid #fff; */
       }
     }
 
@@ -108,4 +109,23 @@ const TrueLoginContainer = styled.div`
   }
 `
 
-export default TrueLoginContainer
+const BorderLi = border({
+  width: '0 0 1px 0',
+  color: '#fff',
+  comp: styled.li``
+})
+
+const BorderDiv = border({
+  width: '1px',
+  color: '#fff',
+  radius: 5,
+  comp: styled.div``
+})
+
+
+
+export {
+  TrueLoginContainer,
+  BorderLi,
+  BorderDiv
+}

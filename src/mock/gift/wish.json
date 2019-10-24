@@ -1,21 +1,6 @@
 {
   "ourwish": [
     {
-      "id": 20341,
-      "content": "每个月一起爬一次山",
-      "choose": true
-    },
-    {
-      "content": "坚持每天互相通话1小时",
-      "id": 20342,
-      "choose": true
-    },
-    {
-      "content": "每个月一起约上朋友聚会",
-      "id": 20343,
-      "choose": true
-    },
-    {
       "content": "一年之内结婚",
       "id": 20344,
       "choose": false
@@ -26,9 +11,19 @@
       "choose": false
     },
     {
-      "id": 5,
-      "content": "1111111111",
+      "id": 2,
+      "content": "每个月一起爬一次山",
       "choose": false
+    },
+    {
+      "id": 3,
+      "content": "坚持每天互通电话一小时",
+      "choose": true
+    },
+    {
+      "id": 4,
+      "content": "每个月一起约上朋友聚会",
+      "choose": true
     }
   ],
   "myWish": [
@@ -87,15 +82,15 @@
   ],
   "giftavatar": [
     {
-      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_75613.jpg",
+      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_23831.png",
       "id": 0
     },
     {
-      "imgAddress": "http://pz394k5aw.bkt.clouddn.com/WeChat18ab88ae51ded08e8c1ba0cc10c4f985@3x.png",
+      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_44550.jpg",
       "id": 1
     },
     {
-      "imgAddress": "http://pz394k5aw.bkt.clouddn.com/WeChate3ec614be052ecf701a6a2d89d50d8a5@3x.png",
+      "imgAddress": "http://lvyunfei.com/pic/profile_headimg_52584.jpg",
       "id": 2
     }
   ]

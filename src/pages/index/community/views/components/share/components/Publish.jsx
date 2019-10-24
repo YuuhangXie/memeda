@@ -11,7 +11,7 @@ import {
 
 class Publish extends Component {
   handleClick = () => {
-    this.props.history.push('/memeda/diary/add')
+    this.props.history.push('/memeda/diary/add', {from: 'comm'})
   }
 
   render() {

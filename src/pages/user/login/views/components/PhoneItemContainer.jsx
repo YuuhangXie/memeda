@@ -71,15 +71,16 @@ class PhoneItem extends Component {
     hasError: false,
     value: '',
     getVali: false,
-    getValiNum: 60,
+    getValiNum: 60
   }
   onErrorClick = () => {
     if (this.state.hasError) {
-      Toast.info('Please enter 11 digits');
+      Toast.info('请输入正确的手机号');
     }
   }
   onChange = (value) => {
     if (value.replace(/\s/g, '').length < 11) {
+      this.props.clearPhone()
       this.setState({
         hasError: true,
       });
@@ -87,6 +88,7 @@ class PhoneItem extends Component {
       this.setState({
         hasError: false,
       });
+      this.props.getPhone(value.replace(/\s*/g,""))
     }
     this.setState({
       value,
@@ -98,7 +100,6 @@ class PhoneItem extends Component {
   getValiClick = ()=> {
     if(!this.state.getVali){
       this.se = setInterval(()=>{
-        console.log('get')
         if(this.state.getValiNum > 0){
           this.setState({
             getValiNum: this.state.getValiNum - 1
@@ -108,7 +109,7 @@ class PhoneItem extends Component {
       this.setState({
         getVali: true
       })
-      setTimeout(() => {
+      this.st = setTimeout(() => {
         clearInterval(this.se)
         this.setState({
           getVali: false,
@@ -118,12 +119,11 @@ class PhoneItem extends Component {
     }
   }
   
-  componentDidMount(){
-    console.log(this.state.getValiNum)
-  }
+
 
   componentWillUnmount(){
     clearInterval(this.se)
+    clearTimeout(this.st)
     this.setState({
       getVali: false,
       getValiNum: 60
@@ -147,11 +147,12 @@ class PhoneItem extends Component {
             value={this.state.value}
           ></InputItem>
         </div>
-        <button
+        {this.props.noGetvali ? '' : <button
           className="getValidate"
           onClick={this.getValiClick.bind(this) }
           disabled={this.state.getVali}
-          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>
+          >{this.state.getVali ? this.state.getValiNum + 's后重试' : '获取验证码'}</button>}
+        
       </PhoneItemContainer>
     )
   }

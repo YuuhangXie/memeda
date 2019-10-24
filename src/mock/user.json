@@ -7,14 +7,13 @@
       "sex": "男",
       "head_img": "http://lvyunfei.com/pic/profile_headimg_97255.png",
       "age": 23,
-      "lover_code": 888888,
+      "lover_code": 123453,
       "invite_code": 3838438,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-11",
-      "will_bind_info": {
-        "lover_code": 666666
-      },
+      "will_bind_info": 666666,
+      "invited_to_bind": 495341,
       "bind_info": {
         "id": 13520611623,
         "nickname": "颖宝",
@@ -32,14 +31,13 @@
       "sex": "女",
       "head_img": "http://lvyunfei.com/pic/profile_headimg_48872.png",
       "age": 22,
-      "lover_code": 666666,
+      "lover_code": 123452,
       "invite_code": 3737437,
       "bind_status": true,
       "fund_status": true,
       "register_date": "2019-10-8",
-      "will_bind_info": {
-        "lover_code": 888888
-      },
+      "will_bind_info": 888888,
+      "invited_to_bind": 254089,
       "bind_info": {
         "id": 13520611622,
         "nickname": "李健",
@@ -57,13 +55,12 @@
       "sex": "女",
       "head_img": "https://xxxxxxxx.com",
       "age": 23,
-      "lover_code": 888888,
+      "lover_code": 123451,
       "invite_code": 3636436,
       "bind_status": false,
       "fund_status": false,
-      "will_bind_info": {
-        "lover_code": ""
-      },
+      "will_bind_info": "",
+      "invited_to_bind": 875992,
       "bind_info": {
         "id": "",
         "sex": "",
@@ -71,6 +68,161 @@
         "head_img": "",
         "age": "",
         "lover_code": ""
+      }
+    },
+    {
+      "id": 15151515151,
+      "password": "qwer",
+      "nickname": "123456",
+      "sex": "男",
+      "head_img": "",
+      "age": 39,
+      "lover_code": 254089,
+      "invite_code": 611527,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": 123451,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": 16161616161,
+        "sex": "男",
+        "nickname": "吴彦祖",
+        "head_img": "",
+        "age": 21,
+        "lover_code": 495341
+      },
+      "nickName": "123"
+    },
+    {
+      "id": 16161616161,
+      "password": "qwer",
+      "nickname": "吴彦祖",
+      "sex": "男",
+      "head_img": "",
+      "age": 35,
+      "lover_code": 495341,
+      "invite_code": 325404,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": 105545,
+      "bind_info": {
+        "id": 14141414141,
+        "sex": "女",
+        "nickname": "张三",
+        "head_img": "",
+        "age": 29,
+        "lover_code": 105545
+      }
+    },
+    {
+      "id": 14141414141,
+      "password": "qwer",
+      "nickname": "张三",
+      "sex": "女",
+      "head_img": "",
+      "age": 29,
+      "lover_code": 105545,
+      "invite_code": 408239,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": 495341,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": 16161616161,
+        "sex": "男",
+        "nickname": "吴彦祖",
+        "head_img": "",
+        "age": 35,
+        "lover_code": 495341
+      }
+    },
+    {
+      "id": 12121212121,
+      "password": "qwer",
+      "nickname": "001",
+      "sex": "女",
+      "head_img": "",
+      "age": 24,
+      "lover_code": 203938,
+      "invite_code": 755578,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": 377100,
+      "bind_info": {
+        "id": 13131313131,
+        "sex": "男",
+        "nickname": "002",
+        "head_img": "",
+        "age": 24,
+        "lover_code": 377100
+      }
+    },
+    {
+      "id": 13131313131,
+      "password": "qwer",
+      "nickname": "002",
+      "sex": "男",
+      "head_img": "",
+      "age": 24,
+      "lover_code": 377100,
+      "invite_code": 139562,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": 203938,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": 12121212121,
+        "sex": "女",
+        "nickname": "001",
+        "head_img": "",
+        "age": 24,
+        "lover_code": 203938
+      }
+    },
+    {
+      "id": 17171717171,
+      "password": "qwer",
+      "nickname": "171",
+      "sex": "女",
+      "head_img": "",
+      "age": 28,
+      "lover_code": 688084,
+      "invite_code": 186767,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": 690626,
+      "bind_info": {
+        "id": 18181818181,
+        "sex": "男",
+        "nickname": "181",
+        "head_img": "",
+        "age": 21,
+        "lover_code": 690626
+      }
+    },
+    {
+      "id": 18181818181,
+      "password": "qwer",
+      "nickname": "181",
+      "sex": "男",
+      "head_img": "",
+      "age": 21,
+      "lover_code": 690626,
+      "invite_code": 275151,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": 688084,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": 17171717171,
+        "sex": "女",
+        "nickname": "171",
+        "head_img": "",
+        "age": 28,
+        "lover_code": 688084
       }
     }
   ]

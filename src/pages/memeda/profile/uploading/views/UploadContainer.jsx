@@ -31,7 +31,7 @@ export default class Upload extends Component {
   componentDidMount() {
     new Swiper('.swiper-container', {
       initialSlide: 1,
-      loop: false,
+      loop: true,
       speed: 500,
       slidesPerView: 3,
       spaceBetween: -87,

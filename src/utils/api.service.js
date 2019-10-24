@@ -31,6 +31,11 @@ const ApiService = {
     return axios(data).then(
       res => res.data
     )
+  },
+  all(arr) {
+    return axios.all(arr).then(
+      res => res
+    )
   }
 }
 
