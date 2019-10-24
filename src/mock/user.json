@@ -224,6 +224,72 @@
         "age": 28,
         "lover_code": 688084
       }
+    },
+    {
+      "id": 19191919191,
+      "password": "qwer",
+      "nickname": "",
+      "sex": "",
+      "head_img": "",
+      "age": "",
+      "lover_code": 628051,
+      "invite_code": 802838,
+      "bind_status": false,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": "",
+        "sex": "",
+        "nickname": "",
+        "head_img": "",
+        "age": "",
+        "lover_code": ""
+      }
+    },
+    {
+      "id": 11111111111,
+      "password": "qwer",
+      "nickname": "李健",
+      "sex": "男",
+      "head_img": "http://lvyunfei.com/pic/profile_headimg_54694.png",
+      "age": 38,
+      "lover_code": 929281,
+      "invite_code": 488359,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": 619004,
+      "bind_info": {
+        "id": 22222222222,
+        "sex": "女",
+        "nickname": "颖宝",
+        "head_img": "http://lvyunfei.com/pic/profile_headimg_49321.png",
+        "age": 35,
+        "lover_code": 619004
+      }
+    },
+    {
+      "id": 22222222222,
+      "password": "qwer",
+      "nickname": "颖宝",
+      "sex": "女",
+      "head_img": "http://lvyunfei.com/pic/profile_headimg_49321.png",
+      "age": 35,
+      "lover_code": 619004,
+      "invite_code": 662168,
+      "bind_status": true,
+      "fund_status": false,
+      "will_bind_info": 929281,
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": 11111111111,
+        "sex": "男",
+        "nickname": "李健",
+        "head_img": "http://lvyunfei.com/pic/profile_headimg_54694.png",
+        "age": 38,
+        "lover_code": 929281
+      }
     }
   ]
 }
