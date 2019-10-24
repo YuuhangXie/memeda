@@ -24,7 +24,10 @@ export default class History extends Component {
           </div>
 
           <div className="history-body">
-            
+            <div className="date-container">
+              <img src="http://pz394k5aw.bkt.clouddn.com/timg.jpg" alt="loading"/>
+              <span>努力开发中，敬请期待……</span>
+            </div>
           </div>
         </div>
         
