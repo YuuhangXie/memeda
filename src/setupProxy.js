@@ -12,7 +12,7 @@ module.exports = function(app) {
   }))
 
   app.use('/pic', proxy({
-    target: 'http://lvyunfei.com',
+    target: 'https://lvyunfei.com',
     changeOrigin: true,
   }))
 
@@ -30,7 +30,7 @@ module.exports = function(app) {
   }))
 
   app.use(['/ourwish', '/mywish', '/tawish', '/giftavatar'], proxy({
-    target: 'http://localhost:9009',
+    target: 'http://localhost:9139',
     changeOrigin: true
   }))
 
@@ -41,6 +41,11 @@ module.exports = function(app) {
 
   app.use('/album', proxy({
     target: 'http://localhost:9889',
+    changeOrigin: true
+  }))
+
+  app.use('/home', proxy({
+    target: 'http://localhost:9789',
     changeOrigin: true
   }))
 }

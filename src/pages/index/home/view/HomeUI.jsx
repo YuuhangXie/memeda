@@ -17,7 +17,7 @@ export default (props) => {
                 </div>
                 <div className="maleAva avatar">
                     <div className="avatar-box">
-                        <img style={{borderRadius: '50%'}} src={props.userInfo.bind_info.head_img} alt="头像"/>
+                        <img  src={props.userInfo.bind_info.head_img} alt="头像"/>
                     </div>
                     <span>{props.userInfo.bind_info.nickname}</span>
                 </div>

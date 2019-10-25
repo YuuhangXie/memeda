@@ -86,7 +86,7 @@ class Diary extends Component {
                                     <div className="word-content">
                                         <div className="user-message">
                                             <div className="avatar">
-                                                <img src={this.state.userList[1].head_img} alt="头像"/>
+                                                <img src={this.state.userList[0].head_img} alt="头像"/>
                                             </div>
                                             <div className="diary-date">{value.date}</div>
                                         </div>

@@ -1,7 +1,7 @@
 {
   "/api/period": "/period",
-  "/api/home": "/home",
   "/api/profile/users": "/users",
   "/api/gift/giftava": "/giftava",
-  "/api/diary/diarycontent": "/diarycontent"
+  "/api/diary/diarycontent": "/diarycontent",
+  "/api/comment/getLoveRank": "/getLoveRank"
 }
