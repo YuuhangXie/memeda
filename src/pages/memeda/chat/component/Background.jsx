@@ -4,13 +4,14 @@ import { BackgroundContainer } from './StyledBackground'
 import Back from 'images/gift/back.png'
 
 import { ImagePicker, WingBlank } from 'antd-mobile';
+import storage from 'utils/storage.js'
 
 const data = [{
-  url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
-  id: '2121',
+  url: 'http://lvyunfei.com/pic/background.png',
+  id: '2121'
 }, {
-  url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
-  id: '2122',
+  url: 'http://lvyunfei.com/pic/background0.png',
+  id: '2122'
 }];
 
 export default class Background extends Component {
@@ -24,6 +25,12 @@ export default class Background extends Component {
     this.setState({
       files,
     });
+  }
+
+  onImageClick = (index, fs) => {
+    console.log(fs[index].url)
+    storage.set('imgAdd', {'imgadd': fs[index].url})
+    this.props.history.push('/memeda/chat/home')
   }
   
   clickHandler() {
@@ -54,7 +61,7 @@ export default class Background extends Component {
                 <ImagePicker
                   files={files}
                   onChange={this.onChange}
-                  onImageClick={(index, fs) => console.log(index, fs)}
+                  onImageClick={this.onImageClick}
                   selectable={files.length < 7}
                   length="3"
                 />

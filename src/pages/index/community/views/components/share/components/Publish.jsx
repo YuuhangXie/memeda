@@ -18,7 +18,7 @@ class Publish extends Component {
     return (
       <BorderPublish> 
         <PublishContainer>
-          <img src={this.props.user ? this.props.user.head_address : 'https://via.placeholder.com/150'} alt=""/>
+          <img src={this.props.user !== 'undefined' ? this.props.user.head_img : 'https://via.placeholder.com/150'} alt=""/>
           <p>秀恩爱，来这里就对了~</p>
           <em onClick={this.handleClick}>+</em>
         </PublishContainer>

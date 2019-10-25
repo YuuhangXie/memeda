@@ -1,9 +1,7 @@
 {
-  "/api/test": "/test",
-  "/api/community/getCommunitys": "/getCommunitys",
-  "/api/home": "/home",
+  "/api/period": "/period",
   "/api/profile/users": "/users",
   "/api/gift/giftava": "/giftava",
-  "/api/comment/getLoveRank": "/getLoveRank",
-  "/api/diary/diarycontent": "/diarycontent"
+  "/api/diary/diarycontent": "/diarycontent",
+  "/api/comment/getLoveRank": "/getLoveRank"
 }

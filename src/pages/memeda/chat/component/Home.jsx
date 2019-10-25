@@ -19,7 +19,8 @@ export default class ChatContainer extends Component {
       value : '',
       avatar: {},
       tabList: [],
-      userInfo: []
+      userInfo: [],
+      imgadd : 'http://lvyunfei.com/pic/background.png'
     }
   }
 
@@ -28,9 +29,16 @@ export default class ChatContainer extends Component {
     let userInfo =  await Apiservice.get('/userlist/' + user_id)
     storage.set('userMsg', userInfo)
 
+    let imgs = storage.get('imgAdd')
+
+    console.log(imgs.imgadd)
+
     this.setState({
-      userInfo
+      userInfo,
+      imgadd : imgs.imgadd
     })
+
+    console.log(userInfo)
 
     if(this.props.location.state) {
       this.setState({
@@ -72,12 +80,7 @@ export default class ChatContainer extends Component {
     });
   }
 
-  handleBlur() {
-    
-  }
-
   render() {
-
 
     return (
       this.state.userInfo.length === 0 ? null:
@@ -101,24 +104,24 @@ export default class ChatContainer extends Component {
             <div className="back" onClick={() => this.clickHandler()}>
               <img src={Back} alt="返回" />
             </div>
-            <span className="title">颖宝</span>
+            <span className="title">{this.state.userInfo.bind_info.nickname}</span>
             <div className="setting" onClick={() => this.clickHandle()}>
               <img src={Setting} alt="设置" />
             </div>
           </div>
 
-          <div className="chat-body">
+          <div className="chat-body" style={{backgroundImage:`url(${this.state.imgadd})`}}>
             <div className="chatting">
               <div className="he">
                 <div className="avater">
-                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.head_img} alt="对方头像"/>
-                  <div style={{borderRadius: '0.1rem'}} className="hesay">爱你，丽颖</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.bind_info.head_img} alt="对方头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="hesay">爱你，{this.state.userInfo.nickname}</div>
                 </div>
               </div>
               <div className="she">
                 <div className="avater">
-                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.bind_info.head_img} alt="我的头像"/>
-                  <div style={{borderRadius: '0.1rem'}} className="shesay">爱你，李健</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.head_img} alt="我的头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="shesay">爱你，{this.state.userInfo.bind_info.nickname}</div>
                 </div>
               </div>
             </div>
@@ -127,7 +130,7 @@ export default class ChatContainer extends Component {
                 <img src={Voice} alt="语音"/>
               </div>
               <div className="inputs">
-                <input type="text" onBlur={(e) => {this.handleBlur(e)}} value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
+                <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
               </div>
 
               <div className="send" onClick={()=>this.sendHandle()}>

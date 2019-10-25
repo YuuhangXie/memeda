@@ -84,6 +84,7 @@ const HomeContainer = styled.div`
             .chat-body {
                 flex: 1;
                 background: #f3f3f3;
+                background-size: 100% 100%;
                 display: flex;
                 flex-direction: column;
                 .chatting {

@@ -44,13 +44,21 @@ const HomeContainer = styled.div`
         color: #ffffff;
     }
     .avatar {
-        width:0.44rem;
-        height:0.44rem;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        .avatar-box {
+            width:0.44rem;
+            height:0.44rem;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
     }
+
     .femaleAva {
         margin-left: 0.15rem;
     }

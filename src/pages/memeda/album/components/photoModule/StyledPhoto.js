@@ -48,14 +48,6 @@ const PhotoContainer = styled.div `
                         width: 0.75rem;
                         height: 0.975rem;
                         margin: 0 0 0.07rem 0.095rem ;
-                        .hide {
-                            display: none;
-                        }
-                        .large-box {
-                            position: absolute;
-                            top: ${document.body.scrollTop / 200}rem;
-                            left: 0;
-                        }
                     }
                 }
                 .photo-moment {
