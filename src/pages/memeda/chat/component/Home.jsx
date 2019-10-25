@@ -24,14 +24,11 @@ export default class ChatContainer extends Component {
   }
 
   async componentDidMount() {
-    let result = await Apiservice.get('/api/home')
     let user_id = storage.get('user_id')
     let userInfo =  await Apiservice.get('/userlist/' + user_id)
     storage.set('userMsg', userInfo)
 
     this.setState({
-      tabList: result.data.tabMsg,
-      avatar: result.data.avatar,
       userInfo
     })
 
@@ -73,6 +70,10 @@ export default class ChatContainer extends Component {
     this.setState({
       value: ''
     });
+  }
+
+  handleBlur() {
+    
   }
 
   render() {
@@ -126,7 +127,7 @@ export default class ChatContainer extends Component {
                 <img src={Voice} alt="语音"/>
               </div>
               <div className="inputs">
-                <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
+                <input type="text" onBlur={(e) => {this.handleBlur(e)}} value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
               </div>
 
               <div className="send" onClick={()=>this.sendHandle()}>
