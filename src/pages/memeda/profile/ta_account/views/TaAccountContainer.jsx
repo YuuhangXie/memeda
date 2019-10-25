@@ -4,7 +4,10 @@ import storage from "utils/storage";
 
 import TaAccountUI from "./TaAccountUI";
 
-export default class TaAccountContainer extends Component {
+import connect from "./connect";
+
+@connect
+class TaAccountContainer extends Component {
   state = {
     username: storage.get("userInfo").bind_info.nickname,
     sex: storage.get("userInfo").bind_info.sex,
@@ -45,6 +48,9 @@ export default class TaAccountContainer extends Component {
   }
 
   handleClickRemoveBtn() {
+    this.props.removeRelationship("13520611623");
     alert("goto login page");
   }
 }
+
+export default TaAccountContainer

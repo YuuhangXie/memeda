@@ -52,7 +52,18 @@ const HomeContainer = styled.div `
                   color: #000000;
                   margin-top: .24rem;
               }
-
+              button {
+                  margin-top: .24rem;
+                  width: 3rem;
+                  height: .35rem;
+                  color: #fff;
+                  text-align:center;
+                  line-height: .35rem;
+                  font-size: .16rem;
+                  background: #F09199;
+                  border: none;
+                  border-radius: .05rem;
+              }
           }
       }
 `

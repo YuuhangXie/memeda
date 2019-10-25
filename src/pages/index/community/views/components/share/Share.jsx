@@ -6,7 +6,11 @@ import Publish from './components/Publish'
 import Refresh from './components/Refresh'
 // import Views from './components/Views'
 
-export default class Share extends Component {
+import {
+  withRouter
+} from 'react-router-dom'
+
+class Share extends Component {
   state = {
     shareList: [],
     userInfo: ''
@@ -15,17 +19,15 @@ export default class Share extends Component {
   async componentDidMount() {
     const requestData = {
       method: 'get',
-      url: '/api/community/getCommunitys',
-      data: {
-        pageIndex: this.state.pageIndex
-      }
+      url: '/community/showList',
     }
     let list = await ApiService.customRequest(requestData)
     let userInfo = await ApiService.customRequest({
       url: '/api/profile/users'
     })
+    list = list.reverse()
     this.setState({
-      shareList: list.showList,
+      shareList: list,
       userInfo: userInfo.UserList[0]
     })
   }
@@ -33,16 +35,13 @@ export default class Share extends Component {
   async handleAddPage () {
     const requestData = {
       method: 'get',
-      url: '/api/community/getCommunitys',
-      data: {
-        pageIndex: 2
-      }
+      url: '/community/showList',
     }
     let list = await ApiService.customRequest(requestData)
     this.setState({
       shareList: [
         // ...this.state.shareList,
-        ...list.showList
+        ...list.reverse()
       ]
     })
   }
@@ -56,3 +55,5 @@ export default class Share extends Component {
     )
   }
 }
+
+export default withRouter(Share)

@@ -5,19 +5,42 @@ import {HomeContainer } from './StyledHome'
 import Back from 'images/gift/back.png'
 import Setting from 'images/chat/setting.png'
 import Voice from 'images/chat/voice.png'
-import Emoji from 'images/chat/emoji.png'
-import Picture from 'images/chat/picture.png'
 import History from 'images/chat/history.png'
 import Background from 'images/chat/background.png'
+
+import Apiservice from 'utils/api.service.js'
+import storage from 'utils/storage.js'
 
 export default class ChatContainer extends Component {
   constructor() {
     super()
     this.state = {
-      hide : true
+      hide : true,
+      value : '',
+      avatar: {},
+      tabList: [],
+      userInfo: []
     }
   }
 
+  async componentDidMount() {
+    console.log(this.props)
+    let result = await Apiservice.get('/api/home')
+    this.state.userInfo = await Apiservice.get('/userlist')
+
+    storage.set('userMsg', this.state.userInfo)
+
+    this.setState({
+      tabList: result.data.tabMsg,
+      avatar: result.data.avatar
+    })
+
+    if(this.props.location.state) {
+      this.setState({
+        value : this.props.location.state.msg
+      })
+    }
+  }
 
   clickHandle() {
     this.setState({
@@ -37,8 +60,26 @@ export default class ChatContainer extends Component {
     this.props.history.push('/memeda/chat/background')
   }
 
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  sendHandle() {
+    storage.set('chats', this.state.value)
+    console.log(this.state.value)
+
+    this.setState({
+      value: ''
+    });
+  }
+
   render() {
+
+
     return (
+      this.state.userInfo.length === 0 ? null:
       <HomeContainer>
         <div className="chat-container">
           <div className={this.state.hide ? "hidden" : "settings-container"}>
@@ -67,20 +108,29 @@ export default class ChatContainer extends Component {
 
           <div className="chat-body">
             <div className="chatting">
-              chat
+              <div className="he">
+                <div className="avater">
+                  <img src={this.state.userInfo[0].head_img} alt="对方头像"/>
+                  <div className="hesay">爱你，丽颖</div>
+                </div>
+              </div>
+              <div className="she">
+                <div className="avater">
+                  <img src={this.state.userInfo[1].head_img} alt="对方头像"/>
+                  <div className="shesay">爱你，李健</div>
+                </div>
+              </div>
             </div>
             <div className="inputting">
               <div className="voice">
                 <img src={Voice} alt="语音"/>
               </div>
               <div className="inputs">
-                <input type="text"/>
+                <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
               </div>
-              <div className="emoji">
-                <img src={Emoji} alt="表情"/>
-              </div>
-              <div className="picture">
-                <img src={Picture} alt="图片"/>
+
+              <div className="send" onClick={()=>this.sendHandle()}>
+                <button>发送</button>
               </div>
             </div>
           </div>

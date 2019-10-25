@@ -1,4 +1,4 @@
-import Register from './views/RegisterContainer'
+import Register from './views/RegisterBoxContainer'
 
 export {
   Register

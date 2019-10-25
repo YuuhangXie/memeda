@@ -31,7 +31,8 @@ class ProfileContainer extends Component {
   }
 
   handleClickJump(path) {
-    this.props.history.push(`/memeda/profile${path}`);
+    if(path === "/rings") this.props.history.push("/index/community/store");
+    else this.props.history.push(`/memeda/profile${path}`);
   }
 
   handleGoBack() {

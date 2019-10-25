@@ -30,7 +30,7 @@ module.exports = function(app) {
   }))
 
   app.use(['/ourwish', '/mywish', '/tawish', '/giftavatar'], proxy({
-    target: 'http://localhost:9009',
+    target: 'http://localhost:9139',
     changeOrigin: true
   }))
 

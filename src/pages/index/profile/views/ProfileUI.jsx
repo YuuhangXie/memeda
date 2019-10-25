@@ -64,7 +64,7 @@ function ProfileUI(props) {
 
       <ul>
         <ListItem
-          listTitle="求婚戒指"
+          listTitle="情侣商店"
           rightArrow={true}
           icon="rings"
           jumpEvent={props.clickJump}

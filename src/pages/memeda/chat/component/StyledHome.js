@@ -88,6 +88,53 @@ const HomeContainer = styled.div`
                 flex-direction: column;
                 .chatting {
                     flex: 1;
+                    .he {
+                        width: 100%;
+                        height: .8rem;
+                        padding: .15rem;
+                        .avater {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            img {
+                                width: .58rem;
+                                height: .58rem;
+                                margin-right: .15rem;
+                            }
+                            .hesay {
+                                width: .95rem;
+                                height: .4rem;
+                                background: #fff;
+                                text-align: center;
+                                line-height: .4rem;
+                            }
+                        }
+                        
+                        
+                    }
+                    .she {
+                        width: 100%;
+                        height: .8rem;
+                        padding: .15rem;
+                        .avater {
+                            display: flex;
+                            flex-direction: row-reverse;
+                            justify-content: flex-start;
+                            align-items: center;
+                            img {
+                                width: .58rem;
+                                height: .58rem;
+                                margin-left: .15rem;
+                            }
+                            .shesay {
+                                width: .95rem;
+                                height: .4rem;
+                                background: #fff;
+                                text-align: center;
+                                line-height: .4rem;
+                            }
+                        }
+                    }
                 }
                 .inputting {
                     width: 100%;
@@ -113,13 +160,16 @@ const HomeContainer = styled.div`
                             border: 1px #B9B9B9 solid;
                         }
                     }
-                    .emoji {
-                        width: .25rem;
-                        height: .25rem;
-                    }
-                    .picture {
-                        width: .25rem;
-                        height: .25rem;
+
+                    .send {
+                        width: .5rem;
+                        height: .3rem;
+                        button {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            background: #F09199;
+                        }
                     }
                 }
             }

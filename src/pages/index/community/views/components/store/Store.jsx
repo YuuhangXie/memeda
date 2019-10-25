@@ -2,33 +2,54 @@ import React, { Component } from 'react'
 
 import ApiService from 'utils/api.service'
 
-export default class Store extends Component {
-  constructor(props) {
-    super(props)
-    this.form = React.createRef()
-  }
-  handleChange = async (e) => {
-    let data = new FormData()
-    data.append('img_name', 'xie')
-    data.append('img', e.target.files[0])
-    let res = await ApiService.customRequest({
-      method: 'post',
-      headers: {
-        'content-type': 'multipart/form-data'
-      },
-      url: '/pic/photo/save',
-      data
-    })
-    console.log(res)
-  }
+import StoreUI from "./StoreUI";
 
+export default class Store extends Component {
+  state = {
+    productList: [],
+    page: 1,
+    finished: false
+  }
   render() {
     return (
-      <div>
-        <form encType="multipart/form-data" id='form' ref={this.form}>
-          <input type="file" id="img" name="img"  onChange={(e) => this.handleChange(e)} />
-        </form>
-      </div>
+      <StoreUI
+        productList={this.state.productList}
+        pullUp={this.handlePullUpLoad.bind(this)}
+        finished={this.state.finished}
+      >
+      </StoreUI>
     )
+  }
+
+  async componentDidMount() {
+    let result = await ApiService.customRequest(`/community/productList/${this.state.page}`);
+    this.setState((prevState) => {
+      return {
+        productList: result.data,
+        page: prevState.page + 1
+      }
+    });
+    if(!result.more) {
+      this.setState({
+        finished: true
+      });
+    }
+  }
+
+  async handlePullUpLoad() {
+    if(!this.state.finished) {
+      let result = await ApiService.customRequest(`/community/productList/${this.state.page}`);
+      this.setState((prevState) => {
+        return {
+          productList: prevState.productList.concat(result.data),
+          page: prevState.page + 1
+        }
+      });
+      if(!result.more) {
+        this.setState({
+          finished: true
+        });
+      }
+    }
   }
 }
