@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ApiService from 'utils/api.service'
+import storage from 'utils/storage'
 
 import {
   Gray
@@ -16,17 +17,65 @@ export default class Rank extends Component {
 
   async componentDidMount() { 
     let data = await ApiService.customRequest({
-      url: '/api/comment/getLoveRank',
+      url: '/community/rankList',
       method: 'get'
     })
+    let user = storage.get('share_info')
+    try {
+      this.user_data = await ApiService.customRequest({
+        url: '/community/rankList/' + user.id,
+        method: 'get'
+      })
+    } catch(e) {
+      if(!this.user_data) {
+        data.push({
+          "id": user.id,
+          "rankScore": 0,
+          "userList": [
+            {
+              "userId": user.id,
+              "img_url": user.head_img,
+              "kickName": user.nickname,
+              "sex": user.sex
+            },
+            {
+              "userId": user.bind_info.id,
+              "img_url": user.bind_info.head_img,
+              "kickName": user.bind_info.nickname,
+              "sex": user.bind_info.sex
+            }
+          ]
+        })
+      }
 
-    let user = await ApiService.customRequest({
-      url: '/api/profile/users'
-    })
+        await ApiService.customRequest({
+          url: '/community/rankList',
+          method: 'post',
+          data: {
+            "id": user.id,
+            "rankScore": 0,
+            "userList": [
+              {
+                "userId": user.id,
+                "img_url": user.head_img,
+                "kickName": user.nickname,
+                "sex": user.sex
+              },
+              {
+                "userId": user.bind_info.id,
+                "img_url": user.bind_info.head_img,
+                "kickName": user.bind_info.nickname,
+                "sex": user.bind_info.sex
+              }
+            ]
+          }
+        })
+    }
+
     // 获取用户接口
     this.setState({
-      ranklist: this.sortList(data.rankList),
-      user: user.UserList
+      ranklist: this.sortList(data),
+      user: user
     })
   }
 
@@ -41,7 +90,7 @@ export default class Rank extends Component {
   render() {
     return (
       <div className="ranklist">
-        <Top userInfo={this.state.user} rank={1} score={9231}></Top>
+        <Top userInfo={this.state.user} rank={this.state.ranklist.length} score={0}></Top>
         <Gray></Gray>
         {this.state.ranklist.length !== 0 && this.state.ranklist.map((item, index) => (
           <RankList rankInfo={item} index={index} key={Math.ceil(Math.random()*10000)}></RankList>

@@ -3,7 +3,7 @@
     {
       "content": "一年之内结婚",
       "id": 20344,
-      "choose": false
+      "choose": true
     },
     {
       "content": "结婚一年内一起买辆奔驰glc suv",
@@ -13,7 +13,7 @@
     {
       "id": 2,
       "content": "每个月一起爬一次山",
-      "choose": false
+      "choose": true
     },
     {
       "id": 3,

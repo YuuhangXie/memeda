@@ -13,21 +13,21 @@ import {
 export default class Home extends Component {
   state = {
     date: '',
-    avatar: {},
     tabList: [],
     userInfo: []
   }
 
   async componentDidMount() {
-    let result = await Apiservice.get('/api/home')
-    this.state.userInfo = await Apiservice.get('/userlist')
-
-    storage.set('userMsg', this.state.userInfo)
+    let result = await Apiservice.get('/home')
+    
+    let user_id = storage.get('user_id')
+    let userInfo =  await Apiservice.get('/userlist/' + user_id)
+    storage.set('userMsg', userInfo)
 
     this.setState({
-      tabList: result.data.tabMsg,
-      date: result.data.date,
-      avatar: result.data.avatar
+      tabList: result.tabMsg,
+      date: result.date,
+      userInfo
     })
   }
 
@@ -42,7 +42,6 @@ export default class Home extends Component {
         <HomeUI
           tabList={this.state.tabList}
           date={this.state.date}
-          avatar={this.state.avatar}
           userInfo={this.state.userInfo}
         ></HomeUI>
         <div className="home-tabbar">

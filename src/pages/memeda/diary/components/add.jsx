@@ -23,9 +23,8 @@ export default class Home extends Component {
   }
 
   async contentPost() {
-    let length = storage.get('diaryContent').length + 1
-    let date = new Date()
     if(this.props.location.state.from === 'comm') {
+        let userInfo = storage.get('share_info')
         await ApiService.customRequest({
             method: 'post',
             url: '/community/showList',
@@ -36,20 +35,22 @@ export default class Home extends Component {
                 "showTime": new Date(),
                 "likeCount": 0,
                 "userId": storage.get('user_id'),
-                "@user": "ta",
-                "@userId": 100899,
+                "@user": userInfo.bind_info.nickname,
+                "@userId": userInfo.bind_info.id,
                 "commentCount": 0,
                 "images": [],
                 "user": {
-                  "img_url": "http://39.96.74.243/img/my_head.png",
-                  "kickName": "瞅瞅1231",
-                  "age": 21,
-                  "sex": "女"
+                  "img_url": userInfo.head_img,
+                  "kickName": userInfo.nickname,
+                  "age": userInfo.age,
+                  "sex": userInfo.sex
                 }
               }
         })
         this.props.history.go(-1)
     } else {
+        let length = storage.get('diaryContent').length + 1
+        let date = new Date()
         await ApiService.post('/diarycontent',{ 
             'content': this.refs.textBox.value,
             'date': this.addZero(date.getMonth()+1) + '-' + this.addZero(date.getDate()) + ' ' + this.addZero(date.getHours()) + ':' + this.addZero(date.getMinutes()),

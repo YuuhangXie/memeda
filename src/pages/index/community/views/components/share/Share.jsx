@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import ApiService from 'utils/api.service'
+import storage from 'utils/storage'
 
 import Publish from './components/Publish'
 import Refresh from './components/Refresh'
@@ -21,14 +22,16 @@ class Share extends Component {
       method: 'get',
       url: '/community/showList',
     }
+    let user_id = storage.get('user_id')
     let list = await ApiService.customRequest(requestData)
     let userInfo = await ApiService.customRequest({
-      url: '/api/profile/users'
+      url: '/userList/' + user_id
     })
+    storage.set('share_info', userInfo)
     list = list.reverse()
     this.setState({
       shareList: list,
-      userInfo: userInfo.UserList[0]
+      userInfo: userInfo
     })
   }
 
@@ -49,7 +52,7 @@ class Share extends Component {
   render() {
     return (
       <div>
-        <Publish user={this.state.userInfo}></Publish>
+        {this.state.userInfo !== '' && <Publish user={this.state.userInfo}></Publish>}
         {this.state.shareList.length !== 0 && <Refresh handleAddPage={this.handleAddPage.bind(this)} list={this.state.shareList}></Refresh>}
       </div>
     )

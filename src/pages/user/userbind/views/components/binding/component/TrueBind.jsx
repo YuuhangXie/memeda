@@ -14,11 +14,14 @@ const TrueBindContainer = styled.div`
   height: 100%;
   position: relative;
   .show-lover{
-    position: absolute;
+    /* position: absolute;
     top: 11.3%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    margin: .68rem 0 .45rem 0;
+
     height: .84rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +46,7 @@ const TrueBindContainer = styled.div`
         font-size: .16rem;
         color: #707070;
         padding-left: .12rem;
-        flex: 1;
+        width: 1.8rem;
       }
       span{
         width: .61rem;
@@ -59,12 +62,14 @@ const TrueBindContainer = styled.div`
   }
 
   .invitate-wrap{
-    height: 1rem;
-    width: 100%;
-    position: absolute;
+    /* position: absolute;
     top: 33%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    /* margin-top: .45rem; */
+
+    width: 100%;
+    height: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,12 +98,14 @@ const TrueBindContainer = styled.div`
 
 
   .cancel-bind{
-    height: 1.4rem;
-    width: 100%;
-    position: absolute;
+    /* position: absolute;
     top: 4.3%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    margin: .26rem 0 .32rem 0;
+
+    height: 1.4rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

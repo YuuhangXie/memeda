@@ -77,6 +77,13 @@ export default class Tree extends Component {
       data
     })
     console.log(result)
+    await ApiService.customRequest({
+      method: 'patch',
+      url: `/community/rankList/${this.user_id}`,
+      data: {
+        "rankScore": data.power
+      }
+    })
   }
 
   render() {

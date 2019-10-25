@@ -9,10 +9,8 @@ class WatchModule extends Component {
     render() {
         return (
             <WatchContainer>
-                <div className="watch-box">
-                    <div className="target-img-container">
-                        <img src={storage.get('target_img')} alt="targetImg" onClick={() => {this.props.history.push('/memeda/album/index')}}/>
-                    </div>
+                <div className="target-img-container">
+                    <img src={storage.get('target_img')} alt="targetImg" onClick={() => {this.props.history.push('/memeda/album/index')}}/>
                 </div>
             </WatchContainer>
         )
