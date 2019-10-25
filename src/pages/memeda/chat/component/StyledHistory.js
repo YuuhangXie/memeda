@@ -4,6 +4,7 @@ const HistoryContainer = styled.div `
       width: 100%;
       height: 100%;
       .history-container {
+            background: #fff;
             width: 100%;
             height: 100%;
             display: flex;
@@ -31,6 +32,7 @@ const HistoryContainer = styled.div `
                 }
             }
             .history-body {
+              background: #fff;
               display: flex;
               justify-content: center;
               .date-container {

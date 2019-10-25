@@ -24,15 +24,15 @@ export default class ChatContainer extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.props)
     let result = await Apiservice.get('/api/home')
-    this.state.userInfo = await Apiservice.get('/userlist')
-
-    storage.set('userMsg', this.state.userInfo)
+    let user_id = storage.get('user_id')
+    let userInfo =  await Apiservice.get('/userlist/' + user_id)
+    storage.set('userMsg', userInfo)
 
     this.setState({
       tabList: result.data.tabMsg,
-      avatar: result.data.avatar
+      avatar: result.data.avatar,
+      userInfo
     })
 
     if(this.props.location.state) {
@@ -110,14 +110,14 @@ export default class ChatContainer extends Component {
             <div className="chatting">
               <div className="he">
                 <div className="avater">
-                  <img src={this.state.userInfo[0].head_img} alt="对方头像"/>
-                  <div className="hesay">爱你，丽颖</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.head_img} alt="对方头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="hesay">爱你，丽颖</div>
                 </div>
               </div>
               <div className="she">
                 <div className="avater">
-                  <img src={this.state.userInfo[1].head_img} alt="对方头像"/>
-                  <div className="shesay">爱你，李健</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.bind_info.head_img} alt="我的头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="shesay">爱你，李健</div>
                 </div>
               </div>
             </div>

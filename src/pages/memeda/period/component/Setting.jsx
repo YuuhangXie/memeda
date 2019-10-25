@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import axios from 'utils/api.service.js'
 
 import moment from 'moment'
 
@@ -42,10 +41,41 @@ class Test extends Component {
     });
   }
 
-  async componentDidMount(){
-    let result = await axios.get('/api/period')
+  componentDidMount(){
+    let result = {
+      "distance": [
+        {
+          "label": "15天",
+          "value": 15
+        },
+        {
+          "label": "20天",
+          "value": 20
+        },
+        {
+          "label": "25天",
+          "value": 25
+        },
+        {
+          "label": "30天",
+          "value": 30
+        },
+        {
+          "label": "35天",
+          "value": 35
+        },
+        {
+          "label": "40天",
+          "value": 40
+        },
+        {
+          "label": "45天",
+          "value": 45
+        }
+      ]
+    }
     this.setState({
-      distance: result.data.distance
+      distance: result.distance
     })
   }
 
