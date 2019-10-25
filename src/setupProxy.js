@@ -43,4 +43,9 @@ module.exports = function(app) {
     target: 'http://localhost:9889',
     changeOrigin: true
   }))
+
+  app.use('/home', proxy({
+    target: 'http://localhost:9789',
+    changeOrigin: true
+  }))
 }

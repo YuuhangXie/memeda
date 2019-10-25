@@ -10,7 +10,7 @@ const StyledPrint = styled.div `
     font-weight: 400;
     line-height: .23rem;
     text-align: center;
-    margin: .21rem 0;
+    margin: 0 0 .21rem 0;
   }
   >img{
     &:nth-of-type(1){

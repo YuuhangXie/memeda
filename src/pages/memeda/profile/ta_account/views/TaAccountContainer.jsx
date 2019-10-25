@@ -48,8 +48,9 @@ class TaAccountContainer extends Component {
   }
 
   handleClickRemoveBtn() {
-    this.props.removeRelationship("13520611623");
-    alert("goto login page");
+    this.props.removeRelationship(storage.get("user_id"));
+    // alert("goto login page");
+    this.props.history.push("/login");
   }
 }
 
