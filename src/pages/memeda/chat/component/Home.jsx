@@ -25,13 +25,12 @@ export default class ChatContainer extends Component {
   }
 
   async componentDidMount() {
+    storage.set('imgAdd', {imgadd: '#f3f3f3'})
     let user_id = storage.get('user_id')
     let userInfo =  await Apiservice.get('/userlist/' + user_id)
     storage.set('userMsg', userInfo)
 
     let imgs = storage.get('imgAdd')
-
-    console.log(imgs.imgadd)
 
     this.setState({
       userInfo,

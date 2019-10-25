@@ -103,7 +103,7 @@ const HomeContainer = styled.div`
                                 margin-right: .15rem;
                             }
                             .hesay {
-                                width: .95rem;
+                                width: 1.6rem;
                                 height: .4rem;
                                 background: #fff;
                                 text-align: center;
@@ -128,7 +128,7 @@ const HomeContainer = styled.div`
                                 margin-left: .15rem;
                             }
                             .shesay {
-                                width: .95rem;
+                                width: 1.6rem;
                                 height: .4rem;
                                 background: #fff;
                                 text-align: center;
