@@ -63,7 +63,7 @@ const HomeContainer = styled.div`
         margin-left: 0.15rem;
     }
     .homeDate {
-        margin-left: 0.76rem;
+        margin-left: 0.66rem;
         font-size: 0.21rem;
         display: flex;
         flex-direction: column;

@@ -5,8 +5,28 @@
       "script": "npm -- run start"
     },
     {
-      "name": "mock",
-      "script": "npm -- run mock"
+      "name": "mockuser",
+      "script": "npm -- run mockuser"
+    },
+    {
+      "name": "mockcomm",
+      "script": "npm -- run mockcomm"
+    },
+    {
+      "name": "mockwish",
+      "script": "npm -- run mockwish"
+    },
+    {
+      "name": "mockdiary",
+      "script": "npm -- run mockdiary"
+    },
+    {
+      "name": "mockalbum",
+      "script": "npm -- run mockalbum"
+    },
+    {
+      "name": "mockhome",
+      "script": "npm -- run mockhome"
     }
   ]
 }

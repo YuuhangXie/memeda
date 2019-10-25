@@ -11,21 +11,20 @@ import Background from 'images/chat/background.png'
 import Apiservice from 'utils/api.service.js'
 import storage from 'utils/storage.js'
 
+storage.set('imgAdd', {imgadd: 'http://lvyunfei.com/pic/background.png'})
+
 export default class ChatContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      hide : true,
-      value : '',
-      avatar: {},
-      tabList: [],
-      userInfo: [],
-      imgadd : 'http://lvyunfei.com/pic/background.png'
-    }
+  state = {
+    hide : true,
+    value : '',
+    avatar: {},
+    tabList: [],
+    userInfo: [],
+    imgadd: 'http://lvyunfei.com/pic/background.png'
   }
 
   async componentDidMount() {
-    storage.set('imgAdd', {imgadd: '#f3f3f3'})
+
     let user_id = storage.get('user_id')
     let userInfo =  await Apiservice.get('/userlist/' + user_id)
     storage.set('userMsg', userInfo)
@@ -53,7 +52,7 @@ export default class ChatContainer extends Component {
   }
   
   clickHandler() {
-    this.props.history.goBack()
+    this.props.history.push('/index/home')
   }
 
   GotoHis() {

@@ -12,7 +12,8 @@ import RankList from './components/RankList'
 export default class Rank extends Component {
   state = {
     ranklist: [],
-    user: []
+    user: [],
+    score: 0
   }
 
   async componentDidMount() { 
@@ -71,11 +72,11 @@ export default class Rank extends Component {
           }
         })
     }
-
     // 获取用户接口
     this.setState({
       ranklist: this.sortList(data),
-      user: user
+      user: user,
+      score: this.user_data.rankScore
     })
   }
 
@@ -90,7 +91,7 @@ export default class Rank extends Component {
   render() {
     return (
       <div className="ranklist">
-        <Top userInfo={this.state.user} rank={this.state.ranklist.length} score={0}></Top>
+        <Top userInfo={this.state.user} rank={this.state.ranklist.length} score={ this.state.score }></Top>
         <Gray></Gray>
         {this.state.ranklist.length !== 0 && this.state.ranklist.map((item, index) => (
           <RankList rankInfo={item} index={index} key={Math.ceil(Math.random()*10000)}></RankList>
