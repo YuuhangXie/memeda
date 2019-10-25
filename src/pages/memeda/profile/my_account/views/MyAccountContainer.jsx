@@ -111,7 +111,6 @@ class MyAccountContainer extends Component {
         },
         data
       });
-      alert(result)
       if(result.ret) {
         this.props.changeUsersInfo(this.userId, {
           head_img: `http://lvyunfei.com/pic/profile_headimg_${randomNum}.${ext}`
