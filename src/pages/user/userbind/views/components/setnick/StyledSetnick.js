@@ -3,14 +3,17 @@ import border from 'components/styled/border'
 
 const SetnickContainer = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   height: 100%;
   .setWrap{
     flex: 1;
     position: relative;
     .headImgWrap{
-      position: absolute;
-      top: 7.63%;
+      /* position: absolute;
+      top: 7.63%; */
+      margin-top: .46rem;
+
       height: 1.18rem;
       width: 100%;
       display: flex;
@@ -51,8 +54,10 @@ const SetnickContainer = styled.div`
     }
 
     .setNickWrap{
-      position: absolute;
-      top: 32.8%;
+      /* position: absolute;
+      top: 32.8%; */
+      margin-top: .35rem;
+
       height: .6rem;
       width: 100%;
       display: flex;
@@ -75,10 +80,12 @@ const SetnickContainer = styled.div`
     }
 
     .setSexWrap{
+      /* position: absolute;
+      top: 50%; */
+      margin: .51rem 0 .72rem 0;
+
       width: 100%;
       height: .16rem;
-      position: absolute;
-      top: 50%;
       display: flex;
       justify-content: center;
       ul{
@@ -109,13 +116,14 @@ const SetnickContainer = styled.div`
     }
 
     .setSubmit{
+      /* position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translateX(-50%); */
+      /* margin: 0 auto; 浏览器端专用 */
       width: 3rem;
       height: .56rem;
       background: #F09199;
-      position: absolute;
-      top: 65%;
-      left: 50%;
-      transform: translateX(-50%);
       border-radius: .05rem;
       font-size: .17rem;
       line-height: .56rem;

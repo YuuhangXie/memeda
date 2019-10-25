@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import border from 'components/styled/border'
 import ApiService from 'utils/api.service'
 import Storage from 'utils/storage'
-import herPng from 'images/login/herAva.png'
+// import herPng from 'images/login/herAva.png'
 
 import { ActionSheet, WingBlank, Button, Toast } from 'antd-mobile';
 
@@ -14,11 +14,14 @@ const TrueBindContainer = styled.div`
   height: 100%;
   position: relative;
   .show-lover{
-    position: absolute;
+    /* position: absolute;
     top: 11.3%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    margin: .68rem 0 .45rem 0;
+
     height: .84rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +46,7 @@ const TrueBindContainer = styled.div`
         font-size: .16rem;
         color: #707070;
         padding-left: .12rem;
-        flex: 1;
+        width: 1.8rem;
       }
       span{
         width: .61rem;
@@ -59,12 +62,14 @@ const TrueBindContainer = styled.div`
   }
 
   .invitate-wrap{
-    height: 1rem;
-    width: 100%;
-    position: absolute;
+    /* position: absolute;
     top: 33%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    /* margin-top: .45rem; */
+
+    width: 100%;
+    height: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,12 +98,14 @@ const TrueBindContainer = styled.div`
 
 
   .cancel-bind{
-    height: 1.4rem;
-    width: 100%;
-    position: absolute;
+    /* position: absolute;
     top: 4.3%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    margin: .26rem 0 .32rem 0;
+
+    height: 1.4rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -233,6 +240,7 @@ export default class TrueBind extends Component {
   state = {
     myLover: '',
     halfLover: '',
+    halfHeadImg:'',
     willBind: false
   }
 
@@ -252,7 +260,11 @@ export default class TrueBind extends Component {
         }
         await ApiService.patch('/userlist/'+this.phone, data)
         let halfPhone = hasLoverCode[0].id
+        let halfHeadImg = hasLoverCode[0].head_img
         Storage.set('half_id', halfPhone)
+        this.setState({
+          halfHeadImg: halfHeadImg
+        })
         await ApiService.patch('/userlist/'+halfPhone, halfData)
         this.setState({
           willBind: true
@@ -277,18 +289,40 @@ export default class TrueBind extends Component {
     let userData = await ApiService.get('/userlist/' + this.phone)
     let myLover= userData.lover_code
     let willBindInfo = userData.will_bind_info
-    let invitedBindNum = userData.invited_to_bind
+    // let invitedBindNum = userData.invited_to_bind
     this.setState({
       myLover: myLover
     })
-    if(willBindInfo || invitedBindNum){
+    if(willBindInfo){
+      let halfData = await ApiService.get('/userlist?lover_code='+willBindInfo)
+      // let halfHeadImg = halfData[0].head_img
+      console.log(halfData)
       this.setState({
-        willBind: true
+        willBind: true,
+        halfHeadImg: halfData[0].head_img
       })
-    }
+    } 
+    // else if(invitedBindNum) {
+    //   let halfData = await ApiService.get('/userlist?lover_code='+invitedBindNum)
+    //   // let halfHeadImg = halfData[0].head_img
+    //   console.log(halfData)
+    //   this.setState({
+    //     willBind: true,
+    //     halfHeadImg: halfData[0].head_img
+    //   })
+    // }
+    // if(willBindInfo || invitedBindNum){
+    //   let halfData = await ApiService.get('/userlist?lover_code='+willBindInfo)
+    //   // let halfHeadImg = halfData[0].head_img
+    //   console.log(halfData)
+    //   this.setState({
+    //     willBind: true,
+    //     halfHeadImg: halfData[0].head_img
+    //   })
+    // }
   }
 
-  cancelBind = () => {
+  cancelBind = async () => {
     let myPhone = Storage.get('user_id')
     let halfPhone = Storage.get('half_id')
     let myData = {
@@ -323,7 +357,7 @@ export default class TrueBind extends Component {
           </div> 
         : <div className="cancel-bind">
             <div className="head-img">
-              <img src={herPng} alt="头像"/>
+              <img src={this.state.halfHeadImg} alt="头像"/>
             </div>
             <p>请求已发出，等待对方接受</p>
             <span onClick={this.cancelBind}>取消请求</span>
