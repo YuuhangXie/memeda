@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Countdown from 'react-count-down'
 
 import Avatar1 from 'images/period/avatar1.png'
 import Avatar2 from 'images/period/avatar2.png'
@@ -6,6 +7,13 @@ import Back from 'images/gift/back.png'
 
 import {HomeContainer} from './StyledHome'
 import storage from 'utils/storage.js'
+
+
+let OPTIONS = {
+  endDate: '11/25/2019 10:55 AM',
+  prefix: '',
+  cb: ()=> {}
+}
 
 export default class Home extends Component {
   constructor(){
@@ -18,8 +26,6 @@ export default class Home extends Component {
   
   async componentDidMount() {
     let result = storage.get('period')
-
-    console.log(result)
 
     if(result) {
       this.setState({
@@ -86,7 +92,8 @@ export default class Home extends Component {
             <div className="avatar">
               <img src={Avatar2} alt="姨妈来了" />
             </div>
-            <span className="welcome">倒计时：{this.state.distance}天</span>
+            <span className="welcome">倒计时：</span>
+            <Countdown options={OPTIONS}/>
             <div className="tip">最近一次来姨妈 {this.state.date}</div>
             <button onClick={()=> this.click2chat()}>告诉他，姨妈提前来了</button>
           </div>

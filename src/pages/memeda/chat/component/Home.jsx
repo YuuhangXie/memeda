@@ -19,21 +19,26 @@ export default class ChatContainer extends Component {
       value : '',
       avatar: {},
       tabList: [],
-      userInfo: []
+      userInfo: [],
+      imgadd : 'http://lvyunfei.com/pic/background.png'
     }
   }
 
   async componentDidMount() {
-    console.log(this.props)
-    let result = await Apiservice.get('/api/home')
-    this.state.userInfo = await Apiservice.get('/userlist')
+    let user_id = storage.get('user_id')
+    let userInfo =  await Apiservice.get('/userlist/' + user_id)
+    storage.set('userMsg', userInfo)
 
-    storage.set('userMsg', this.state.userInfo)
+    let imgs = storage.get('imgAdd')
+
+    console.log(imgs.imgadd)
 
     this.setState({
-      tabList: result.data.tabMsg,
-      avatar: result.data.avatar
+      userInfo,
+      imgadd : imgs.imgadd
     })
+
+    console.log(userInfo)
 
     if(this.props.location.state) {
       this.setState({
@@ -77,7 +82,6 @@ export default class ChatContainer extends Component {
 
   render() {
 
-
     return (
       this.state.userInfo.length === 0 ? null:
       <HomeContainer>
@@ -100,24 +104,24 @@ export default class ChatContainer extends Component {
             <div className="back" onClick={() => this.clickHandler()}>
               <img src={Back} alt="返回" />
             </div>
-            <span className="title">颖宝</span>
+            <span className="title">{this.state.userInfo.bind_info.nickname}</span>
             <div className="setting" onClick={() => this.clickHandle()}>
               <img src={Setting} alt="设置" />
             </div>
           </div>
 
-          <div className="chat-body">
+          <div className="chat-body" style={{backgroundImage:`url(${this.state.imgadd})`}}>
             <div className="chatting">
               <div className="he">
                 <div className="avater">
-                  <img src={this.state.userInfo[0].head_img} alt="对方头像"/>
-                  <div className="hesay">爱你，丽颖</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.bind_info.head_img} alt="对方头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="hesay">爱你，{this.state.userInfo.nickname}</div>
                 </div>
               </div>
               <div className="she">
                 <div className="avater">
-                  <img src={this.state.userInfo[1].head_img} alt="对方头像"/>
-                  <div className="shesay">爱你，李健</div>
+                  <img style={{borderRadius: '50%'}} src={this.state.userInfo.head_img} alt="我的头像"/>
+                  <div style={{borderRadius: '0.1rem'}} className="shesay">爱你，{this.state.userInfo.bind_info.nickname}</div>
                 </div>
               </div>
             </div>
