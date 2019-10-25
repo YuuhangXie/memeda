@@ -62,7 +62,7 @@ export default class Setnick extends Component {
       let randomNum = parseInt(Math.random() * 100000)
       imgData.append('img_name', `profile_headimg_${randomNum}`)
       imgData.append('img', files[0].file)
-      let result = await ApiService.customRequest({
+      await ApiService.customRequest({
         url: '/pic/photo/save',
         method: 'post',
         headers: {
@@ -70,9 +70,9 @@ export default class Setnick extends Component {
         },
         data: imgData
       })
-      console.log(result)
-      console.log(files[0].file)
-      console.log(imgSuffix, randomNum)
+      // console.log(result)
+      // console.log(files[0].file)
+      // console.log(imgSuffix, randomNum)
 
       let id = Storage.get('user_id')
       let age = Math.ceil(Math.random()*(40-20) + 20)

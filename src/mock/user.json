@@ -334,6 +334,28 @@
         "age": 29,
         "lover_code": 527256
       }
+    },
+    {
+      "id": 33333333333,
+      "password": "qwer",
+      "nickname": "",
+      "sex": "",
+      "head_img": "",
+      "age": "",
+      "lover_code": 234297,
+      "invite_code": 844666,
+      "bind_status": false,
+      "fund_status": false,
+      "will_bind_info": "",
+      "invited_to_bind": "",
+      "bind_info": {
+        "id": "",
+        "sex": "",
+        "nickname": "",
+        "head_img": "",
+        "age": "",
+        "lover_code": ""
+      }
     }
   ]
 }
