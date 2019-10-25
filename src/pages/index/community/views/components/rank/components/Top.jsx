@@ -18,9 +18,9 @@ export default class Top extends Component {
         <div className="self-rank">
           <span>好友榜：{rank ? rank : '暂未排名'}</span>
           <div className="self-rank-info">
-            <img src={userInfo.length !== 0 ? userInfo[0].head_address : top_bg} alt=""/>
+            <img src={userInfo.length !== 0 ? this.props.userInfo.head_img : top_bg} alt=""/>
             ❤️
-            <img src={userInfo.length !== 0 ? userInfo[1].head_address : top_bg} alt=""/>
+            <img src={userInfo.length !== 0 ? this.props.userInfo.bind_info.head_img : top_bg} alt=""/>
           </div>
         </div>
         <div className="gray"></div>
