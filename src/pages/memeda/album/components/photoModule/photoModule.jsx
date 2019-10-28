@@ -5,6 +5,7 @@ import { PhotoContainer} from './StyledPhoto'
 
 import ApiService from 'utils/api.service.js'
 import storage from 'utils/storage.js'
+import _ from 'lodash'
 
 class PhotoModule extends Component {
     
@@ -18,7 +19,7 @@ class PhotoModule extends Component {
         this.setState({
             photoList: await ApiService.get('/album')
         })
-        storage.set('photoContent', this.state.photoList)
+        storage.set('photoContent', _.reverse(this.state.photoList))
     }
 
     componentDidUpdate() {

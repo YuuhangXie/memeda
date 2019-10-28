@@ -1,11 +1,14 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom'
+
 import StyledProfile from "./StyledProfile";
 
 import Navbar from "pages/index/profile/components/nav_bar/Navbar";
 import ListItem from "pages/index/profile/components/list_item/ListItem";
 
 import link from "assets/images/profile/main/link.png";
+import { from } from 'rxjs';
 
 function ProfileUI(props) {
 
@@ -88,8 +91,9 @@ function ProfileUI(props) {
           jumpEvent={props.clickJump}
         ></ListItem>
       </ul>
+      <div className="removeBtn" onClick={() => { localStorage.clear();props.history.push('/login') }}>退出登录</div>
     </StyledProfile>
   );
 }
 
-export default ProfileUI;
+export default withRouter(ProfileUI);

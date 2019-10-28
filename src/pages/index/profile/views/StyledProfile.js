@@ -8,7 +8,7 @@ const StyledProfile = styled.div `
     height: .92rem;
     background: #fff;
     position: relative;
-    padding .2rem .15rem;
+    padding: .2rem .15rem;
     display: flex;
     justify-content: space-between;
     img.link{
@@ -65,6 +65,18 @@ const StyledProfile = styled.div `
     margin-top: .1rem;
     padding: 0 .15rem;
     background: #fff;
+  }
+  .removeBtn{
+    width: 3rem;
+    height: .4rem;
+    margin: 0.1rem auto 0;
+    line-height: .4rem;
+    background: #f09199;
+    border-radius: .05rem;
+    font-size: .16rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
   }
 `;
 

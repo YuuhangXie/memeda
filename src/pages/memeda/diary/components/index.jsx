@@ -32,11 +32,11 @@ class Diary extends Component {
       
       if(!storage.get('target_height'))  storage.set('target_height', window.screen.height)
       
-
+      let user_id = storage.get('user_id')
       let result = await ApiService.get('/diarycontent')
       this.setState({
           diaryList: _.reverse(result),
-          userList: await ApiService.get('/userlist'),
+          userList: await ApiService.get('/userlist/' + user_id),
           target_height: storage.get('target_height')
       })
 
@@ -86,7 +86,7 @@ class Diary extends Component {
                                     <div className="word-content">
                                         <div className="user-message">
                                             <div className="avatar">
-                                                <img src={this.state.userList[0].head_img} alt="头像"/>
+                                                <img src={this.state.userList.head_img} alt="头像"/>
                                             </div>
                                             <div className="diary-date">{value.date}</div>
                                         </div>

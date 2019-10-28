@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { DateLineContainer } from './StyledPhoto'
 
 import { PullToRefresh } from 'antd-mobile'
-import _ from 'lodash'
 import storage from 'utils/storage.js'
 
 class photoUI extends Component {
@@ -33,7 +32,7 @@ class photoUI extends Component {
                     }, 1000);
                     }}
                 >
-                    {_.reverse(this.props.photoData.photoList).map((value, index) => {
+                    {this.props.photoData.photoList.map((value, index) => {
                     return(
                         <div className="album-box" key={value.id}>
                             <DateLineContainer>
