@@ -294,5 +294,15 @@ export default connect(mapState, mapDispatch)
 │   └── thunk.js
 └── utils
     ├── api.service.js
-    └── storage.js
+    ├── auth.js
+    ├── clipboard.js
+    ├── error-log.js
+    ├── get-page-title.js
+    ├── index.js
+    ├── open-window.js
+    ├── permission.js
+    ├── request.js
+    ├── scroll-to.js
+    ├── storage.js
+    └── validate.js
 ```
