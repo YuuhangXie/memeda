@@ -5,7 +5,8 @@
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```
 
-### `yarn mock`
+### `yarn mock***`
+模拟开发环境
 ```
 在src/mock目录下创建自己的mock数据文件夹，文件名为模块的名
  // 示例
@@ -15,6 +16,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
   Other routes
   /api/test -> /test
 ```
+
+## 线上环境
+后端使用egg.js + MySQL实现。
+如果需先build，然后调配置，才可正确运行。
+模拟环境下只需要执行mock***即可。
+
 
 ## 代码基本结构
 ```
